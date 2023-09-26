@@ -1,0 +1,23 @@
+package uniandes.edu.co.proyecto.modelo;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="productos_ecomerciales")
+public class ProductosOfrecidos {
+    @EmbeddedId
+    private ProductosOfrecidosPK id;
+    public ProductosOfrecidos(Establecimiento_C idServicio, Producto idProducto) {
+        this.id = new ProductosOfrecidosPK(idServicio, idProducto);
+    }
+    public ProductosOfrecidos()
+    {;}
+    public ProductosOfrecidosPK getId() {
+        return id;
+    }
+    public void setId(ProductosOfrecidosPK id) {
+        this.id = id;
+    }
+    
+}
