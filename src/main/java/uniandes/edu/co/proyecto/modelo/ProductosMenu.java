@@ -9,6 +9,7 @@ public class ProductosMenu {
     @EmbeddedId
     private ProductosMenuPK id;
     public ProductosMenu(Establecimiento idServicio, Producto idProducto) {
+        super();
         this.id = new ProductosMenuPK(idServicio, idProducto);
     }
     public ProductosMenu()

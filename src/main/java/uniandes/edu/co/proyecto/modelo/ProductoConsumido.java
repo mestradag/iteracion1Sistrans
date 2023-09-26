@@ -10,6 +10,7 @@ public class ProductoConsumido {
     @EmbeddedId
     private ProductoConsumidoPK id;
     public ProductoConsumido(CuentaConsumo idCuenta, Producto idProducto) {
+        super();
         this.id = new ProductoConsumidoPK(idCuenta, idProducto);
     }
     public ProductoConsumido()

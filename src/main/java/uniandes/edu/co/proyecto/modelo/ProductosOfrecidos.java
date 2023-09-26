@@ -9,6 +9,7 @@ public class ProductosOfrecidos {
     @EmbeddedId
     private ProductosOfrecidosPK id;
     public ProductosOfrecidos(Establecimiento_C idServicio, Producto idProducto) {
+        super();
         this.id = new ProductosOfrecidosPK(idServicio, idProducto);
     }
     public ProductosOfrecidos()

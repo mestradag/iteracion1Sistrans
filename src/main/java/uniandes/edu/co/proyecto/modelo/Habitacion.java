@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;   
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GenerationType;
 @Entity
 @Table(name="habitaciones")
@@ -17,6 +19,10 @@ public abstract class Habitacion {
     private String tipo;
     private String dotacion;
     private Integer precioNoche;
+
+    @ManyToOne
+    @JoinColumn(name = "id_hotel", referencedColumnName = "nombre")
+    private Hotel id_hotel;
 
     public Habitacion(Integer id, Integer cantidad, Boolean disponible, String tipo, String dotacion, Integer precioNoche) {
         this.id = id;
