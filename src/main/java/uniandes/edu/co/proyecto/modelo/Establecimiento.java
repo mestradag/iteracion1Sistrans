@@ -10,15 +10,13 @@ public class Establecimiento extends Servicio{
     
     private Integer capacidad;
     private String estilo;
-
-    ///TIPOESTABLECIMIENTO
-    private String tipo;
+    private TipoEstablecimiento tipo;
 
     public Establecimiento(){
         ;
     }
 
-    public Establecimiento(Integer capacidad, String estilo,String tipo){
+    public Establecimiento(Integer capacidad, String estilo,TipoEstablecimiento tipo){
         this.capacidad=capacidad;
         this.estilo=estilo;
         this.tipo=tipo;
@@ -40,11 +38,11 @@ public class Establecimiento extends Servicio{
         this.estilo = estilo;
     }
 
-    public String getTipo() {
+    public TipoEstablecimiento getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoEstablecimiento tipo) {
         this.tipo = tipo;
     }
 

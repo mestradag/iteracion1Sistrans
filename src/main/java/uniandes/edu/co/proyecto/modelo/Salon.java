@@ -7,26 +7,26 @@ import jakarta.persistence.Table;
 @Table(name="salones")
 public class Salon extends Servicio{
     
-
-    ///Agregar TIPOS ennum
-    private Double tipo;
+    private TipoSalon tipo;
     
 
     public Salon(){
         ;
     }
 
-    public Salon(Double tipo){
+    public Salon(TipoSalon tipo){
         this.tipo=tipo;
     }
 
-    public Double getTipo() {
+    public TipoSalon getTipo() {
         return tipo;
     }
 
-    public void setTipo(Double tipo) {
+    public void setTipo(TipoSalon tipo) {
         this.tipo = tipo;
     }
+
+    
 
         
 }

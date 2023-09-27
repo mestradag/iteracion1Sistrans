@@ -1,6 +1,8 @@
 package uniandes.edu.co.proyecto.modelo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -9,6 +11,9 @@ public class S_Servicio extends Servicio{
     
     private String nombre;
     
+    @ManyToOne
+    @JoinColumn(name="spa",referencedColumnName = "nombre")
+    private Spa spa;
 
     public S_Servicio(){
         ;

@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,10 +14,23 @@ public abstract class Servicio {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-
     private Integer id;
+
     private Integer costoTotal;
+
     private Integer capacidad;
+    
+    @ManyToOne
+    @JoinColumn(name="cuenta_C",referencedColumnName = "id")
+    private CuentaConsumo cuenta_C;
+
+    @ManyToOne
+    @JoinColumn(name="plan_C",referencedColumnName = "id")
+    private PlanConsumo plan_C;
+
+    @ManyToOne
+    @JoinColumn(name="hotel",referencedColumnName = "id")
+    private Hotel hotel;
 
     public Servicio(){
     ;

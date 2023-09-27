@@ -1,7 +1,6 @@
 package uniandes.edu.co.proyecto.modelo;
 
-public enum Tipo_Equipo {
+public enum TipoEquipo {
     Computacional, Proyeccion, AmplificacionSonido
-    
 }
     
