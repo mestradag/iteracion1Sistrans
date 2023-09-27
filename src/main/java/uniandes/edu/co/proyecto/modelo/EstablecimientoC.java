@@ -5,17 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="establecimeintos_c")
-public class Establecimiento_C extends Servicio{
+@Table(name="establecimientos_c")
+public class EstablecimientoC extends Servicio{
     
     private String nombre;
     private String tipo;
 
-    public Establecimiento_C(){
+    public EstablecimientoC(){
         ;
     }
 
-    public Establecimiento_C(String nombre,String tipo){
+    public EstablecimientoC(String nombre,String tipo){
         this.nombre=nombre;
         this.tipo=tipo;
     }

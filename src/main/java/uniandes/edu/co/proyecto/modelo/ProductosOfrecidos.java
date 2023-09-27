@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 public class ProductosOfrecidos {
     @EmbeddedId
     private ProductosOfrecidosPK id;
-    public ProductosOfrecidos(Establecimiento_C idServicio, Producto idProducto) {
+    public ProductosOfrecidos(EstablecimientoC idServicio, Producto idProducto) {
         super();
         this.id = new ProductosOfrecidosPK(idServicio, idProducto);
     }

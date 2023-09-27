@@ -17,31 +17,32 @@ public abstract class Servicio {
     private Integer id;
 
     private Integer costoTotal;
-
     private Integer capacidad;
     
     @ManyToOne
-    @JoinColumn(name="cuenta_C",referencedColumnName = "id")
-    private CuentaConsumo cuenta_C;
+    @JoinColumn(name="cuentas_C",referencedColumnName = "id")
+    private CuentaConsumo cuentaC;
 
     @ManyToOne
-    @JoinColumn(name="plan_C",referencedColumnName = "id")
-    private PlanConsumo plan_C;
+    @JoinColumn(name="planes_c",referencedColumnName = "id")
+    private PlanConsumo planC;
 
     @ManyToOne
-    @JoinColumn(name="hotel",referencedColumnName = "id")
+    @JoinColumn(name="hoteles",referencedColumnName = "id")
     private Hotel hotel;
 
     public Servicio(){
     ;
     }
     
-    public Servicio(Integer costoTotal, Integer capacidad){
+    public Servicio(Integer costoTotal, Integer capacidad, CuentaConsumo cuentaC ,PlanConsumo planC,Hotel hotel ){
         this.costoTotal=costoTotal;
         this.capacidad=capacidad;
-    }
+        this.cuentaC=cuentaC;
+        this.planC=planC;
+        this.hotel=hotel;
 
-    
+    }
 
     public Integer getId() {
         return id;
@@ -66,6 +67,31 @@ public abstract class Servicio {
     public void setCapacidad(Integer capacidad) {
         this.capacidad = capacidad;
     }
+
+    public CuentaConsumo getCuentaC() {
+        return cuentaC;
+    }
+
+    public void setCuentaC(CuentaConsumo cuentaC) {
+        this.cuentaC = cuentaC;
+    }
+
+    public PlanConsumo getPlanC() {
+        return planC;
+    }
+
+    public void setPlanC(PlanConsumo planC) {
+        this.planC = planC;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
     
-    
+
 }

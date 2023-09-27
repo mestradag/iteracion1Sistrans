@@ -29,6 +29,12 @@ public class Equipo extends Servicio{
         ;
     }
 
+    public Equipo(TipoEquipo tipo, Integer costo, Salon salon){
+        this.tipo=tipo;
+        this.costo=costo;
+        this.salon=salon;
+    }
+
 
     public Integer getId() {
         return id;
