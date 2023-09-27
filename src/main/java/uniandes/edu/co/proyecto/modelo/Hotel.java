@@ -11,12 +11,15 @@ public abstract class Hotel {
     private String nombre;
     private String ciudad;
     
+    // Constructor
     public Hotel(String nombre, String ciudad) {
         this.nombre = nombre;
         this.ciudad = ciudad;
     }
-    public Hotel()
-    {;}
+
+    public Hotel(){;}
+
+    //Getters and Setters
     public String getNombre() {
         return nombre;
     }
