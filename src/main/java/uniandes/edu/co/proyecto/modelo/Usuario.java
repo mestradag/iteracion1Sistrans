@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,13 +19,17 @@ public class Usuario {
     private String correo;
     private TipoUsuario rol;
 
+    @ManyToOne
+    @JoinColumn(name = "id_hotel", referencedColumnName = "nombre")
+    private Hotel id_hotel;
 
     // Constructor
-    public Usuario(Integer id, String nombre, String correo, TipoUsuario rol){
+    public Usuario(Integer id, String nombre, String correo, TipoUsuario rol, Hotel id_hotel){
         this.id=id;
         this.nombre=nombre;
         this.correo=correo;
         this.rol=rol;
+        this.id_hotel=id_hotel; 
     }
 
     public Usuario(){;}
@@ -59,6 +65,14 @@ public class Usuario {
 
     public void setRol(TipoUsuario rol) {
         this.rol = rol;
+    }
+
+    public Hotel getId_hotel() {
+        return id_hotel;
+    }
+
+    public void setId_hotel(Hotel id_hotel) {
+        this.id_hotel = id_hotel;
     }
 
 
