@@ -8,24 +8,25 @@ import jakarta.persistence.Table;
 @Table(name="establecimeintos_c")
 public class Establecimiento_C extends Servicio{
     
-    private Integer capacidad;
+    private String nombre;
     private String tipo;
 
     public Establecimiento_C(){
         ;
     }
 
-    public Establecimiento_C(Integer capacidad,String tipo){
-        this.capacidad=capacidad;
+    public Establecimiento_C(String nombre,String tipo){
+        this.nombre=nombre;
         this.tipo=tipo;
     }
 
-    public Integer getCapacidad() {
-        return capacidad;
+        
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCapacidad(Integer capacidad) {
-        this.capacidad = capacidad;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getTipo() {
@@ -35,6 +36,4 @@ public class Establecimiento_C extends Servicio{
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-    
 }

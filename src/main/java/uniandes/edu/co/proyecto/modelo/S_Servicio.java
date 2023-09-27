@@ -10,6 +10,8 @@ import jakarta.persistence.Table;
 public class S_Servicio extends Servicio{
     
     private String nombre;
+    private Integer duracion;
+    private Integer costo;
     
     @ManyToOne
     @JoinColumn(name="spa",referencedColumnName = "nombre")
@@ -19,8 +21,11 @@ public class S_Servicio extends Servicio{
         ;
     }
 
-    public S_Servicio(String nombre){
-        this.nombre=nombre;
+    public S_Servicio(String nombre, Integer duracion, Integer costo){
+        this.nombre= nombre;
+        this.duracion=duracion;
+        this.costo=costo;
+        
     }
 
     public String getNombre() {
@@ -30,6 +35,32 @@ public class S_Servicio extends Servicio{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public Integer getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(Integer duracion) {
+        this.duracion = duracion;
+    }
+
+    public Integer getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Integer costo) {
+        this.costo = costo;
+    }
+
+    public Spa getSpa() {
+        return spa;
+    }
+
+    public void setSpa(Spa spa) {
+        this.spa = spa;
+    }
+
+    
 
      
 }
