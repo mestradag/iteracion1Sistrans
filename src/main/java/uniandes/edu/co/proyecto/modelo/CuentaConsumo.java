@@ -1,16 +1,18 @@
 package uniandes.edu.co.proyecto.modelo;
-import java.security.Timestamp;
+
 import java.sql.Time;
+import java.sql.Timestamp;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;   
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.GenerationType;
 
 @Entity
-@Table(name="cuentas_c")
+@Table(name="CUENTAS_C")
 public class CuentaConsumo {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

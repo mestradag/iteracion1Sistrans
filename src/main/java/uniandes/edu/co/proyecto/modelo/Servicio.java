@@ -28,7 +28,7 @@ public abstract class Servicio {
     private PlanConsumo planC;
 
     @ManyToOne
-    @JoinColumn(name="hoteles",referencedColumnName = "id")
+    @JoinColumn(name="id_hotel",referencedColumnName = "nombre")
     private Hotel hotel;
 
     public Servicio(){
