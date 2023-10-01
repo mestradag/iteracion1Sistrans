@@ -7,11 +7,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 import jakarta.persistence.InheritanceType;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+
+@MappedSuperclass
 @Table(name="servicios")
 public abstract class Servicio {
 
