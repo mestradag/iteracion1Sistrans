@@ -4,27 +4,30 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="servicios")
 public abstract class Servicio {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer idServicio;
 
     private Integer costoTotal;
     private Integer capacidad;
     
     @ManyToOne
-    @JoinColumn(name="cuentas_C",referencedColumnName = "id")
+    @JoinColumn(name="cuentas_C",referencedColumnName = "idCuenta")
     private CuentaConsumo cuentaC;
 
     @ManyToOne
-    @JoinColumn(name="planes_c",referencedColumnName = "id")
+    @JoinColumn(name="planes_c",referencedColumnName = "idPlanConsumo")
     private PlanConsumo planC;
 
     @ManyToOne
@@ -36,6 +39,7 @@ public abstract class Servicio {
     }
     
     public Servicio(Integer costoTotal, Integer capacidad, CuentaConsumo cuentaC ,PlanConsumo planC,Hotel hotel ){
+        
         this.costoTotal=costoTotal;
         this.capacidad=capacidad;
         this.cuentaC=cuentaC;
@@ -45,11 +49,11 @@ public abstract class Servicio {
     }
 
     public Integer getId() {
-        return id;
+        return idServicio;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idServicio = id;
     }
 
     public Integer getCostoTotal() {
