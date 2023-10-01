@@ -34,6 +34,7 @@ public class HotelesController {
     @GetMapping("/hoteles/new")
     public String hotelForm(Model model){
         model.addAttribute("hotel", new Hotel());
+        // return model.toString()
         return "hotelNuevo";
     }
 
