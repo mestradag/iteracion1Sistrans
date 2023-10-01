@@ -23,11 +23,11 @@ public class CuentaConsumo {
     private Timestamp checkout;
 
     @OneToOne
-    @JoinColumn(name = "reserva_id", referencedColumnName = "idReserva")
+    @JoinColumn(name = "idReserva", referencedColumnName = "idReserva")
     private Reserva idReserva;
     
     @OneToOne
-    @JoinColumn(name = "habitacion_id", referencedColumnName = "idHabitacion")
+    @JoinColumn(name = "idHabitacion", referencedColumnName = "idHabitacion")
     private Habitacion idHabitacion;
 
     public CuentaConsumo(

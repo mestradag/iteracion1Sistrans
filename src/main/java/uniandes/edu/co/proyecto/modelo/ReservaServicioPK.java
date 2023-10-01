@@ -10,11 +10,11 @@ import jakarta.persistence.ManyToOne;
 @Embeddable
 public class ReservaServicioPK implements Serializable{
     @ManyToOne
-    @JoinColumn(name="idHabitacion", referencedColumnName="id")
+    @JoinColumn(name="idHabitacion", referencedColumnName="idHabitacion")
     private Habitacion idHabitacion;
 
     @ManyToOne
-    @JoinColumn(name="idServicio", referencedColumnName="id")
+    @JoinColumn(name="idServicio", referencedColumnName="idServicio")
     private Servicio idServicio;
 
     private Timestamp fechaReserva;
