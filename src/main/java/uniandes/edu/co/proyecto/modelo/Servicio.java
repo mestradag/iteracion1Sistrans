@@ -10,11 +10,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="servicios")
-public abstract class Servicio {
+public class Servicio {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer idServicio;
 
     private Integer costoTotal;
     private Integer capacidad;
@@ -45,11 +45,11 @@ public abstract class Servicio {
     }
 
     public Integer getId() {
-        return id;
+        return idServicio;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idServicio) {
+        this.idServicio = idServicio;
     }
 
     public Integer getCostoTotal() {
