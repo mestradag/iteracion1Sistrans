@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+</head>
+<body>
+    <div class="text-center">
+        <h1>Lista de Reservas</h1>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>idReserva</th>
+                    <th>fechaInicio</th>
+                    <th>fechaFin</th>
+                    <th>duracion</th>
+                    <th>numAcompanantes</th>
+                    <th>idUsuario</th>
+                    <th>idHabitacion</th>
+                    <th>idPlanConsumo</th>
+                </tr>
+            </thead>
+            <th:block th:each="reserva:${reservas}">
+                <tr>
+                    <td th:text="${reserva.idReserva}"></td>
+                    <td th:text="${reserva.fechaInicio}"></td>
+                    <td th:text="${reserva.fechaFin}"></td>
+                    <td th:text="${reserva.duracion}"></td>
+                    <td th:text="${reserva.numAcompanantes}"></td>
+                    <td th:text="${reserva.idUsuario}"></td>
+                    <td th:text="${reserva.idHabitacion}"></td>
+                    <td th:text="${reserva.idPlanConsumo}"></td>
+                    <td>
+                        <a th:href="@{reservas/{idReserva}/edit(idReserva=${reserva.idReserva})}">Editar</a>
+                        <a th:href="@{reservas/{idReserva}/delete(idReserva=${reserva.idReserva})}"
+                            onclick="return confirm('Confirmación de borrar esta reserva')">Borrar</a>
+                    </td>
+                </tr>
+            </th:block>
+
+        </table>
+    </table>
+    <div>
+        <a th:href='@{reservas/new}' class="btn btn-primary">Añadir Reserva</a>
+        <a th:href='@{/}' class="btn btn-primary">Atrás</a>
+    </div>
+    <br />
+    </div>
+</body>
+</html>
