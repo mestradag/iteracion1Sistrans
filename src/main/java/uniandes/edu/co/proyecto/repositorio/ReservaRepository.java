@@ -16,23 +16,23 @@ public interface ReservaRepository extends JpaRepository <Reserva, Integer> {
     @Query(value = "SELECT * FROM reservas", nativeQuery=true)
     Collection<Reserva> darReserva();
 
-    @Query(value= "SELECT * FROM reservas WHERE id= :id", nativeQuery=true)
-    Reserva darReserva(@Param("id") long id);
+    @Query(value= "SELECT * FROM reservas WHERE idReserva= :idReserva", nativeQuery=true)
+    Reserva darReserva(@Param("idReserva") Integer idReserva);
 
     @Modifying
     @Transactional
-    @Query(value= "INSERT INTO reservas(idReserva, fechaInicio, fechaFin, duracion, numAcompanantes) VALUES (parranderos_sequence.nextval, :idReserva, :fechaInicio, :fechaFin, :duracion, :numAcompanantes)", nativeQuery=true)
-    void insertarReserva(@Param("idReserva") int idReserva, @Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin, @Param("duracion") Integer duracion, @Param("numAcompanantes") Integer numAcompanantes);
+    @Query(value= "INSERT INTO reservas(idReserva, fechaInicio, fechaFin, duracion, numAcompanantes, idHabitacion, idUsuario, idPlanConsumo) VALUES (parranderos_sequence.nextval, :fechaInicio, :fechaFin, :duracion, :numAcompanantes, :idHabitacion, :idUsuario, idPlanConsumo)", nativeQuery=true)
+    void insertarReserva(@Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin, @Param("duracion") Integer duracion, @Param("numAcompanantes") Integer numAcompanantes, @Param("idPlanConsumo") Integer idPlanConsumo);
 
-    //idReserva
-    @Modifying
-    @Transactional
-    @Query(value ="UPDATE reservas SET id= :id, idReserva= :idReserva, fechaInicio= :fechaInicio, fechaFin= :fechaFin, duracion= :duracion, numAcompanantes= :numAcompanantes WHERE id = :id", nativeQuery = true)
-    void updateReserva(@Param("id") int id, @Param("idReserva") int idReserva, @Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin, @Param("duracion") Integer duracion, @Param("numAcompanantes") Integer numAcompanantes);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM reservas  WHERE id= :id", nativeQuery = true)
-    void eliminarReserva(@Param("id") int id);
+    @Query(value ="UPDATE reservas SET fechaInicio= :fechaInicio, fechaFin= :fechaFin, duracion= :duracion, numAcompanantes= :numAcompanantes, idHabitacion= :idHabitacion, idUsuario= :idUsuario idPlanConsumo= :idPlanConsumo WHERE idReserva = :idReserva", nativeQuery = true)
+    void actualizarReserva(@Param("idReserva") Integer idReserva, @Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin, @Param("duracion") Integer duracion, @Param("numAcompanantes") Integer numAcompanantes, @Param("idHabitacion") Integer idHabitacion, @Param("idUsuario") Integer idUsuario, @Param("idPlanConsumo") Integer idPlanConsumo);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM reservas  WHERE idRerserva= :idReserva", nativeQuery = true)
+    void eliminarReserva(@Param("idReserva") Integer idReserva);
     
 }

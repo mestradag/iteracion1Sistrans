@@ -20,16 +20,16 @@ public class Usuario {
     private TipoUsuario rol;
 
     @ManyToOne
-    @JoinColumn(name = "id_hotel", referencedColumnName = "nombre")
-    private Hotel id_hotel;
+    @JoinColumn(name = "nombreHotel", referencedColumnName = "nombre")
+    private Hotel nombreHotel;
 
     // Constructor
-    public Usuario(Integer id, String nombre, String correo, TipoUsuario rol, Hotel id_hotel){
+    public Usuario(Integer id, String nombre, String correo, TipoUsuario rol, Hotel nombreHotel){
         this.id=id;
         this.nombre=nombre;
         this.correo=correo;
         this.rol=rol;
-        this.id_hotel=id_hotel; 
+        this.nombreHotel=nombreHotel; 
     }
 
     public Usuario(){;}
@@ -67,12 +67,12 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public Hotel getId_hotel() {
-        return id_hotel;
+    public Hotel getNombreHotel() {
+        return nombreHotel;
     }
 
-    public void setId_hotel(Hotel id_hotel) {
-        this.id_hotel = id_hotel;
+    public void setNombreHotel(Hotel nombreHotel) {
+        this.nombreHotel = nombreHotel;
     }
 
 

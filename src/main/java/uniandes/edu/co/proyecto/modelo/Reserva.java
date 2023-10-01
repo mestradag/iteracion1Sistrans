@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,50 +16,46 @@ public class Reserva {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer idReserva;
     private Date fechaInicio;
     private Date fechaFin;
     private Integer duracion;
     private Integer numAcompanantes;
 
     @ManyToOne
-    @JoinColumn(name = "id_habitacion", referencedColumnName = "id")
-    private Habitacion id_habitacion;
+    @JoinColumn(name = "idHabitacion", referencedColumnName = "idHabitacion")
+    private Habitacion idHabitacion;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
-    private Usuario id_usuario;
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
+    private Usuario idUsuario;
 
     @ManyToOne
-    @JoinColumn(name = "id_planC", referencedColumnName = "id")
-    private PlanConsumo id_planC;
-
-    @OneToOne
-    private CuentaConsumo id_cuentaC;
+    @JoinColumn(name = "idPlanConsumo", referencedColumnName = "idPlanConsumo")
+    private PlanConsumo idPlanConsumo;
 
     //Constructor
-    public Reserva(Integer id, Date fechaInicio,  Date fechaFin, Integer duracion, Integer numAcompanantes, Habitacion id_habiHabitacion, Usuario id_usuario, PlanConsumo id_planC, CuentaConsumo id_cuentaC){
-        this.id=id;
+    public Reserva(Integer idReserva, Date fechaInicio,  Date fechaFin, Integer duracion, Integer numAcompanantes, Habitacion idHabitacion, Usuario idUsuario, PlanConsumo idPlanConsumo){
+        this.idReserva=idReserva;
         this.fechaInicio=fechaInicio;
         this.fechaFin=fechaFin;
         this.duracion=duracion;
         this.numAcompanantes=numAcompanantes;
-        this.id_habitacion=id_habiHabitacion;
-        this.id_usuario=id_usuario;
-        this.id_planC=id_planC;
-        this.id_cuentaC=id_cuentaC;
+        this.idHabitacion=idHabitacion;
+        this.idUsuario=idUsuario;
+        this.idPlanConsumo=idPlanConsumo;
 
     }
 
     public Reserva(){;}
 
     //Getters and Setters
-    public Integer getId() {
-        return id;
+    public Integer getIdReserva() {
+        return idReserva;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdReserva(Integer idReserva) {
+        this.idReserva = idReserva;
     }
 
     public Date getFechaInicio() {
@@ -95,37 +90,29 @@ public class Reserva {
         this.numAcompanantes = numAcompanantes;
     }
 
-    public Habitacion getId_habitacion() {
-        return id_habitacion;
+    public Habitacion getIdHabitacion() {
+        return idHabitacion;
     }
 
-    public void setId_habitacion(Habitacion id_habitacion) {
-        this.id_habitacion = id_habitacion;
+    public void setId_habitacion(Habitacion idHabitacion) {
+        this.idHabitacion = idHabitacion;
     }
 
-    public Usuario getId_usuario() {
-        return id_usuario;
+    public Usuario getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId_usuario(Usuario id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setId_usuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public PlanConsumo getId_planC() {
-        return id_planC;
+    public PlanConsumo getIdPlanConsumo() {
+        return idPlanConsumo;
     }
 
-    public void setId_planC(PlanConsumo id_planC) {
-        this.id_planC = id_planC;
+    public void setIdPlanConsumo(PlanConsumo idPlanConsumo) {
+        this.idPlanConsumo = idPlanConsumo;
     }
 
-    public CuentaConsumo getId_cuentaC() {
-        return id_cuentaC;
-    }
 
-    public void setId_cuentaC(CuentaConsumo id_cuentaC) {
-        this.id_cuentaC = id_cuentaC;
-    }
-
-    
 }
