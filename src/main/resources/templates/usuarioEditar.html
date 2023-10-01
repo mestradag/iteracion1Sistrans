@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Editar Usuario</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
@@ -7,10 +7,11 @@
 </head>
 <body>
 </br>
-<form th:action="@{'/usuarios/' + ${idUusario} + '/edit/save'}" th:object="${usuario}" method="post">
+<form th:action="@{'/usuarios/' + ${idUsuario} + '/edit/save'}" th:object="${usuario}" method="post">
     <div th:replace="~{fragments/usuarioForm :: usuarioForm(titulo='Editar usuario usuario=${usuario})}">
     </div>
 </form>
 
 </body>
+
 </html>

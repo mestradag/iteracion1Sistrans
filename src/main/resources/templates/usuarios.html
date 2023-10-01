@@ -15,7 +15,7 @@
                     <th>Nombre</th>
                     <th>Correo</th>
                     <th>Rol</th>
-                    <th>idHotel</th>
+                    <th>nombreHotel</th>
                 </tr>
             </thead>
             <th:block th:each="usuario:${usuarios}">
@@ -24,7 +24,7 @@
                     <td th:text="${usuario.nombre}"></td>
                     <td th:text="${usuario.correo}"></td>
                     <td th:text="${usuario.rol}"></td>
-                    <td th:text="${usuario.idHotel}"></td>
+                    <td th:text="${usuario.nombreHotel}"></td>
                     <td>
                         <a th:href="@{usuarios/{idUsuario}/edit(idUsario=${usuario.idUsuario})}">Editar</a>
                         <a th:href="@{usuarios/{idUsuario}/delete(idUsuario=${usuario.idUsario})}"
@@ -42,4 +42,5 @@
     <br />
     </div>
 </body>
+
 </html>
