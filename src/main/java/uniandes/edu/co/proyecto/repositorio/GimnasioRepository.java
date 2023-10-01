@@ -1,6 +1,6 @@
 package uniandes.edu.co.proyecto.repositorio;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;

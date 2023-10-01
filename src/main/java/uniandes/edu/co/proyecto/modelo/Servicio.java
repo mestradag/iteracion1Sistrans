@@ -13,7 +13,7 @@ import jakarta.persistence.InheritanceType;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="servicios")
-public abstract class Servicio {
+public class Servicio {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -52,8 +52,8 @@ public abstract class Servicio {
         return idServicio;
     }
 
-    public void setId(Integer id) {
-        this.idServicio = id;
+    public void setId(Integer idServicio) {
+        this.idServicio = idServicio;
     }
 
     public Integer getCostoTotal() {

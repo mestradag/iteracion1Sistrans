@@ -14,7 +14,8 @@ public class Equipo extends Servicio{
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer idEquipo; 
+
 
     private TipoEquipo tipo;
 
@@ -37,12 +38,12 @@ public class Equipo extends Servicio{
 
 
     public Integer getId() {
-        return id;
+        return idEquipo;
     }
 
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idEquipo) {
+        this.idEquipo = idEquipo;
     }
 
 
