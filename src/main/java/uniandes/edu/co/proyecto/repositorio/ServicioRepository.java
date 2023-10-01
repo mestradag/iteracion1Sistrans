@@ -17,21 +17,21 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
     @Query(value="SELECT * FROM servicios", nativeQuery=true) 
     Collection<Servicio> darServicios();
 
-    @Query(value="SELECT * FROM servicios WHERE id = :id", nativeQuery = true)
-    Servicio darServicio(@Param("id") int id);
+    @Query(value="SELECT * FROM servicios WHERE idServicio = :idServicio", nativeQuery = true)
+    Servicio darServicio(@Param("idServicio") Integer idServicio);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO servicios (id, costoTotal,capacidad,cuentaC,planC, hotel) VALUES(parranderos_sequence.nextval, :costoTotal, :capacidad, :cuentaC, :planC, :hotel", nativeQuery = true) 
-    void insertarServicio(@Param("costoTotal") String costoTotal, @Param("capacidad") Integer capacidad, @Param("cuentaC") CuentaConsumo cuentaC, @Param("planC") PlanConsumo planC, @Param("hotel") Hotel hotel);
+    @Query(value="INSERT INTO servicios(idServicio,cuentaC,planC, hotel) VALUES(parranderos_sequence.nextval, :cuentaC, :planC, :hotel", nativeQuery = true) 
+    void insertarServicio(@Param("cuentaC") CuentaConsumo cuentaC, @Param("planC") PlanConsumo planC, @Param("hotel") Hotel hotel);
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE servicios SET costoTotal=:costoTotal,capacidad= :capacidad, cuentaC=:cuentaC,planC= :planC, hotel=:hotel WHERE id=:id", nativeQuery = true)
-    void actualizarServicio(@Param("id") Integer id,@Param("costoTotal") String costoTotal, @Param("capacidad") Integer capacidad, @Param("cuentaC") CuentaConsumo cuentaC, @Param("planC") PlanConsumo planC, @Param("hotel") Hotel hotel);
+    @Query (value ="UPDATE servicios SET cuentaC=:cuentaC,planC=:planC, hotel=:hotel WHERE idServicio=:idServicio", nativeQuery = true)
+    void actualizarServicio(@Param("idServicio") Integer idServicio, @Param("cuentaC") CuentaConsumo cuentaC, @Param("planC") PlanConsumo planC, @Param("hotel") Hotel hotel);
 
     @Modifying
     @Transactional
-    @Query (value ="DELETE FROM servicios WHERE id=:id", nativeQuery=true)
-    void eliminarServicio(@Param("id") int id);
+    @Query (value ="DELETE FROM servicios WHERE idServicio=:idServicio", nativeQuery=true)
+    void eliminarServicio(@Param("idServicio") Integer idServicio);
 }

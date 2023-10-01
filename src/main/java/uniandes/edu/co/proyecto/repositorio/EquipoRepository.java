@@ -15,21 +15,21 @@ public interface EquipoRepository extends JpaRepository<Equipo, Integer> {
     @Query(value="SELECT * FROM equipos", nativeQuery=true) 
     Collection<Equipo> darEquipos();
 
-    @Query(value="SELECT * FROM equipos WHERE id = :id", nativeQuery = true)
-    Equipo darEquipo(@Param("id") int id);
+    @Query(value="SELECT * FROM equipos WHERE idEquipo = :idEquipo", nativeQuery = true)
+    Equipo darEquipo(@Param("idEquipo") Integer id);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO equipos (id, tipo, costo) VALUES(parranderos_sequence.nextval, :tipo, :costo", nativeQuery=true) 
+    @Query(value="INSERT INTO equipos (idEquipo, tipo, costo) VALUES(parranderos_sequence.nextval, :tipo, :costo", nativeQuery=true) 
     void insertarEquipo(@Param("tipo") TipoEquipo tipo,@Param("costo") Integer costo);
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE equipos SET tipo=:tipo,costo= :costo", nativeQuery = true)
-    void actualizarEquipo(@Param("id") Integer id,@Param("tipo") TipoEquipo tipo,@Param("costo") Integer costo);
+    @Query (value ="UPDATE equipos SET tipo=:tipo,costo= :costo WHERE idEquipo:=idEquipo", nativeQuery = true)
+    void actualizarEquipo(@Param("idEquipo") Integer id,@Param("tipo") TipoEquipo tipo,@Param("costo") Integer costo);
 
     @Modifying
     @Transactional
-    @Query (value ="DELETE FROM equipos WHERE id=:id", nativeQuery=true)
-    void eliminarEquipo(@Param("id") int id);
+    @Query (value ="DELETE FROM equipos WHERE idEquipo=:idEquipo", nativeQuery=true)
+    void eliminarEquipo(@Param("idEquipo") Integer id);
 }
