@@ -30,9 +30,10 @@ public class ProyectoApplication implements CommandLineRunner{
 	Collection<Hotel> hotel = hotelRepository.darHoteles();
 	for (Hotel h : hotel) {
 		System.out.println(h);
-		
+
 	}
 }
+/*resistir hasta el final */
 
 /*
  * 
