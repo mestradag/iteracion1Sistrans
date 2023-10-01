@@ -18,11 +18,12 @@ public interface HotelRepository extends JpaRepository <Hotel, Integer> {
     @Query(value= "SELECT * FROM hoteles WHERE nombre= :nombre", nativeQuery=true)
     Hotel darHotel(@Param("nombre") String nombre);
 
-    
+
+    //@Param("nombre") String nombre
     @Modifying
     @Transactional
     @Query(value= "INSERT INTO hoteles(nombre, ciudad) VALUES (:nombre, :ciudad)", nativeQuery=true)
-    void insertarHotel(@Param("nombre") String nombre, @Param("ciudad") String ciudad);
+    void insertarHotel(@Param("ciudad") String ciudad);
 
     @Modifying
     @Transactional
