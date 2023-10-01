@@ -4,9 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
+import uniandes.edu.co.proyecto.modelo.Hotel;
 import uniandes.edu.co.proyecto.modelo.Internet;
 import uniandes.edu.co.proyecto.modelo.Servicio;
 import uniandes.edu.co.proyecto.repositorio.CuentaConsumoRepository;
+import uniandes.edu.co.proyecto.repositorio.HotelRepository;
 import uniandes.edu.co.proyecto.repositorio.InternetRepository;
 import uniandes.edu.co.proyecto.repositorio.ServicioRepository;
 
@@ -19,6 +21,21 @@ import org.springframework.boot.CommandLineRunner;
 public class ProyectoApplication implements CommandLineRunner{
 
 	@Autowired
+	private HotelRepository hotelRepository;
+	public static void main(String[] args) {
+	SpringApplication.run(ProyectoApplication.class, args);
+	}
+	@Override
+	public void run(String... args) throws Exception {
+	Collection<Hotel> hotel = hotelRepository.darHoteles();
+	for (Hotel h : hotel) {
+		System.out.println(h);
+	}
+}
+
+/*
+ * 
+	@Autowired
 	private InternetRepository internetRepository;
 	public static void main(String[] args) {
 	SpringApplication.run(ProyectoApplication.class, args);
@@ -29,7 +46,8 @@ public class ProyectoApplication implements CommandLineRunner{
 	for (Internet i : internet) {
 		System.out.println(i);
 	}
-}
+ * 
+ */
 
 	// @Autowired
 	// private ServicioRepository servicioRepository;

@@ -14,7 +14,7 @@ public class PlanConsumo {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer idPlanConsumo;
     private String nombre;
     private Double descuentoAlojamiento;
     private Double descuentoBar;
@@ -27,8 +27,8 @@ public class PlanConsumo {
     private Boolean valido;
 
     // Constructor
-    public PlanConsumo(Integer id, String nombre, Double descuentoAlojamiento, Double descuentoBar, Double descuentoRestaurante, Double descuentoServicios, Integer costoFijo, Date fechaInicial, Integer duracion, Double valorFinal, Boolean valido){
-        this.id=id;
+    public PlanConsumo(Integer idPlanConsumo, String nombre, Double descuentoAlojamiento, Double descuentoBar, Double descuentoRestaurante, Double descuentoServicios, Integer costoFijo, Date fechaInicial, Integer duracion, Double valorFinal, Boolean valido){
+        this.idPlanConsumo=idPlanConsumo;
         this.nombre=nombre;
         this.descuentoAlojamiento=descuentoAlojamiento;
         this.descuentoBar=descuentoBar;
@@ -44,12 +44,12 @@ public class PlanConsumo {
     public PlanConsumo(){;}
 
     //Getters and Setters
-    public Integer getId() {
-        return id;
+    public Integer getIdPlanConsumo() {
+        return idPlanConsumo;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdPlanConsumo(Integer id) {
+        this.idPlanConsumo = idPlanConsumo;
     }
 
     public String getNombre() {

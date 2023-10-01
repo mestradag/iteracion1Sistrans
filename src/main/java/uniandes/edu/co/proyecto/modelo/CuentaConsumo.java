@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;   
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.GenerationType;
 
@@ -16,23 +17,40 @@ import jakarta.persistence.GenerationType;
 public class CuentaConsumo {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer idCuenta;
     private Boolean estado;
     private Timestamp checkin;
     private Timestamp checkout;
 
-    public CuentaConsumo(Integer id, Boolean estado, Timestamp checkin, Timestamp checkout) {
-        this.id = id;
+    @OneToOne
+    @JoinColumn(name = "reserva_id", referencedColumnName = "idReserva")
+    private Reserva idReserva;
+    
+    @OneToOne
+    @JoinColumn(name = "habitacion_id", referencedColumnName = "idHabitacion")
+    private Habitacion idHabitacion;
+
+    public CuentaConsumo(
+        Integer idCuenta,
+        Boolean estado, 
+        Timestamp checkin, 
+        Timestamp checkout,
+        Reserva idReserva,
+        Habitacion idHabitacion
+        ) {
+        this.idCuenta = idCuenta;
         this.estado = estado;
         this.checkin = checkin;
         this.checkout = checkout;
+        this.idReserva = idReserva;
+        this.idHabitacion = idHabitacion;
     }
 
     public CuentaConsumo()
     {;}
     
-    public Integer getId() {
-        return id;
+    public Integer getIdCuenta() {
+        return idCuenta;
     }
     public Boolean getEstado() {
         return estado;
@@ -44,7 +62,7 @@ public class CuentaConsumo {
         return checkout;
     }
     public void setId(Integer id) {
-        this.id = id;
+        this.idCuenta = id;
     }
     public void setEstado(Boolean estado) {
         this.estado = estado;
@@ -55,7 +73,19 @@ public class CuentaConsumo {
     public void setCheckout(Timestamp checkout) {
         this.checkout = checkout;
     }
-    
+    public Reserva getIdReserva() {
+        return idReserva;
+    }
 
+    public void setIdReserva(Reserva idReserva) {
+        this.idReserva = idReserva;
+    }
 
+    public Habitacion getIdHabitacion() {
+        return idHabitacion;
+    }
+
+    public void setIdHabitacion(Habitacion idHabitacion) {
+        this.idHabitacion = idHabitacion;
+    }
 }
