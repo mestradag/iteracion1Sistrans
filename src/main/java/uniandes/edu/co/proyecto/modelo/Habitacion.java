@@ -14,46 +14,54 @@ public abstract class Habitacion {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-    private Integer cantidad;
+    private Integer idHabitacion;
+    private Integer capacidad;
     private Boolean disponible;
     private String tipo;
     private String dotacion;
     private Integer precioNoche;
 
     @ManyToOne
-    @JoinColumn(name = "id_hotel", referencedColumnName = "nombre")
-    private Hotel id_hotel;
+    @JoinColumn(name = "idhotel", referencedColumnName = "nombre")
+    private Hotel idhotel;
 
-    @OneToOne
-    private CuentaConsumo id_cuentaconsumo;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
+    private Usuario idUsuario;
+
+    @ManyToOne
+    @JoinColumn(name = "idPlanconsumo", referencedColumnName = "idPlanConsumo")
+    private PlanConsumo idPlanConsumo;
 
     public Habitacion(
-        Integer id, 
-        Integer cantidad, 
+        Integer idHabitacion, 
+        Integer capacidad, 
         Boolean disponible, 
         String tipo, 
         String dotacion, 
         Integer precioNoche,
-        Hotel id_hotel,
-        CuentaConsumo id_cuentaconsumo
+        Hotel idhotel,
+        Usuario idUsuario,
+        PlanConsumo idPlanConsumo
         ) {
-        this.id = id;
-        this.cantidad = cantidad;
+        this.idHabitacion = idHabitacion;
+        this.capacidad = capacidad;
         this.disponible = disponible;
         this.tipo = tipo;
         this.dotacion = dotacion;
         this.precioNoche = precioNoche;
-        this.id_hotel = id_hotel;
-        this.id_cuentaconsumo = id_cuentaconsumo;
+        this.idhotel = idhotel;
+        this.idUsuario = idUsuario;
+        this.idPlanConsumo = idPlanConsumo;
     }
+
     public Habitacion()
     {;}
-    public Integer getId() {
-        return id;
+    public Integer getIdHabitacion() {
+        return idHabitacion;
     }
-    public Integer getCantidad() {
-        return cantidad;
+    public Integer getCapacidad() {
+        return capacidad;
     }
     public Boolean getDisponible() {
         return disponible;
@@ -67,11 +75,11 @@ public abstract class Habitacion {
     public Integer getPrecioNoche() {
         return precioNoche;
     }
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdHabitacion(Integer id) {
+        this.idHabitacion = id;
     }
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
+    public void setCapacidad(Integer cantidad) {
+        this.capacidad = cantidad;
     }
     public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
@@ -85,18 +93,29 @@ public abstract class Habitacion {
     public void setPrecioNoche(Integer precioNoche) {
         this.precioNoche = precioNoche;
     }
-    public Hotel getId_hotel() {
-        return id_hotel;
+    public Hotel getIdhotel() {
+        return idhotel;
     }
-    public void setId_hotel(Hotel id_hotel) {
-        this.id_hotel = id_hotel;
+    public void setIdhotel(Hotel idhotel) {
+        this.idhotel = idhotel;
     }
-    public CuentaConsumo getId_cuentaconsumo() {
-        return id_cuentaconsumo;
+
+    public Usuario getIdUsuario() {
+        return idUsuario;
     }
-    public void setId_cuentaconsumo(CuentaConsumo id_cuentaconsumo) {
-        this.id_cuentaconsumo = id_cuentaconsumo;
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
     }
+
+    public PlanConsumo getIdPlanConsumo() {
+        return idPlanConsumo;
+    }
+
+    public void setIdPlanConsumo(PlanConsumo idPlanConsumo) {
+        this.idPlanConsumo = idPlanConsumo;
+    }
+    
 
 }
 

@@ -21,7 +21,7 @@ public interface CuentaConsumoRepository extends JpaRepository<CuentaConsumo, In
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO cuentas_c (id, estado, checkin, checkout) VALUES (parranderos_sequence.nextval, :estado, :checkin, :checkout)", nativeQuery = true)
+    @Query(value = "INSERT INTO cuentas_c (id, estado, checkin, checkout,id) VALUES (parranderos_sequence.nextval, :estado, :checkin, :checkout)", nativeQuery = true)
     void insertarCuentaConsumo(@Param("estado") Boolean estado, @Param("checkin") Timestamp checkin, @Param("checkout") Timestamp checkout);
 
     @Modifying

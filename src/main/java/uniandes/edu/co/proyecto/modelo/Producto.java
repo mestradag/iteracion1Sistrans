@@ -1,4 +1,4 @@
-package uniandes.edu.co.proyecto.modelo;
+    package uniandes.edu.co.proyecto.modelo;
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,24 +11,24 @@ public abstract class Producto {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer idProducto;
     private Integer precio;
 
-    public Producto(Integer id, Integer precio) {
-        this.id = id;
+    public Producto(Integer idProducto, Integer precio) {
+        this.idProducto = idProducto;
         this.precio = precio;
     }
     public Producto()
     {;}
 
-    // Getter for id
-    public Integer getId() {
-        return id;
+    // Getter for idProducto
+    public Integer getIdProducto() {
+        return idProducto;
     }
 
-    // Setter for id
-    public void setId(Integer id) {
-        this.id = id;
+    // Setter for idProducto
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
     }
 
     // Getter for precio
