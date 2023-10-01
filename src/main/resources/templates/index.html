@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hotel de los Andes</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
+    <div class="container mx-auto w-25">
+        <h1>Hotel De Los Andes</h1>
+        <img th:src="@{/images/hotel.png}" width="250">
     
+        <div>
+            <h1>Hotel de los Andes</h1>
+            <a th:href="@{/hoteles}" class="btn btn-primary">Hotel</a>
+
+            <h2>¿Qué tipo de usuario eres?</h2>
+            <!-- Mostrar el menú desplegable solo si el usuario es "CLIENTE" -->
+            <div id="userDropdown" style="display: none;">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Usuarios
+                </button>
+                <div class="dropdown-menu" aria-labelledby="userDropdownButton">
+                    <!-- Agrega aquí los enlaces específicos para el tipo de usuario "CLIENTE" -->
+                    <a class="dropdown-item" href="clientes.html">Cliente</a>
+                    <a class="dropdown-item" href="administradores.html">Administrador</a>
+                    <a class="dropdown-item" href="gerentes.html">Gerente</a>
+                    <a class="dropdown-item" href="empleados.html">Empleado</a>
+                    <a class="dropdown-item" href="recepcionistas.html">Recepcionista</a>
+                    <a class="dropdown-item" href="acomapanantes.html">Acompañante</a>
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+
+    <script>
+        // Aquí debes obtener el tipo de usuario del backend y asignarlo a la variable userType.
+        
+    </script>
+
 </body>
 </html>
