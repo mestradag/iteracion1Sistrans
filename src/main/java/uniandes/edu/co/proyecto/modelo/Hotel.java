@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="hoteles")
-public abstract class Hotel {
+public class Hotel {
     @Id
     private String nombre;
     private String ciudad;
@@ -17,7 +17,8 @@ public abstract class Hotel {
         this.ciudad = ciudad;
     }
 
-    public Hotel(){;}
+    public Hotel()
+    {;}
 
     //Getters and Setters
     public String getNombre() {
