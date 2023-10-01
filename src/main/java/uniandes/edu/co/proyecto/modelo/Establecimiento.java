@@ -2,13 +2,20 @@ package uniandes.edu.co.proyecto.modelo;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="establecimientos")
 public class Establecimiento extends Servicio{
     
-    private Integer capacidad;
+    @Id
+    @OneToOne
+    @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
+    private Reserva idServicio;
+    
     private String estilo;
     private TipoEstablecimiento tipo;
 
@@ -17,18 +24,11 @@ public class Establecimiento extends Servicio{
     }
 
     public Establecimiento(Integer capacidad, String estilo,TipoEstablecimiento tipo){
-        this.capacidad=capacidad;
+
         this.estilo=estilo;
         this.tipo=tipo;
     }
 
-    public Integer getCapacidad() {
-        return capacidad;
-    }
-
-    public void setCapacidad(Integer capacidad) {
-        this.capacidad = capacidad;
-    }
 
     public String getEstilo() {
         return estilo;

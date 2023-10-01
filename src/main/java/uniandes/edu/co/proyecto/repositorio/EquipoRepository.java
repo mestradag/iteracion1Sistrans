@@ -25,7 +25,7 @@ public interface EquipoRepository extends JpaRepository<Equipo, Integer> {
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE equipos SET tipo=:tipo,costo= :costo WHERE idEquipo:=idEquipo", nativeQuery = true)
+    @Query (value ="UPDATE equipos SET tipo=:tipo,costo= :costo WHERE idEquipo:=idEquipop", nativeQuery = true)
     void actualizarEquipo(@Param("idEquipo") Integer id,@Param("tipo") TipoEquipo tipo,@Param("costo") Integer costo);
 
     @Modifying

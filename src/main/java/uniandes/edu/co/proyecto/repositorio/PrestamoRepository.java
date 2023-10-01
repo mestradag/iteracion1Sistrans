@@ -19,13 +19,13 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO prestamos (id, costoTotal, capacidad, utensilio, cantidad) VALUES(parranderos_sequence.nextval, :id, :costoTotal, :capacidad, :utensilio, :cantidad", nativeQuery=true) 
-    void insertarPrestamo(@Param("costoTotal") String costoTotal,@Param("capacidad") Integer capacidad,@Param("utensilio") String utensilio,@Param("cantidad") Integer cantidad);
+    @Query(value="INSERT INTO prestamos (id, utensilio, cantidad) VALUES(parranderos_sequence.nextval, :id, :utensilio, :cantidad", nativeQuery=true) 
+    void insertarPrestamo(@Param("utensilio") String utensilio,@Param("cantidad") Integer cantidad);
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE prestamos SET costoTotal=:costoTotal,capacidad= :capacidad, utensilio=:utensilio, cantidad=:cantidad", nativeQuery = true)
-    void actualizarPrestamo(@Param("id") Integer id,@Param("costoTotal") Integer costoTotal,@Param("capacidad") Integer capacidad,@Param("utenislio") String utensilio,@Param("cantidad") Integer cantidad);
+    @Query (value ="UPDATE prestamos SET utensilio=:utensilio, cantidad=:cantidad", nativeQuery = true)
+    void actualizarPrestamo(@Param("id") Integer id,@Param("utenislio") String utensilio,@Param("cantidad") Integer cantidad);
 
     @Modifying
     @Transactional

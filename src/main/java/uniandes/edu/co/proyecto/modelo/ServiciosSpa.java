@@ -7,21 +7,21 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="servicios_spa")
-public class SpaS extends Servicio{
+public class ServiciosSpa extends Servicio{
     
     private String nombre;
     private Integer duracion;
     private Integer costo;
     
     @ManyToOne
-    @JoinColumn(name="spa",referencedColumnName = "nombre")
+    @JoinColumn(name="idServicio",referencedColumnName = "id")
     private Spa spa;
 
-    public SpaS(){
+    public ServiciosSpa(){
         ;
     }
 
-    public SpaS(String nombre, Integer duracion, Integer costo, Spa spa){
+    public ServiciosSpa(String nombre, Integer duracion, Integer costo, Spa spa){
         this.nombre= nombre;
         this.duracion=duracion;
         this.costo=costo;

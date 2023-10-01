@@ -2,11 +2,19 @@ package uniandes.edu.co.proyecto.modelo;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="establecimientos_c")
 public class EstablecimientoC extends Servicio{
+    
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
+    private Servicio idServicio;
     
     private String nombre;
     private String tipo;

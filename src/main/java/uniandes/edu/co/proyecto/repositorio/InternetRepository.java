@@ -20,12 +20,12 @@ public interface InternetRepository extends JpaRepository<Internet, Integer> {
     @Modifying
     @Transactional
     @Query(value="INSERT INTO internet (idServicio, bandaAncha) VALUES(parranderos_sequence.nextval, :bandaAncha", nativeQuery=true) 
-    void insertarInternet(@Param("bandaAncha") Integer bandaAncha);
+    void insertarInternet(@Param("bandaAncha") Double bandaAncha);
 
     @Modifying
     @Transactional
     @Query (value ="UPDATE internet SET bandaAncha=:bandaAncha WHERE idServicio=:idServicio", nativeQuery = true)
-    void actualizarInternet(@Param("idServicio") Integer idServicio,@Param("bandaAncha") Integer bandaAncha);
+    void actualizarInternet(@Param("idServicio") Integer idServicio,@Param("bandaAncha") Double bandaAncha);
 
     @Modifying
     @Transactional
