@@ -14,7 +14,7 @@ public class Usuario {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer idUsuario;
     private String nombre;
     private String correo;
     private TipoUsuario rol;
@@ -25,7 +25,7 @@ public class Usuario {
 
     // Constructor
     public Usuario(Integer id, String nombre, String correo, TipoUsuario rol, Hotel nombreHotel){
-        this.id=id;
+        this.idUsuario=id;
         this.nombre=nombre;
         this.correo=correo;
         this.rol=rol;
@@ -35,12 +35,12 @@ public class Usuario {
     public Usuario(){;}
 
     //Getters and Setters
-    public Integer getId() {
-        return id;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idUsuario = id;
     }
 
     public String getNombre() {

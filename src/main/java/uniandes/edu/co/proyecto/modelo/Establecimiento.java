@@ -14,7 +14,7 @@ public class Establecimiento extends Servicio{
     @Id
     @OneToOne
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
-    private Reserva idServicio;
+    private Servicio idServicio;
     
     private String estilo;
     private TipoEstablecimiento tipo;
@@ -45,6 +45,15 @@ public class Establecimiento extends Servicio{
     public void setTipo(TipoEstablecimiento tipo) {
         this.tipo = tipo;
     }
+
+    public Servicio getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(Servicio idServicio) {
+        this.idServicio = idServicio;
+    }
+    
 
     
 }

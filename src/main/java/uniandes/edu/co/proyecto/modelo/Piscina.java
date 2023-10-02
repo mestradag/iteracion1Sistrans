@@ -15,7 +15,7 @@ public class Piscina extends Servicio{
     @Id
     @OneToOne
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
-    private Reserva idServicio;
+    private Servicio idServicio;
     
     private Integer profundidad;
     private Timestamp horaInicio;
@@ -55,6 +55,15 @@ public class Piscina extends Servicio{
         this.horaFin = horaFin;
     }
 
+    public Servicio getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(Servicio idServicio) {
+        this.idServicio = idServicio;
+    }
+
+    
     
     
     

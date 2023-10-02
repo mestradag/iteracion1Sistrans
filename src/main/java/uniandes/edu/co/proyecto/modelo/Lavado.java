@@ -14,7 +14,7 @@ public class Lavado extends Servicio{
     @Id
     @OneToOne
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
-    private Reserva idServicio;
+    private Servicio idServicio;
     
     private Integer numeroPrendas;
     private Integer paresZapatos;
@@ -42,6 +42,14 @@ public class Lavado extends Servicio{
 
     public void setParesZapatos(Integer paresZapatos) {
         this.paresZapatos = paresZapatos;
-    }     
+    }   
+    
+    public Servicio getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(Servicio idServicio) {
+        this.idServicio = idServicio;
+    }
     
 }

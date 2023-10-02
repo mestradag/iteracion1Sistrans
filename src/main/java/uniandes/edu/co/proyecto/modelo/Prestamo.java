@@ -13,7 +13,7 @@ public class Prestamo extends Servicio{
     @Id
     @OneToOne
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
-    private Reserva idServicio;
+    private Servicio idServicio;
     
     private String utensilio;
     private Integer cantidad;
@@ -43,6 +43,15 @@ public class Prestamo extends Servicio{
         this.cantidad = cantidad;
     }
 
+    public Servicio getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(Servicio idServicio) {
+        this.idServicio = idServicio;
+    }
+
+    
     
     
 }
