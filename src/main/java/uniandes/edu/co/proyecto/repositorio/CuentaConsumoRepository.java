@@ -18,22 +18,22 @@ public interface CuentaConsumoRepository extends JpaRepository<CuentaConsumo, In
     @Query(value = "SELECT * FROM CUENTAS_C", nativeQuery = true) 
     Collection<CuentaConsumo> darCuentasConsumo();
 
-    @Query(value = "SELECT * FROM cuentas_c WHERE id = :id", nativeQuery = true)
-    CuentaConsumo darCuentaConsumo(@Param("id") int id);
+    @Query(value = "SELECT * FROM cuentas_c WHERE idCuenta = :idCuenta", nativeQuery = true)
+    CuentaConsumo darCuentaConsumo(@Param("idCuenta") int idCuenta);
     /*Change the code below if necessary because CuentaConsumo recieves two more atributes: idReserva and idHabitacion */
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO cuentas_c (id, estado, checkin, checkout,idReserva,idHabitacion) VALUES (parranderos_sequence.nextval, :estado, :checkin, :checkout, :idReserva, :idHabitacion)", nativeQuery = true)
+    @Query(value = "INSERT INTO cuentas_c (idCuenta, estado, checkin, checkout,idReserva,idHabitacion) VALUES (parranderos_sequence.nextval, :estado, :checkin, :checkout, :idReserva, :idHabitacion)", nativeQuery = true)
     void insertarCuentaConsumo(@Param("estado") Boolean estado, @Param("checkin") Timestamp checkin, @Param("checkout") Timestamp checkout, @Param("idReserva") int idReserva, @Param("idHabitacion") int idHabitacion);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE cuentas_c SET estado = :estado, checkin = :checkin, checkout = :checkout,idReserva = :idReserva,idHabitacion = :idHabitacion, WHERE id = :id", nativeQuery = true)
-    void actualizarCuentaConsumo(@Param("id") int id, @Param("estado") Boolean estado, @Param("checkin") Timestamp checkin, @Param("checkout") Timestamp checkout , @Param("idReserva") int idReserva, @Param("idHabitacion") int idHabitacion);
+    @Query(value = "UPDATE cuentas_c SET estado = :estado, checkin = :checkin, checkout = :checkout,idReserva = :idReserva,idHabitacion = :idHabitacion, WHERE idCuenta = :idCuenta", nativeQuery = true)
+    void actualizarCuentaConsumo(@Param("idCuenta") int idCuenta, @Param("estado") Boolean estado, @Param("checkin") Timestamp checkin, @Param("checkout") Timestamp checkout , @Param("idReserva") int idReserva, @Param("idHabitacion") int idHabitacion);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM cuentas_c WHERE id = :id", nativeQuery = true)
-    void eliminarCuentaConsumo(@Param("id") int id);
+    @Query(value = "DELETE FROM cuentas_c WHERE idCuenta = :idCuenta", nativeQuery = true)
+    void eliminarCuentaConsumo(@Param("idCuenta") int idCuenta);
 }
