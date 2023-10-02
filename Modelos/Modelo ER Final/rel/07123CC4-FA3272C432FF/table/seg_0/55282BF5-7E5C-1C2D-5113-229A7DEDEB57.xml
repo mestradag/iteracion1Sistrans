@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="55282BF5-7E5C-1C2D-5113-229A7DEDEB57" name="ESTABLECIMIENTOS">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>D63850A0-9F1A-39D5-5688-9D544EB35867</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idServicio" id="ECD33826-2FDB-BEE6-DDEF-EC9198001636">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>475DD8C2-7A58-6C8D-F363-BB8D6D827DCB</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3FA942B4-1490-5DB5-6716-807DE998B92E" referredColumn="DDEE3BB5-D0B5-F18C-2DDA-852595FB85F1"/>
+</associations>
+</Column>
+<Column name="capacidad" id="E5072F2D-8015-A491-B827-47F2758DB174">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>EED34254-8A82-3366-4320-5D93AA22A33D</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estilo" id="4B5402C3-0008-463D-AED1-DAD455641A84">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>2D02BAA3-C342-348C-39EE-F9DE16359457</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="7184B92C-C4AD-126C-83A8-0DA072F9F9E0">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>B451394F-F795-9F58-8C82-7FDC60522578</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<listOfValues>
+<valueDef value="bar" description=""/>
+<valueDef value="restaurante" description=""/>
+</listOfValues>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8492DDC4-EAD1-CEFB-8C8C-7378B3F112EA" name="ESTABLECIMIENTOS_PK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>60BD61AE-B5D0-BDFE-0872-2BCB609A1F99</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ECD33826-2FDB-BEE6-DDEF-EC9198001636"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A6521058-05A4-E00F-7650-4825044BAC8E" name="ESTABLECIMIENTOS_SERVICIOS_FK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>AC2273FB-AEB1-DD92-5268-4986053C13F7</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ECD33826-2FDB-BEE6-DDEF-EC9198001636"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

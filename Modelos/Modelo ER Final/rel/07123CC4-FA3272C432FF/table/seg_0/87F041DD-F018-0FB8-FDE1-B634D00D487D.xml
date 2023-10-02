@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="87F041DD-F018-0FB8-FDE1-B634D00D487D" name="E_COMERCIALES">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>35928818-0262-D76C-A168-F4A60F7E7603</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idServicio" id="98D0F50D-3769-6942-F810-A407E24DADB0">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>475DD8C2-7A58-6C8D-F363-BB8D6D827DCB</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="61277ECE-D50A-AAD7-70DC-549866C1DA86" referredColumn="DDEE3BB5-D0B5-F18C-2DDA-852595FB85F1"/>
+</associations>
+</Column>
+<Column name="nombre" id="7F1A0665-5D2E-6EB2-07BD-362AE10DE671">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>521E653E-895F-57DD-013C-91101AF0B879</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="8D29D08B-685D-E3BE-875B-472856B940E5">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>1725C68C-DFA1-5395-DA07-BB74063C6D71</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="33CC3993-0952-5702-0F8E-B2990CF0D76D" name="E_COMERCIALES_PK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>60BD61AE-B5D0-BDFE-0872-2BCB609A1F99</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="98D0F50D-3769-6942-F810-A407E24DADB0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="766971AA-A5A4-3801-17FE-2F900F350F3D" name="E_COMERCIALES_SERVICIOS_FK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>122142F2-21FC-49C9-3490-7309AAD247AF</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="98D0F50D-3769-6942-F810-A407E24DADB0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

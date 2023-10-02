@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FED8286A-CB9F-D117-3E0A-598A92E8A364" name="SERVICIOS">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 04:57:14 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idServicio" id="475DD8C2-7A58-6C8D-F363-BB8D6D827DCB">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 04:57:21 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="costoTotal" id="37EBF508-E591-A39A-57BA-1027E9679E7A">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 04:57:34 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="capacidad" id="89A1B1FF-EBD8-AC29-F4B9-4ADD5554FD15">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 04:57:48 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="HOTELES nombre" id="A4269886-9473-476F-3202-36BD372F1637">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 12:59:55 UTC</createdTime>
+<generatorID>ADAD46BC-7822-45B5-BC6C-72696AA43282</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<referedAttribute>4DB0CAD9-B175-9B0B-3AFD-423C47CF5E00</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PLANES C idPlanConsumo" id="9F9EAC16-ECAC-8562-8C81-B3FF33B805AB">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-23 17:56:17 UTC</createdTime>
+<generatorID>4E8D8600-4DAF-B43A-7E7F-599E67D58F69</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>F1C72164-D33E-74A9-84B3-0D759C7E4736</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="60BD61AE-B5D0-BDFE-0872-2BCB609A1F99" name="SERVICIOS PK">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 04:57:33 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>475DD8C2-7A58-6C8D-F363-BB8D6D827DCB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
