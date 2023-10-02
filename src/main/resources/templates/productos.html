@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+</head>
+<body>
+    <div class="text-center">
+        <h1>Lista de Productos</h1>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>idProducto</th>
+                    <th>precio</th>
+                </tr>
+            </thead>
+            <th:block th:each="producto:${productos}">
+                <tr>
+                    <td th:text="${producto.idProducto}"></td>
+                    <td th:text="${producto.precio}"></td>
+                    <td>
+                        <a th:href="@{productos/{idProducto}/edit(idProducto=${producto.idProducto})}">Editar</a>
+                        <a th:href="@{productos/{idProducto}/delete(idProducto=${producto.idProducto})}"
+                            onclick="return confirm('Confirmación de borrar este producto')">Borrar</a>
+                    </td>
+                </tr>
+            </th:block>
+
+        </table>
+    </table>
+    <div>
+        <a th:href='@{productos/new}' class="btn btn-primary">Añadir Producto</a>
+        <a th:href="@{productoConsumido/new}" class="btn btn-primary">Añadir Producto Consumido</a>
+        <a th:href="@{productosMenu/new}" class="btn btn-primary">Añadir Producto Menu</a>
+        <a th:href="@{productosOfrecidos/new}" class="btn btn-primary">Añadir Producto Ofrecido</a>
+        <a th:href='@{/}' class="btn btn-primary">Atrás</a>
+    </div>
+    <br />
+    </div>
+</body>
+</html>
