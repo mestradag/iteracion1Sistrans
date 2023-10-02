@@ -3,7 +3,6 @@ package uniandes.edu.co.proyecto.modelo;
 import java.sql.Time;
 import java.sql.Timestamp;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;   
@@ -18,6 +17,7 @@ public class CuentaConsumo {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer idCuenta;
+    
     private Boolean estado;
     private Timestamp checkin;
     private Timestamp checkout;
@@ -31,14 +31,12 @@ public class CuentaConsumo {
     private Habitacion idHabitacion;
 
     public CuentaConsumo(
-        Integer idCuenta,
         Boolean estado, 
         Timestamp checkin, 
         Timestamp checkout,
         Reserva idReserva,
         Habitacion idHabitacion
         ) {
-        this.idCuenta = idCuenta;
         this.estado = estado;
         this.checkin = checkin;
         this.checkout = checkout;

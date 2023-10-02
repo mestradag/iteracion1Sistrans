@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Crear ProductoConsumido</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+<body>
+    <br>
+    <div class="container border border-2 w-25">    
+
+    <h1 class="text-center">Crear Nuevo Producto</h1>
+
+    <form th:action="@{/productoConsumido/new/save}" method="post">
+
+        <label class="col-form-label" for="idCuentaConsumo">Cuenta Consumo:</label>
+        <select class="form-control" id="idCuentaConsumo" name="idCuentaConsumo" required>
+            <th:block th:each="cuentaConsumo : ${cuentas_c}">
+                <option th:value="${cuentaConsumo.idCuentaConsumo}"></option>
+            </th:block>
+        </select><br>
+
+        <label class="col-form-label" for="idProducto">Producto:</label>
+        <select class="form-control"  id="idProducto" name="idProducto" required>
+            <th:block th:each="producto : ${productos}">
+                <option th:value="${producto.idProducto}"></option>
+            </th:block>
+        </select><br>
+
+        <div class="text-center">
+        <input type="submit" value="Guardar" class="btn btn-primary">
+        <a th:href="@{/productos}" class="btn btn-primary">Cancelar</a>
+        </div>
+    </br>
+    </form>
+    </div>
+
+</body>
+
+</html>

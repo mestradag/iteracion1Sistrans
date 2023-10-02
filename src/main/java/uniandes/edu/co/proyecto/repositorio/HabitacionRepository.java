@@ -14,7 +14,7 @@ import jakarta.transaction.Transactional;
 
 public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>{
     @Query(value = "SELECT * FROM habitaciones", nativeQuery = true)
-    Collection<Habitacion> darHabitacion();
+    Collection<Habitacion> darHabitaciones();
 
     @Query(value = "SELECT * FROM habitaciones WHERE idHabitacion = :idHabitacion", nativeQuery = true)
     Habitacion darHabitacion(@Param("idHabitacion") int idHabitacion);
