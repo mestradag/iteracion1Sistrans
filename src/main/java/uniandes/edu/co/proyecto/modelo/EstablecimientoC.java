@@ -44,4 +44,13 @@ public class EstablecimientoC extends Servicio{
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public Servicio getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(Servicio idServicio) {
+        this.idServicio = idServicio;
+    }
+    
 }

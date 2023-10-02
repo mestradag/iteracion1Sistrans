@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4E9FE57B-6388-8E60-0551-12E0CF9D53A9" containerWithKeyObject="11D9F681-DE9B-8BD8-74D0-3EA0684C4174" localFKIndex="20095938-2216-EDDD-8085-11A90A670503" name="RESERVAS_CUENTAS_C_FK">
+<createdBy>alfre</createdBy>
+<createdTime>2023-10-02 02:17:40 UTC</createdTime>
+<generatorID>53D6FB68-D9F7-DCC3-7063-B9CD1335A809</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<referredTableLongName>CUENTAS_C</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>7899D377-0678-6828-CAE9-9D3D90800C0B</referredTableID>
+<keyObject>7576FBD9-47B0-26F5-B327-2632D5DD2C41</keyObject>
+<referredKeyID>7576FBD9-47B0-26F5-B327-2632D5DD2C41</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idCuenta</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

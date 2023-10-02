@@ -13,7 +13,7 @@ public class Spa extends Servicio{
     @Id
     @OneToOne
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
-    private Reserva idServicio;
+    private Servicio idServicio;
     
     private String nombre;
     
@@ -33,6 +33,16 @@ public class Spa extends Servicio{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public Servicio getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(Servicio idServicio) {
+        this.idServicio = idServicio;
+    }
+
+    
 
      
 }

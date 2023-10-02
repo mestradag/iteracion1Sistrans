@@ -13,7 +13,7 @@ public class Internet extends Servicio{
     @Id
     @OneToOne
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
-    private Reserva idServicio;
+    private Servicio idServicio;
     
     private Double bandaAncha;
     
@@ -33,7 +33,14 @@ public class Internet extends Servicio{
     public void setBandaAncha(Double bandaAncha) {
         this.bandaAncha = bandaAncha;
     }
-    
+
+    public Servicio getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(Servicio idServicio) {
+        this.idServicio = idServicio;
+    }    
     
     
 }

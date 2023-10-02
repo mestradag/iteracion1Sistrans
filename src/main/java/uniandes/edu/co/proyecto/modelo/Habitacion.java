@@ -22,8 +22,8 @@ public class Habitacion {
     private Integer precioNoche;
 
     @ManyToOne
-    @JoinColumn(name = "idhotel", referencedColumnName = "nombre")
-    private Hotel idhotel;
+    @JoinColumn(name = "nombreHotel", referencedColumnName = "nombre")
+    private Hotel nombreHotel;
 
     @ManyToOne
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
@@ -40,7 +40,7 @@ public class Habitacion {
         String tipo, 
         String dotacion, 
         Integer precioNoche,
-        Hotel idhotel,
+        Hotel nombreHotel,
         Usuario idUsuario,
         PlanConsumo idPlanConsumo
         ) {
@@ -50,7 +50,7 @@ public class Habitacion {
         this.tipo = tipo;
         this.dotacion = dotacion;
         this.precioNoche = precioNoche;
-        this.idhotel = idhotel;
+        this.nombreHotel = nombreHotel;
         this.idUsuario = idUsuario;
         this.idPlanConsumo = idPlanConsumo;
     }
@@ -93,11 +93,11 @@ public class Habitacion {
     public void setPrecioNoche(Integer precioNoche) {
         this.precioNoche = precioNoche;
     }
-    public Hotel getIdhotel() {
-        return idhotel;
+    public Hotel getNombreHotel() {
+        return nombreHotel;
     }
-    public void setIdhotel(Hotel idhotel) {
-        this.idhotel = idhotel;
+    public void setNombreHotel(Hotel nombrehotel) {
+        this.nombreHotel = nombrehotel;
     }
 
     public Usuario getIdUsuario() {

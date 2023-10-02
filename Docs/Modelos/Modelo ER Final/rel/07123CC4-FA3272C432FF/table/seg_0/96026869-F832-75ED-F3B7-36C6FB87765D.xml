@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="96026869-F832-75ED-F3B7-36C6FB87765D" name="PRODUCTOS_C">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idCuenta" id="D0AE67BB-405B-1E40-55D8-5251C89C2152">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8AFCCF5D-C0AB-83C2-7ED2-A890CA1A96B3" referredColumn="00D2C6B5-B33D-E6BC-B3CD-2A2D490D2F6E"/>
+</associations>
+</Column>
+<Column name="idProducto" id="56DC980B-3A77-F3DF-E769-892992637533">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8AA04B95-DB7B-C300-E5A8-C15ED752CF35" referredColumn="7FB7C308-B742-D5E7-FD17-624F56103D1F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="731809F5-3C29-553A-ACE9-10AE3263CCD3" name="PRODUCTOS_C_PK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0AE67BB-405B-1E40-55D8-5251C89C2152"/>
+<colUsage columnID="56DC980B-3A77-F3DF-E769-892992637533"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="03B7CC81-E909-6D8F-5745-D3E07AE7A66A" name="PRODUCTOS_C_CUENTAS_C_FK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>0DBFBFAE-09C0-BD62-F246-B9A17735AD23</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0AE67BB-405B-1E40-55D8-5251C89C2152"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC9D4DC0-E762-B5D2-A36A-1C2F093D1A13" name="PRODUCTOS_C_PRODUCTOS_FK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>0DBFBFAE-09C0-BD62-F246-B9A17735AD23</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="56DC980B-3A77-F3DF-E769-892992637533"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
