@@ -1,4 +1,3 @@
-
 CREATE TABLE cuentas_c (
     idcuenta     INTEGER NOT NULL,
     estado       CHAR(1) NOT NULL,
@@ -65,10 +64,10 @@ CREATE TABLE habitaciones (
     nombrehotel  VARCHAR2(255) NOT NULL
 );
 
-CREATE UNIQUE INDEX habitaciones__idx ON
+CREATE INDEX habitaciones__idx ON
     habitaciones (
         disponible
-    DESC );
+    ASC );
 
 ALTER TABLE habitaciones ADD CONSTRAINT habitaciones_pk PRIMARY KEY ( idhabitacion );
 

@@ -22,12 +22,12 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
 
     @Modifying
     @Transactional
-    @Query(value= "INSERT INTO usuarios(idUsuario, nombre, correo, rol, id_hotel) VALUES (parranderos_sequence.nextval, :nombre, :correo, :rol, :nombreHotel)", nativeQuery=true)
+    @Query(value= "INSERT INTO usuarios(idUsuario, nombre, correo, rol, nombrehotel) VALUES (parranderos_sequence.nextval, :nombre, :correo, :rol, :nombreHotel)", nativeQuery=true)
     void insertarUsuario(@Param("nombre") String nombre, @Param("correo") String correo, @Param("rol") TipoUsuario rol, @Param("nombreHotel") Hotel nombreHotel);
 
     @Modifying
     @Transactional
-    @Query(value ="UPDATE usuarios SET nombre= :nombre, correo= :correo, rol= :rol idHotel= :idHotel WHERE idUsuario = :idUsuario", nativeQuery = true)
+    @Query(value ="UPDATE usuarios SET nombre= :nombre, correo= :correo, rol= :rol, nombreHotel= :nombreHotel WHERE idUsuario = :idUsuario", nativeQuery = true)
     void actualizarUsuario(@Param("idUsuario") Integer idUsuario, @Param("nombre") String nombre, @Param("correo") String correo, @Param("rol") TipoUsuario rol, @Param("nombreHotel") Hotel nombreHotel);
 
     @Modifying
