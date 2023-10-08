@@ -14,22 +14,22 @@ public interface SpaRepository extends JpaRepository<Spa, Integer> {
     @Query(value="SELECT * FROM spas", nativeQuery=true) 
     Collection<Spa> darSpas();
 
-    @Query(value="SELECT * FROM spas WHERE id = :id", nativeQuery = true)
-    Spa darSpa(@Param("idServicio") Integer idServicio);
+    @Query(value="SELECT * FROM spas WHERE idservicio = :idservicio", nativeQuery = true)
+    Spa darSpa(@Param("idservicio") Integer idservicio);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO spas (idServicio, nombre", nativeQuery=true) 
+    @Query(value="INSERT INTO spas (idservicio, nombre", nativeQuery=true) 
     void insertarSpa(@Param("nombre") String nombre);
 
     @Modifying
     @Transactional
     @Query (value ="UPDATE spas SET nombre=:nombre", nativeQuery = true)
-    void actualizarSpa(@Param("idServicio") Integer idServicio,@Param("nombre") String nombre);
+    void actualizarSpa(@Param("idservicio") Integer idservicio,@Param("nombre") String nombre);
 
     @Modifying
     @Transactional
-    @Query (value ="DELETE FROM spas WHERE id=:id", nativeQuery=true)
-    void eliminarSpa(@Param("idServicio") Integer idServicio);
+    @Query (value ="DELETE FROM spas WHERE idservicio=:idservicio", nativeQuery=true)
+    void eliminarSpa(@Param("idservicio") Integer idservicio);
     
 }

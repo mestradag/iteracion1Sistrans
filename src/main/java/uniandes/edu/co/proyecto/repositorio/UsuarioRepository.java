@@ -17,21 +17,21 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
     @Query(value = "SELECT * FROM usuarios", nativeQuery=true)
     Collection<Usuario> darUsuarios();
 
-    @Query(value= "SELECT * FROM usuarios WHERE idUsuario= :idUsuario", nativeQuery=true)
-    Usuario darUsuario(@Param("idUsuario") Integer idUsuario);
+    @Query(value= "SELECT * FROM usuarios WHERE idusuario= :idusuario", nativeQuery=true)
+    Usuario darUsuario(@Param("idusuario") Integer idusuario);
 
     @Modifying
     @Transactional
-    @Query(value= "INSERT INTO usuarios(idUsuario, nombre, correo, rol, nombrehotel) VALUES (parranderos_sequence.nextval, :nombre, :correo, :rol, :nombreHotel)", nativeQuery=true)
-    void insertarUsuario(@Param("nombre") String nombre, @Param("correo") String correo, @Param("rol") TipoUsuario rol, @Param("nombreHotel") Hotel nombreHotel);
+    @Query(value= "INSERT INTO usuarios(idusuario, nombre, correo, rol, nombrehotel) VALUES (parranderos_sequence.nextval, :nombre, :correo, :rol, :nombrehotel)", nativeQuery=true)
+    void insertarUsuario(@Param("nombre") String nombre, @Param("correo") String correo, @Param("rol") TipoUsuario rol, @Param("nombrehotel") Hotel nombrehotel);
 
     @Modifying
     @Transactional
-    @Query(value ="UPDATE usuarios SET nombre= :nombre, correo= :correo, rol= :rol, nombreHotel= :nombreHotel WHERE idUsuario = :idUsuario", nativeQuery = true)
-    void actualizarUsuario(@Param("idUsuario") Integer idUsuario, @Param("nombre") String nombre, @Param("correo") String correo, @Param("rol") TipoUsuario rol, @Param("nombreHotel") Hotel nombreHotel);
+    @Query(value ="UPDATE usuarios SET nombre= :nombre, correo= :correo, rol= :rol, nombrehotel= :nombrehotel WHERE idusuario = :idusuario", nativeQuery = true)
+    void actualizarUsuario(@Param("idusuario") Integer idusuario, @Param("nombre") String nombre, @Param("correo") String correo, @Param("rol") TipoUsuario rol, @Param("nombrehotel") Hotel nombrehotel);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM usuarios  WHERE idUsuario= :idUsuario", nativeQuery = true)
-    void eliminarUsuario(@Param("idUsuario") Integer idUsuario);
+    @Query(value = "DELETE FROM usuarios  WHERE idusuario= :idusuario", nativeQuery = true)
+    void eliminarUsuario(@Param("idusuario") Integer idusuario);
 }

@@ -14,21 +14,21 @@ public interface InternetRepository extends JpaRepository<Internet, Integer> {
     @Query(value="SELECT * FROM internet", nativeQuery=true) 
     Collection<Internet> darInternets();
 
-    @Query(value="SELECT * FROM internet WHERE idServicio = :idServicio", nativeQuery = true)
-    Internet darInternet(@Param("idServicio") Integer idServicio);
+    @Query(value="SELECT * FROM internet WHERE idservicio = :idservicio", nativeQuery = true)
+    Internet darInternet(@Param("idservicio") Integer idservicio);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO internet (idServicio, bandaAncha) VALUES(parranderos_sequence.nextval, :bandaAncha", nativeQuery=true) 
+    @Query(value="INSERT INTO internet (idservicio, bandaAncha) VALUES(parranderos_sequence.nextval, :bandaAncha", nativeQuery=true) 
     void insertarInternet(@Param("bandaAncha") Double bandaAncha);
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE internet SET bandaAncha=:bandaAncha WHERE idServicio=:idServicio", nativeQuery = true)
-    void actualizarInternet(@Param("idServicio") Integer idServicio,@Param("bandaAncha") Double bandaAncha);
+    @Query (value ="UPDATE internet SET bandaAncha=:bandaAncha WHERE idservicio=:idservicio", nativeQuery = true)
+    void actualizarInternet(@Param("idservicio") Integer idservicio,@Param("bandaAncha") Double bandaAncha);
 
     @Modifying
     @Transactional
-    @Query (value ="DELETE FROM internet WHERE idServicio=:idServicio", nativeQuery=true)
-    void eliminarInternet(@Param("idServicio") Integer idServicio);
+    @Query (value ="DELETE FROM internet WHERE idservicio=:idservicio", nativeQuery=true)
+    void eliminarInternet(@Param("idservicio") Integer idservicio);
 }

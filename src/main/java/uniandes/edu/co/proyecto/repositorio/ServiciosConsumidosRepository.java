@@ -14,23 +14,23 @@ public interface ServiciosConsumidosRepository extends JpaRepository<ServiciosCo
     @Query(value = "SELECT * FROM s_consumidos", nativeQuery = true) 
     Collection<ServiciosConsumidos> darServiciosConsumidos();
 
-    @Query(value = "SELECT * FROM s_consumidos WHERE idCuenta = :idCuenta AND idServicio = :idServicio", nativeQuery = true)
-    ServiciosConsumidos darServicioConsumido(@Param("idCuenta") int idCuenta, @Param("idServicio") int idServicio);
+    @Query(value = "SELECT * FROM s_consumidos WHERE idcuenta = :idcuenta AND idservicio = :idservicio", nativeQuery = true)
+    ServiciosConsumidos darServicioConsumido(@Param("idcuenta") int idcuenta, @Param("idservicio") int idservicio);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO s_consumidos (idCuenta, idServicio) VALUES (:idCuenta, :idServicio)", nativeQuery = true)
-    void insertarServicioConsumido(@Param("idCuenta") int idCuenta, @Param("idServicio") int idServicio);
+    @Query(value = "INSERT INTO s_consumidos (idcuenta, idservicio) VALUES (:idcuenta, :idservicio)", nativeQuery = true)
+    void insertarServicioConsumido(@Param("idcuenta") int idcuenta, @Param("idservicio") int idservicio);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE s_consumidos SET idCuenta = :idCuenta, idServicio = :idServicio WHERE idCuenta = :idCuenta AND idServicio = :idServicio", nativeQuery = true)
-    void actualizarServicioConsumido(@Param("idCuenta") int idCuenta, @Param("idServicio") int idServicio);
+    @Query(value = "UPDATE s_consumidos SET idcuenta = :idcuenta, idservicio = :idservicio WHERE idcuenta = :idcuenta AND idservicio = :idservicio", nativeQuery = true)
+    void actualizarServicioConsumido(@Param("idcuenta") int idcuenta, @Param("idservicio") int idservicio);
     
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM s_consumidos WHERE idCuenta = :idCuenta AND idServicio = :idServicio", nativeQuery = true)
-    void eliminarServicioConsumido(@Param("idCuenta") int idCuenta, @Param("idServicio") int idServicio);
+    @Query(value = "DELETE FROM s_consumidos WHERE idcuenta = :idcuenta AND idservicio = :idservicio", nativeQuery = true)
+    void eliminarServicioConsumido(@Param("idcuenta") int idcuenta, @Param("idservicio") int idservicio);
     
     
 }

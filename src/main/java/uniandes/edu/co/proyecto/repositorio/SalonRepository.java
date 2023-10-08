@@ -15,21 +15,21 @@ public interface SalonRepository extends JpaRepository<Salon, Integer>{
     @Query(value="SELECT * FROM salones", nativeQuery=true) 
     Collection<Salon> darSalones();
 
-    @Query(value="SELECT * FROM salones WHERE idServicio = :idServicio", nativeQuery = true)
-    Salon darSalon(@Param("idServicio") Integer idServicio);
+    @Query(value="SELECT * FROM salones WHERE idservicio = :idservicio", nativeQuery = true)
+    Salon darSalon(@Param("idservicio") Integer idservicio);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO salones (idServicio, tipo) VALUES(parranderos_sequence.nextval, :tipo", nativeQuery=true) 
+    @Query(value="INSERT INTO salones (idservicio, tipo) VALUES(parranderos_sequence.nextval, :tipo", nativeQuery=true) 
     void insertarSalon(@Param("tipo") TipoSalon tipo);
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE salones SET tipo=:tipo WHERE idServicio=:idServicio", nativeQuery = true)
-    void actualizarSalon(@Param("idServicio") Integer idServicio,@Param("tipo") TipoSalon tipo);
+    @Query (value ="UPDATE salones SET tipo=:tipo WHERE idservicio=:idservicio", nativeQuery = true)
+    void actualizarSalon(@Param("idservicio") Integer idservicio,@Param("tipo") TipoSalon tipo);
 
     @Modifying
     @Transactional
-    @Query (value ="DELETE FROM salones WHERE idServicio=:idServicio", nativeQuery=true)
-    void eliminarSalon(@Param("idServicio") Integer idServicio);
+    @Query (value ="DELETE FROM salones WHERE idservicio=:idservicio", nativeQuery=true)
+    void eliminarSalon(@Param("idservicio") Integer idservicio);
 }

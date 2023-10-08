@@ -15,21 +15,21 @@ public interface PiscinaRepository extends JpaRepository<Piscina, Integer> {
     @Query(value="SELECT * FROM piscinas", nativeQuery=true) 
     Collection<Piscina> darPiscinas();
 
-    @Query(value="SELECT * FROM piscinas WHERE idServicio = :idServicio", nativeQuery = true)
-    Piscina darPiscina(@Param("idServicio") Integer idServicio);
+    @Query(value="SELECT * FROM piscinas WHERE idservicio = :idservicio", nativeQuery = true)
+    Piscina darPiscina(@Param("idservicio") Integer idservicio);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO piscinas (idServicio, profundidad, horaInicio, horaFin) VALUES(parranderos_sequence.nextval, :profundidad, :horaInicio,:horaFin", nativeQuery=true) 
+    @Query(value="INSERT INTO piscinas (idservicio, profundidad, horaInicio, horaFin) VALUES(parranderos_sequence.nextval, :profundidad, :horaInicio,:horaFin", nativeQuery=true) 
     void insertarPiscina(@Param("profundidad") Integer profunidad, @Param("horaInicio") Timestamp horaInicio, @Param("horaFin") Timestamp horaFin);
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE piscinas SET profundidad=:profundidad, horaInicio=:horaInicio, horaFin=:horaFin WHERE idServicio=:idServicio", nativeQuery = true)
-    void actualizarPiscina(@Param("idServicio") Integer idServicio,@Param("profundidad") Integer profunidad, @Param("horaInicio") Timestamp horaInicio, @Param("horaFin") Timestamp horaFin);
+    @Query (value ="UPDATE piscinas SET profundidad=:profundidad, horaInicio=:horaInicio, horaFin=:horaFin WHERE idservicio=:idservicio", nativeQuery = true)
+    void actualizarPiscina(@Param("idservicio") Integer idservicio,@Param("profundidad") Integer profunidad, @Param("horaInicio") Timestamp horaInicio, @Param("horaFin") Timestamp horaFin);
 
     @Modifying
     @Transactional
-    @Query (value ="DELETE FROM piscinas WHERE idServicio=:idServicio", nativeQuery=true)
-    void eliminarPiscina(@Param("idServicio") Integer idServicio);
+    @Query (value ="DELETE FROM piscinas WHERE idservicio=:idservicio", nativeQuery=true)
+    void eliminarPiscina(@Param("idservicio") Integer idservicio);
 }

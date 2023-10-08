@@ -16,23 +16,23 @@ public interface PlanConsumoRepository extends JpaRepository <PlanConsumo, Integ
     @Query(value = "SELECT * FROM planes_c", nativeQuery=true)
     Collection<PlanConsumo> darPlanConsumos();
 
-    @Query(value= "SELECT * FROM planes_c WHERE idPlanConsumo= :idPlanConsumo", nativeQuery=true)
-    PlanConsumo darPlanConsumo(@Param("idPlanConsumo") Integer idPlanConsumo);
+    @Query(value= "SELECT * FROM planes_c WHERE idplanconsumo= :idplanconsumo", nativeQuery=true)
+    PlanConsumo darPlanConsumo(@Param("idplanconsumo") Integer idplanconsumo);
 
     @Modifying
     @Transactional
-    @Query(value= "INSERT INTO planes_c(idPlanConsumo, nombre, descuentoAlojamiento, descuentoBar, descuentoRestaurante, descuentoServicios, costoFijo, fechaInicial, duracion, valorFinal, valido) VALUES (parranderos_sequence.nextval, :nombre, :descuentoAlojamiento, :descuentoBar, :descuentoRestaurante, :descuentoServicios, :costoFijo, :fechaInicial, :duracion, :valorFinal, :valido)", nativeQuery=true)
+    @Query(value= "INSERT INTO planes_c(idplanconsumo, nombre, descuentoAlojamiento, descuentoBar, descuentoRestaurante, descuentoServicios, costoFijo, fechaInicial, duracion, valorFinal, valido) VALUES (parranderos_sequence.nextval, :nombre, :descuentoAlojamiento, :descuentoBar, :descuentoRestaurante, :descuentoServicios, :costoFijo, :fechaInicial, :duracion, :valorFinal, :valido)", nativeQuery=true)
     void insertarPlanConsumo(@Param("nombre") String nombre, @Param("descuentoAljamiento") Double descuentoAlojamiento, @Param("descuentoBar") Double descuentoBar, @Param("descuentoRestaurante") Double descuentoRestaurante, @Param("descuentoServicios") Double descuentoServicios, @Param("costoFijo") Integer costoFijo, @Param("fechaInicial") Date fechaInicial, @Param("duracion") Integer duracion, @Param("valorFinal") Double valorFinal, @Param("valido") Boolean valido);
 
     @Modifying
     @Transactional
-    @Query(value ="UPDATE planes_c SET nombre= :nombre, descuentoAlojamiento= :descuentoAlojamiento, descuentoBar= :descuentoBar, descuentoRestaurante= :descuentoRestaurante, descuentoServicios= :descuentoServicios, costoFijo= :costoFijo, fechaInicial= :fechaInicial, duracion= :duracion, valorFinal= :valorFinal, valido= :valido WHERE idPlanConsumo = :idPlanConsumo", nativeQuery = true)
-    void actualizarPlanConsumo(@Param("idPlanConsumo") Integer idPlanConsumo, @Param("nombre") String nombre, @Param("descuentoAljamiento") Double descuentoAlojamiento, @Param("descuentoBar") Double descuentoBar, @Param("descuentoRestaurante") Double descuentoRestaurante, @Param("descuentoServicios") Double descuentoServicios, @Param("costoFijo") Integer costoFijo, @Param("fechaInicial") Date fechaInicial, @Param("duracion") Integer duracion, @Param("valorFinal") Double valorFinal, @Param("valido") Boolean valido);
+    @Query(value ="UPDATE planes_c SET nombre= :nombre, descuentoAlojamiento= :descuentoAlojamiento, descuentoBar= :descuentoBar, descuentoRestaurante= :descuentoRestaurante, descuentoServicios= :descuentoServicios, costoFijo= :costoFijo, fechaInicial= :fechaInicial, duracion= :duracion, valorFinal= :valorFinal, valido= :valido WHERE idplanconsumo = :idplanconsumo", nativeQuery = true)
+    void actualizarPlanConsumo(@Param("idplanconsumo") Integer idplanconsumo, @Param("nombre") String nombre, @Param("descuentoAljamiento") Double descuentoAlojamiento, @Param("descuentoBar") Double descuentoBar, @Param("descuentoRestaurante") Double descuentoRestaurante, @Param("descuentoServicios") Double descuentoServicios, @Param("costoFijo") Integer costoFijo, @Param("fechaInicial") Date fechaInicial, @Param("duracion") Integer duracion, @Param("valorFinal") Double valorFinal, @Param("valido") Boolean valido);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM planes_c WHERE idPlanConsumo= :idPlanConsumo", nativeQuery = true)
-    void eliminarPlanConsumo(@Param("idPlanConsumo") Integer idPlanConsumo);
+    @Query(value = "DELETE FROM planes_c WHERE idplanconsumo= :idplanconsumo", nativeQuery = true)
+    void eliminarPlanConsumo(@Param("idplanconsumo") Integer idplanconsumo);
 }
     
 

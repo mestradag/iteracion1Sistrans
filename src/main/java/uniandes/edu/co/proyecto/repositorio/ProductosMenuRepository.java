@@ -14,17 +14,17 @@ public interface ProductosMenuRepository extends JpaRepository<ProductosMenu, In
     @Query(value = "SELECT * FROM productos_e", nativeQuery = true)
     Collection<ProductosMenu> darProductosMenu();
 
-    @Query(value = "SELECT * FROM productos_e WHERE idServicio = :idServicio AND idProducto = :idProducto", nativeQuery = true)
-    ProductosMenu darProductoMenu(@Param("idServicio") int idServicio, @Param("idProducto") int idProducto);
+    @Query(value = "SELECT * FROM productos_e WHERE idservicio = :idservicio AND idproducto = :idproducto", nativeQuery = true)
+    ProductosMenu darProductoMenu(@Param("idservicio") int idservicio, @Param("idproducto") int idproducto);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO productos_e (idServicio, idProducto) VALUES (:idServicio, :idProducto)", nativeQuery = true)
-    void insertarProductoMenu(@Param("idServicio") int idServicio, @Param("idProducto") int idProducto);
+    @Query(value = "INSERT INTO productos_e (idservicio, idproducto) VALUES (:idservicio, :idproducto)", nativeQuery = true)
+    void insertarProductoMenu(@Param("idservicio") int idservicio, @Param("idproducto") int idproducto);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM productos_e WHERE idServicio = :idServicio AND idProducto = :idProducto", nativeQuery = true)
-    void eliminarProductoMenu(@Param("idServicio") int idServicio, @Param("idProducto") int idProducto);
+    @Query(value = "DELETE FROM productos_e WHERE idservicio = :idservicio AND idproducto = :idproducto", nativeQuery = true)
+    void eliminarProductoMenu(@Param("idservicio") int idservicio, @Param("idproducto") int idproducto);
     
 }

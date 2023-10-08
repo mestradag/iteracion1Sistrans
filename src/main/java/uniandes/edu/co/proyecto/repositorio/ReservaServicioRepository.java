@@ -13,17 +13,17 @@ public interface ReservaServicioRepository extends JpaRepository<ReservaServicio
         @Query(value = "SELECT * FROM reservas_s", nativeQuery = true)
         Collection<ReservaServicio> darReservasServicio();
     
-        @Query(value = "SELECT * FROM reservas_s WHERE idReserva = :idReserva AND idServicio = :idServicio", nativeQuery = true)
-        ReservaServicio darReservaServicio(@Param("idReserva") int idReserva, @Param("idServicio") int idServicio);
+        @Query(value = "SELECT * FROM reservas_s WHERE idreserva = :idreserva AND idservicio = :idservicio", nativeQuery = true)
+        ReservaServicio darReservaServicio(@Param("idreserva") int idreserva, @Param("idservicio") int idservicio);
     
         @Modifying
         @Transactional
-        @Query(value = "INSERT INTO reservas_s (idReserva, idServicio) VALUES (:idReserva, :idServicio)", nativeQuery = true)
-        void insertarReservaServicio(@Param("idReserva") int idReserva, @Param("idServicio") int idServicio);
+        @Query(value = "INSERT INTO reservas_s (idreserva, idservicio) VALUES (:idreserva, :idservicio)", nativeQuery = true)
+        void insertarReservaServicio(@Param("idreserva") int idreserva, @Param("idservicio") int idservicio);
     
         @Modifying
         @Transactional
-        @Query(value = "DELETE FROM reservas_s WHERE idReserva = :idReserva AND idServicio = :idServicio", nativeQuery = true)
-        void eliminarReservaServicio(@Param("idReserva") int idReserva, @Param("idServicio") int idServicio);
+        @Query(value = "DELETE FROM reservas_s WHERE idreserva = :idreserva AND idservicio = :idservicio", nativeQuery = true)
+        void eliminarReservaServicio(@Param("idreserva") int idreserva, @Param("idservicio") int idservicio);
     
 }

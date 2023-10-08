@@ -14,21 +14,21 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
     @Query(value="SELECT * FROM prestamos", nativeQuery=true) 
     Collection<Prestamo> darPrestamos();
 
-    @Query(value="SELECT * FROM prestamos WHERE id = :id", nativeQuery = true)
-    Prestamo darPrestamo(@Param("id") int id);
+    @Query(value="SELECT * FROM prestamos WHERE idservicio = :idservicio", nativeQuery = true)
+    Prestamo darPrestamo(@Param("idservicio") int idservicio);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO prestamos (id, utensilio, cantidad) VALUES(parranderos_sequence.nextval, :id, :utensilio, :cantidad", nativeQuery=true) 
+    @Query(value="INSERT INTO prestamos (idservicio, utensilio, cantidad) VALUES(parranderos_sequence.nextval, :idservicio, :utensilio, :cantidad", nativeQuery=true) 
     void insertarPrestamo(@Param("utensilio") String utensilio,@Param("cantidad") Integer cantidad);
 
     @Modifying
     @Transactional
     @Query (value ="UPDATE prestamos SET utensilio=:utensilio, cantidad=:cantidad", nativeQuery = true)
-    void actualizarPrestamo(@Param("id") Integer id,@Param("utenislio") String utensilio,@Param("cantidad") Integer cantidad);
+    void actualizarPrestamo(@Param("idservicio") Integer idservicio,@Param("utenislio") String utensilio,@Param("cantidad") Integer cantidad);
 
     @Modifying
     @Transactional
-    @Query (value ="DELETE FROM prestamos WHERE id=:id", nativeQuery=true)
-    void eliminarPrestamo(@Param("id") int id);
+    @Query (value ="DELETE FROM prestamos WHERE idservicio=:idservicio", nativeQuery=true)
+    void eliminarPrestamo(@Param("idservicio") int idservicio);
 }

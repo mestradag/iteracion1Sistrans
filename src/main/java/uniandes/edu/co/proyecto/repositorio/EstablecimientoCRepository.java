@@ -14,21 +14,21 @@ public interface EstablecimientoCRepository extends JpaRepository<Establecimient
     @Query(value="SELECT * FROM establecimientos_c", nativeQuery=true) 
     Collection<EstablecimientoC> darEstablecimientosC();
 
-    @Query(value="SELECT * FROM establecimientos_c WHERE idServicio = :idServicio", nativeQuery = true)
-    EstablecimientoC darEstablecimientoC(@Param("idServicio") Integer idServicio);
+    @Query(value="SELECT * FROM establecimientos_c WHERE idservicio = :idservicio", nativeQuery = true)
+    EstablecimientoC darEstablecimientoC(@Param("idservicio") Integer idservicio);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO establecimientos_c (idServicio, nombre,tipo) VALUES(parranderos_sequence.nextval, :nombre,:tipo", nativeQuery=true) 
+    @Query(value="INSERT INTO establecimientos_c (idservicio, nombre,tipo) VALUES(parranderos_sequence.nextval, :nombre,:tipo", nativeQuery=true) 
     void insertarEstablecimientoC(@Param("nombre") String nombre,@Param("tipo") String tipo);
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE establecimientos_c SET nombre=:nombre,tipo=:tipo WHERE idServicio=:idServicio", nativeQuery = true)
-    void actualizarEstablecimientoC(@Param("idServicio") Integer idServicio,@Param("nombre") String nombre,@Param("tipo") String tipo);
+    @Query (value ="UPDATE establecimientos_c SET nombre=:nombre,tipo=:tipo WHERE idservicio=:idservicio", nativeQuery = true)
+    void actualizarEstablecimientoC(@Param("idservicio") Integer idservicio,@Param("nombre") String nombre,@Param("tipo") String tipo);
 
     @Modifying
     @Transactional
-    @Query (value ="DELETE FROM establecimientos_c WHERE idServicio=:idServicio", nativeQuery=true)
-    void eliminarEstablecimientoC(@Param("idServicio") Integer idServicio);
+    @Query (value ="DELETE FROM establecimientos_c WHERE idservicio=:idservicio", nativeQuery=true)
+    void eliminarEstablecimientoC(@Param("idservicio") Integer idservicio);
 }
