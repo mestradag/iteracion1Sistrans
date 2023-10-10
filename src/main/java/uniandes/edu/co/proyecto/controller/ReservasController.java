@@ -42,7 +42,6 @@ public class ReservasController {
 
     @GetMapping("/reservas")
     public String reservas(Model model) {
-
         model.addAttribute("reservas", reservaRepository.darReservas());
         return "reservas"; 
         
