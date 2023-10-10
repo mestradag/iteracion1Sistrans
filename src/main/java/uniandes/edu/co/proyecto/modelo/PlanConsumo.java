@@ -14,42 +14,42 @@ public class PlanConsumo {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idPlanConsumo;
+    private Integer idplanconsumo;
     private String nombre;
-    private Double descuentoAlojamiento;
-    private Double descuentoBar;
-    private Double descuentoRestaurante;
-    private Double descuentoServicios;
-    private Integer costoFijo;
-    private Date fechaInicial;
-    private Integer duracion;
-    private Double valorFinal;
+    private Double descuentoalojamiento;
+    private Double descuentobar;
+    private Double descuentorestaurante;
+    private Double descuentoservicio;
+    private Integer costofijo;
+    private Date fechainicial;
+    private Integer durancion;
+    private Double valorfinal;
     private Boolean valido;
 
     // Constructor
-    public PlanConsumo(Integer idPlanConsumo, String nombre, Double descuentoAlojamiento, Double descuentoBar, Double descuentoRestaurante, Double descuentoServicios, Integer costoFijo, Date fechaInicial, Integer duracion, Double valorFinal, Boolean valido){
-        this.idPlanConsumo=idPlanConsumo;
+    public PlanConsumo(Integer idplanconsumo, String nombre, Double descuentoalojamiento, Double descuentobar, Double descuentorestaurante, Double descuentoservicio, Integer costofijo, Date fechainicial, Integer durancion, Double valorfinal, Boolean valido){
+        this.idplanconsumo=idplanconsumo;
         this.nombre=nombre;
-        this.descuentoAlojamiento=descuentoAlojamiento;
-        this.descuentoBar=descuentoBar;
-        this.descuentoRestaurante=descuentoRestaurante;
-        this.descuentoServicios=descuentoServicios;
-        this.costoFijo=costoFijo;
-        this.fechaInicial=fechaInicial;
-        this.duracion=duracion;
-        this.valorFinal=valorFinal;
+        this.descuentoalojamiento=descuentoalojamiento;
+        this.descuentobar=descuentobar;
+        this.descuentorestaurante=descuentorestaurante;
+        this.descuentoservicio=descuentoservicio;
+        this.costofijo=costofijo;
+        this.fechainicial=fechainicial;
+        this.durancion=durancion;
+        this.valorfinal=valorfinal;
         this.valido=valido;
     }
 
     public PlanConsumo(){;}
 
     //Getters and Setters
-    public Integer getIdPlanConsumo() {
-        return idPlanConsumo;
+    public Integer getIdplanconsumo() {
+        return idplanconsumo;
     }
 
-    public void setIdPlanConsumo(Integer id) {
-        this.idPlanConsumo = idPlanConsumo;
+    public void setIdplanconsumo(Integer idplanconsumo) {
+        this.idplanconsumo = idplanconsumo;
     }
 
     public String getNombre() {
@@ -60,68 +60,68 @@ public class PlanConsumo {
         this.nombre = nombre;
     }
 
-    public Double getDescuentoAlojamiento() {
-        return descuentoAlojamiento;
+    public Double getDescuentoalojamiento() {
+        return descuentoalojamiento;
     }
 
-    public void setDescuentoAlojamiento(Double descuentoAlojamiento) {
-        this.descuentoAlojamiento = descuentoAlojamiento;
+    public void setDescuentoalojamiento(Double descuentoalojamiento) {
+        this.descuentoalojamiento = descuentoalojamiento;
     }
 
-    public Double getDescuentoBar() {
-        return descuentoBar;
+    public Double getDescuentobar() {
+        return descuentobar;
     }
 
-    public void setDescuentoBar(Double descuentoBar) {
-        this.descuentoBar = descuentoBar;
+    public void setDescuentobar(Double descuentobar) {
+        this.descuentobar = descuentobar;
     }
 
-    public Double getDescuentoRestaurante() {
-        return descuentoRestaurante;
+    public Double getDescuentorestaurante() {
+        return descuentorestaurante;
     }
 
-    public void setDescuentoRestaurante(Double descuentoRestaurante) {
-        this.descuentoRestaurante = descuentoRestaurante;
+    public void setDescuentorestaurante(Double descuentorestaurante) {
+        this.descuentorestaurante = descuentorestaurante;
     }
 
-    public Double getDescuentoServicios() {
-        return descuentoServicios;
+    public Double getDescuentoservicio() {
+        return descuentoservicio;
     }
 
-    public void setDescuentoServicios(Double descuentoServicios) {
-        this.descuentoServicios = descuentoServicios;
+    public void setDescuentoservicio(Double descuentoservicio) {
+        this.descuentoservicio = descuentoservicio;
     }
 
-    public Integer getCostoFijo() {
-        return costoFijo;
+    public Integer getCostofijo() {
+        return costofijo;
     }
 
-    public void setCostoFijo(Integer costoFijo) {
-        this.costoFijo = costoFijo;
+    public void setCostofijo(Integer costofijo) {
+        this.costofijo = costofijo;
     }
 
-    public Date getFechaInicial() {
-        return fechaInicial;
+    public Date getFechainicial() {
+        return fechainicial;
     }
 
-    public void setFechaInicial(Date fechaInicial) {
-        this.fechaInicial = fechaInicial;
+    public void setFechainicial(Date fechainicial) {
+        this.fechainicial = fechainicial;
     }
 
-    public Integer getDuracion() {
-        return duracion;
+    public Integer getDurancion() {
+        return durancion;
     }
 
-    public void setDuracion(Integer duracion) {
-        this.duracion = duracion;
+    public void setDurancion(Integer durancion) {
+        this.durancion = durancion;
     }
 
-    public Double getValorFinal() {
-        return valorFinal;
+    public Double getValorfinal() {
+        return valorfinal;
     }
 
-    public void setValorFinal(Double valorFinal) {
-        this.valorFinal = valorFinal;
+    public void setValorfinal(Double valorfinal) {
+        this.valorfinal = valorfinal;
     }
 
     public Boolean getValido() {
@@ -131,7 +131,5 @@ public class PlanConsumo {
     public void setValido(Boolean valido) {
         this.valido = valido;
     }
-
-    
 
 }

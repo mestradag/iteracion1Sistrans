@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fragmento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+
+<body>
+
+    </br>
+    <div th:fragment="servicioFormN(titulo)" class="container border border-2 w-25">
+        <h1 class="text-center" th:text="${titulo}"></h1>
+    
+    <form>
+        <label class="col-form-label" for="nombre">Nombre:</label>
+        <select class="form-control" id="nombre" name="nombre" required>
+            <option value="Gimnasio" th:selected="${servicio.nombre eq 'Gimnasio'}">Gimnasio</option>
+            <option value="Piscina" th:selected="${servicio.nombre eq 'Piscina'}">Piscina</option>
+            <option value="Establecimiento" th:selected="${servicio.nombre eq 'Establecimiento'}">Establecimiento</option>
+            <option value="EstablecimientoComercial" th:selected="${servicio.nombre eq 'EstablecimientoComercial'}">Establecimiento Comercial</option>
+            <option value="Spa" th:selected="${servicio.nombre eq 'Spa'}">Spa</option>
+            <option value="Salon" th:selected="${servicio.nombre eq 'Salon'}">Salon</option>            
+            <option value="Internet" th:selected="${servicio.nombre eq 'Internet'}">Internet</option>
+            <option value="Lavado" th:selected="${servicio.nombre eq 'Lavado'}">Lavado</option>
+            <option value="Prestamo" th:selected="${servicio.nombre eq 'Prestamo'}">Prestamo</option>
+
+        </select>
+        <label class="col-form-label">Descripcion:</label>
+        <input class="form-control" type="text" id="descripcion" name="descripcion" required th:value="${servicio.descripcion}" />
+
+        <!-- <label class="col-form-label">Nombre plan consumo:</label>
+        <select class="form-control" id="idplanconsumo" name="idplanconsumo" required>
+            <option value="" disabled selected>Seleccione un plan</option>
+            <th:block th:each="planconsumo : ${planes_c}">
+                <option th:value="${planconsumo.idplanconsumo}" th:text="${planconsumo.nombre}"></option>
+            </th:block>
+        </select> -->
+
+        <!-- <label class="col-form-label">Nombre del Hotel:</label>
+        <select class="form-control" id="nombrehotel" name="nombrehotel" required>
+            <option value="" disabled selected>Seleccione un hotel</option>
+            <th:block th:each="hotel : ${hoteles}">
+                <option th:value="${hotel.nombre}" th:text="${hotel.nombre}"></option>
+            </th:block>
+        </select> -->
+
+
+        <br>
+
+        <div class="text-center">
+            <input type="submit" value="Guardar" class="btn btn-primary">
+            <a th:href="@{/servicios}" class="btn btn-primary">Cancelar</a>
+        </div>
+    </form>
+
+</br>
+</div>
+
+</body>
+
+</html>

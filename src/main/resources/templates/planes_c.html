@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes Consumo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/css/jquery.min.js}"></script>
+    <script th:src="@{/css/bootstrap.min.js}"></script>
+    
+</head>
+<body>
+    <div class="text-center">
+        <h1>Lista de Planes Consumo</h1>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>idPlanConsumo</th>
+                    <th>nombre</th>
+                    <th>descuentoAlojamiento</th>
+                    <th>descuentoBar</th>
+                    <th>descuentoRestaurante</th>
+                    <th>descuentoServicios</th>
+                    <th>costoFijo</th>
+                    <th>fechaInicial</th>
+                    <th>duracion</th>
+                    <th>valorFinal</th>
+                    <th>valido</th>
+                </tr>
+            </thead>
+            <th:block th:each="planConsumo:${planes_c}">
+                <tr>
+                    <td th:text="${planConsumo.idplanconsumo}"></td>
+                    <td th:text="${planConsumo.nombre}"></td>
+                    <td th:text="${planConsumo.descuentoalojamiento}"></td>
+                    <td th:text="${planConsumo.descuentobar}"></td>
+                    <td th:text="${planConsumo.descuentorestaurante}"></td>
+                    <td th:text="${planConsumo.descuentoservicio}"></td>
+                    <td th:text="${planConsumo.costofijo}"></td>
+                    <td th:text="${planConsumo.fechainicial}"></td>
+                    <td th:text="${planConsumo.durancion}"></td>
+                    <td th:text="${planConsumo.valorfinal}"></td>
+                    <td th:text="${planConsumo.valido}"></td>
+                    <td>
+                        <a th:href="@{planes_c/{idplanconsumo}/edit(idplanconsumo=${planConsumo.idplanconsumo})}">Editar</a>
+                        <a th:href="@{planes_c/{idplanconsumo}/delete(idplanconsumo=${planConsumo.idplanconsumo})}"
+                            onclick="return confirm('Confirmación de borrar este plan consumo')">Borrar</a>
+                    </td>
+                </tr>
+            </th:block>
+
+        </table>
+    </table>
+    <div>
+        <a th:href='@{planes_c/new}' class="btn btn-primary">Añadir Plan Consumo</a>
+        <a th:href='@{/}' class="btn btn-primary">Atrás</a>
+    </div>
+    <br />
+    </div>
+</body>
+</html>

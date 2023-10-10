@@ -21,18 +21,16 @@ public interface PlanConsumoRepository extends JpaRepository <PlanConsumo, Integ
 
     @Modifying
     @Transactional
-    @Query(value= "INSERT INTO planes_c(idplanconsumo, nombre, descuentoAlojamiento, descuentoBar, descuentoRestaurante, descuentoServicios, costoFijo, fechaInicial, duracion, valorFinal, valido) VALUES (parranderos_sequence.nextval, :nombre, :descuentoAlojamiento, :descuentoBar, :descuentoRestaurante, :descuentoServicios, :costoFijo, :fechaInicial, :duracion, :valorFinal, :valido)", nativeQuery=true)
-    void insertarPlanConsumo(@Param("nombre") String nombre, @Param("descuentoAljamiento") Double descuentoAlojamiento, @Param("descuentoBar") Double descuentoBar, @Param("descuentoRestaurante") Double descuentoRestaurante, @Param("descuentoServicios") Double descuentoServicios, @Param("costoFijo") Integer costoFijo, @Param("fechaInicial") Date fechaInicial, @Param("duracion") Integer duracion, @Param("valorFinal") Double valorFinal, @Param("valido") Boolean valido);
+    @Query(value= "INSERT INTO planes_c(idplanconsumo, nombre, descuentoalojamiento, descuentobar, descuentorestaurante, descuentoservicio, costofijo, fechainicial, durancion, valorfinal, valido) VALUES (parranderos_sequence.nextval, :nombre, :descuentoalojamiento, :descuentobar, :descuentorestaurante, :descuentoservicio, :costofijo, :fechainicial, :durancion, :valorfinal, :valido)", nativeQuery=true)
+    void insertarPlanConsumo(@Param("nombre") String nombre, @Param("descuentoalojamiento") Double descuentoalojamiento, @Param("descuentobar") Double descuentobar, @Param("descuentorestaurante") Double descuentorestaurante, @Param("descuentoservicio") Double descuentoservicio, @Param("costofijo") Integer costofijo, @Param("fechainicial") Date fechainicial, @Param("durancion") Integer durancion, @Param("valorfinal") Double valorfinal, @Param("valido") Boolean valido);
 
     @Modifying
     @Transactional
-    @Query(value ="UPDATE planes_c SET nombre= :nombre, descuentoAlojamiento= :descuentoAlojamiento, descuentoBar= :descuentoBar, descuentoRestaurante= :descuentoRestaurante, descuentoServicios= :descuentoServicios, costoFijo= :costoFijo, fechaInicial= :fechaInicial, duracion= :duracion, valorFinal= :valorFinal, valido= :valido WHERE idplanconsumo = :idplanconsumo", nativeQuery = true)
-    void actualizarPlanConsumo(@Param("idplanconsumo") Integer idplanconsumo, @Param("nombre") String nombre, @Param("descuentoAljamiento") Double descuentoAlojamiento, @Param("descuentoBar") Double descuentoBar, @Param("descuentoRestaurante") Double descuentoRestaurante, @Param("descuentoServicios") Double descuentoServicios, @Param("costoFijo") Integer costoFijo, @Param("fechaInicial") Date fechaInicial, @Param("duracion") Integer duracion, @Param("valorFinal") Double valorFinal, @Param("valido") Boolean valido);
+    @Query(value ="UPDATE planes_c SET nombre= :nombre, descuentoalojamiento= :descuentoalojamiento, descuentobar= :descuentobar, descuentorestaurante= :descuentorestaurante, descuentoservicio= :descuentoservicio, costofijo= :costofijo, fechainicial= :fechainicial, durancion= :durancion, valorfinal= :valorfinal, valido= :valido WHERE idplanconsumo = :idplanconsumo", nativeQuery = true)
+    void actualizarPlanConsumo(@Param("idplanconsumo") Integer idplanconsumo, @Param("nombre") String nombre, @Param("descuentoalojamiento") Double descuentoalojamiento, @Param("descuentobar") Double descuentobar, @Param("descuentorestaurante") Double descuentorestaurante, @Param("descuentoservicio") Double descuentoservicio, @Param("costofijo") Integer costofijo, @Param("fechainicial") Date fechainicial, @Param("durancion") Integer durancion, @Param("valorfinal") Double valorfinal, @Param("valido") Boolean valido);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM planes_c WHERE idplanconsumo= :idplanconsumo", nativeQuery = true)
     void eliminarPlanConsumo(@Param("idplanconsumo") Integer idplanconsumo);
 }
-    
-

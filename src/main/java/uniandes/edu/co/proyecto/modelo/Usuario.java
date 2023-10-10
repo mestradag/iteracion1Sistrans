@@ -14,33 +14,34 @@ public class Usuario {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idUsuario;
+    private Integer idusuario;
+    
     private String nombre;
     private String correo;
-    private TipoUsuario rol;
+    private String rol;
 
     @ManyToOne
-    @JoinColumn(name = "nombreHotel", referencedColumnName = "nombre")
-    private Hotel nombreHotel;
-
-    // Constructor
-    public Usuario(Integer id, String nombre, String correo, TipoUsuario rol, Hotel nombreHotel){
-        this.idUsuario=id;
-        this.nombre=nombre;
-        this.correo=correo;
-        this.rol=rol;
-        this.nombreHotel=nombreHotel; 
-    }
+    @JoinColumn(name = "nombrehotel", referencedColumnName = "nombre")
+    private Hotel nombrehotel;
 
     public Usuario(){;}
-
-    //Getters and Setters
-    public Integer getIdUsuario() {
-        return idUsuario;
+    // Constructor
+    public Usuario(String nombre, String correo, String rol, Hotel nombrehotel){
+        this.nombre=nombre;
+        this.correo=correo; 
+        this.rol=rol;
+        this.nombrehotel=nombrehotel; 
     }
 
-    public void setId(Integer id) {
-        this.idUsuario = id;
+    
+
+    //Getters and Setters
+    public Integer getIdusuario() {
+        return idusuario;
+    }
+
+    public void setIdusuario(Integer idusuario) {
+        this.idusuario=idusuario;
     }
 
     public String getNombre() {
@@ -59,22 +60,33 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public TipoUsuario getRol() {
+    public String getRol() {
         return rol;
     }
 
-    public void setRol(TipoUsuario rol) {
+    public void setRol(String rol) {
         this.rol = rol;
     }
 
-    public Hotel getNombreHotel() {
-        return nombreHotel;
+    public Hotel getNombrehotel() {
+        return nombrehotel;
     }
 
-    public void setNombreHotel(Hotel nombreHotel) {
-        this.nombreHotel = nombreHotel;
+    public void setNombrehotel(Hotel nombrehotel) {
+        this.nombrehotel = nombrehotel;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "idusuario=" + idusuario +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", rol=" + rol +
+                ", nombrehotel=" + nombrehotel.getNombre() +
+                '}';
+    }
 
     
 }
+

@@ -23,6 +23,7 @@ public class HotelesController {
     public String hoteles(Model model) {
 
         model.addAttribute("hoteles", hotelRepository.darHoteles());
+        //return model.toString();
         return "hoteles"; 
         
     }

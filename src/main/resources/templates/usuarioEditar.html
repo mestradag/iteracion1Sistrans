@@ -7,8 +7,9 @@
 </head>
 <body>
 </br>
-<form th:action="@{'/usuarios/' + ${idUsuario} + '/edit/save'}" th:object="${usuario}" method="post">
-    <div th:replace="~{fragments/usuarioForm :: usuarioForm(titulo='Editar usuario usuario=${usuario})}">
+<form th:action="@{'/usuarios/' + ${idusuario} + '/edit/save'}" th:object="${usuario}" method="post">
+    <div th:replace="~{fragments/usuarioForm :: usuarioForm(titulo='Editar usuario', usuario=${usuario})}
+    ">
     </div>
 </form>
 

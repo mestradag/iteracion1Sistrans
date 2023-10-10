@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habitaciones</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/css/jquery.min.js}"></script>
+    <script th:src="@{/css/bootstrap.min.js}"></script>
 </head>
 <body>
     <div class="text-center">
@@ -17,21 +20,19 @@
                     <th>tipo</th>
                     <th>dotacion</th>
                     <th>precioNoche</th>
-                    <th>nombreHotel</th>
                 </tr>
             </thead>
-            <th:block th:each="habitacion:${Habitaciones}">
+            <th:block th:each="habitacion:${habitaciones}">
                 <tr>
-                    <td th:text="${habitacion.idHabitacion}"></td>
+                    <td th:text="${habitacion.idhabitacion}"></td>
                     <td th:text="${habitacion.capacidad}"></td>
                     <td th:text="${habitacion.disponible}"></td>
                     <td th:text="${habitacion.tipo}"></td>
                     <td th:text="${habitacion.dotacion}"></td>
-                    <td th:text="${habitacion.precioNoche}"></td>
-                    <td th:text="${habitacion.nombreHotel}"></td>
+                    <td th:text="${habitacion.precionoche}"></td>
                     <td>
-                        <a th:href="@{habitaciones/{idHabitacion}/edit(idHabitacion=${habitacion.idHabitacion})}">Editar</a>
-                        <a th:href="@{habitaciones/{idHabitacion}/delete(idabitacion=${habitacion.idHabitacion})}"
+                        <a th:href="@{habitaciones/{idhabitacion}/edit(idhabitacion=${habitacion.idhabitacion})}">Editar</a>
+                        <a th:href="@{habitaciones/{idhabitacion}/delete(idhabitacion=${habitacion.idhabitacion})}"
                             onclick="return confirm('Confirmación de borrar esta habitacion')">Borrar</a>
                     </td>
                 </tr>
@@ -40,7 +41,7 @@
         </table>
     </table>
     <div>
-        <a th:href='@{cuentas_c/new}' class="btn btn-primary">Añadir Cuenta Consumo</a>
+        <a th:href='@{habitaciones/new}' class="btn btn-primary">Añadir Habitacion</a>
         <a th:href='@{/}' class="btn btn-primary">Atrás</a>
     </div>
     <br />

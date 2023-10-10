@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/css/jquery.min.js}"></script>
+    <script th:src="@{/css/bootstrap.min.js}"></script>
 </head>
 <body>
     <div class="text-center">
@@ -16,24 +19,19 @@
                     <th>fechaFin</th>
                     <th>duracion</th>
                     <th>numAcompanantes</th>
-                    <th>idUsuario</th>
-                    <th>idHabitacion</th>
-                    <th>idPlanConsumo</th>
+
                 </tr>
             </thead>
             <th:block th:each="reserva:${reservas}">
                 <tr>
-                    <td th:text="${reserva.idReserva}"></td>
-                    <td th:text="${reserva.fechaInicio}"></td>
-                    <td th:text="${reserva.fechaFin}"></td>
+                    <td th:text="${reserva.idreserva}"></td>
+                    <td th:text="${reserva.fechainicio}"></td>
+                    <td th:text="${reserva.fechafin}"></td>
                     <td th:text="${reserva.duracion}"></td>
-                    <td th:text="${reserva.numAcompanantes}"></td>
-                    <td th:text="${reserva.idUsuario}"></td>
-                    <td th:text="${reserva.idHabitacion}"></td>
-                    <td th:text="${reserva.idPlanConsumo}"></td>
+                    <td th:text="${reserva.numacompanantes}"></td>
                     <td>
-                        <a th:href="@{reservas/{idReserva}/edit(idReserva=${reserva.idReserva})}">Editar</a>
-                        <a th:href="@{reservas/{idReserva}/delete(idReserva=${reserva.idReserva})}"
+                        <a th:href="@{reservas/{idreserva}/edit(idreserva=${reserva.idreserva})}">Editar</a>
+                        <a th:href="@{reservas/{idreserva}/delete(idreserva=${reserva.idreserva})}"
                             onclick="return confirm('Confirmación de borrar esta reserva')">Borrar</a>
                     </td>
                 </tr>

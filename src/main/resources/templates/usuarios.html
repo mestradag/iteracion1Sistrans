@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/css/jquery.min.js}"></script>
+    <script th:src="@{/css/bootstrap.min.js}"></script>
 </head>
 <body>
     <div class="text-center">
-        <h1>Lista de Bares</h1>
+        <h1>Lista de Usuarios</h1>
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -15,19 +18,17 @@
                     <th>Nombre</th>
                     <th>Correo</th>
                     <th>Rol</th>
-                    <th>nombreHotel</th>
                 </tr>
             </thead>
             <th:block th:each="usuario:${usuarios}">
                 <tr>
-                    <td th:text="${usuario.idUsuario}"></td>
+                    <td th:text="${usuario.idusuario}"></td>
                     <td th:text="${usuario.nombre}"></td>
                     <td th:text="${usuario.correo}"></td>
                     <td th:text="${usuario.rol}"></td>
-                    <td th:text="${usuario.nombreHotel}"></td>
                     <td>
-                        <a th:href="@{usuarios/{idUsuario}/edit(idUsario=${usuario.idUsuario})}">Editar</a>
-                        <a th:href="@{usuarios/{idUsuario}/delete(idUsuario=${usuario.idUsario})}"
+                        <a th:href="@{usuarios/{idusuario}/edit(idusuario=${usuario.idusuario})}">Editar</a>
+                        <a th:href="@{usuarios/{idusuario}/delete(idusuario=${usuario.idusuario})}"
                             onclick="return confirm('Confirmación de borrar este usuario')">Borrar</a>
                     </td>
                 </tr>

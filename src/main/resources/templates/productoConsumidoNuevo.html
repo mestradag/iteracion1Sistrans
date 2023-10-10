@@ -13,17 +13,17 @@
 
     <form th:action="@{/productoConsumido/new/save}" method="post">
 
-        <label class="col-form-label" for="idCuentaConsumo">Cuenta Consumo:</label>
-        <select class="form-control" id="idCuentaConsumo" name="idCuentaConsumo" required>
+        <label class="col-form-label" for="idcuenta">Cuenta Consumo:</label>
+        <select class="form-control" id="idcuenta" name="idcuenta" required>
             <th:block th:each="cuentaConsumo : ${cuentas_c}">
-                <option th:value="${cuentaConsumo.idCuentaConsumo}"></option>
+                <option th:value="${cuentaConsumo.idcuenta}"></option>
             </th:block>
         </select><br>
 
-        <label class="col-form-label" for="idProducto">Producto:</label>
-        <select class="form-control"  id="idProducto" name="idProducto" required>
+        <label class="col-form-label" for="idproducto">Producto:</label>
+        <select class="form-control"  id="idproducto" name="idproducto" required>
             <th:block th:each="producto : ${productos}">
-                <option th:value="${producto.idProducto}"></option>
+                <option th:value="${producto.idproducto}"></option>
             </th:block>
         </select><br>
 

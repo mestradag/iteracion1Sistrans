@@ -20,17 +20,14 @@
         <input class="form-control" type="text" id="ciudad" name="correo" required th:value="${usuario.correo}" />
         <label class="col-form-label" for="rol">Rol:</label>
         <select class="form-control" id="rol" name="rol" required>
-            <option value="Cliente" th:selected="${usuario.rol eq 'Cliente'}">Cliente</option>
-            <option value="Gerente" th:selected="${usuario.rol eq 'Gerente'}">Gerente</option>
-            <option value="Administrador" th:selected="${usuario.rol eq 'Administrador'}">Administrador</option>
-            <option value="Empleado" th:selected="${usuario.rol eq 'Empleado'}">Empleado</option>
-            <option value="Recepcionista" th:selected="${usuario.rol eq 'Recepcionista'}">Recepcionista</option>
-            <option value="Acompanante" th:selected="${usuario.rol eq 'Acompanante'}">Acompañante</option>
+            <option value="cliente" th:selected="${usuario.rol eq 'cliente'}">Cliente</option>
+            <option value="gerente" th:selected="${usuario.rol eq 'gerente'}">Gerente</option>
+            <option value="administrador" th:selected="${usuario.rol eq 'administrador'}">Administrador</option>
+            <option value="empleado" th:selected="${usuario.rol eq 'empleado'}">Empleado</option>
+            <option value="recepcionista" th:selected="${usuario.rol eq 'recepcionista'}">Recepcionista</option>
+            <option value="acompanante" th:selected="${usuario.rol eq 'acompanante'}">Acompañante</option>
         </select>
         
-        <!-- La FK de nombreHotel-->
-        <label class="col-form-label">Nombre Hotel:</label>
-        <input class="form-control" type="text" id="nombreHotel" name="nombreHotel" required th:value="${hotel.nombre}">
         <br>
 
         <div class="text-center">

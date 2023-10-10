@@ -5,34 +5,35 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;   
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
+
 @Entity
 @Table(name="productos")
 public class Producto {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idProducto;
+    private Integer idproducto;
     private Integer precio;
 
-    public Producto(Integer idProducto, Integer precio) {
-        this.idProducto = idProducto;
+    public Producto(Integer idproducto, Integer precio) {
+        this.idproducto = idproducto;
         this.precio = precio;
     }
     public Producto()
     {;}
 
-    // Getter for idProducto
-    public Integer getIdProducto() {
-        return idProducto;
+    // Getter for idproducto
+    public Integer getIdproducto() {
+        return idproducto;
     }
 
-    // Setter for idProducto
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
+    // Setter for idproducto
+    public void setIdproducto(Integer idproducto) {
+        this.idproducto = idproducto;
     }
 
     // Getter for precio
-    public Integer getPrecio() {
+    public Integer getPrecio() {    
         return precio;
     }
 
@@ -43,7 +44,3 @@ public class Producto {
 
     
 }
-
-
-
-

@@ -10,25 +10,22 @@
 <body>
 
     </br>
-    <div th:fragment="cuentaConsumoForm(titulo)" class="container border border-2 w-25">
+    <div th:fragment="cuentaconsumoForm(titulo)" class="container border border-2 w-25">
         <h1 class="text-center" th:text="${titulo}"></h1>
     
     <form>
+       
+        <label class="col-form-label">Check In (YYYY-MM-DD HH:MM:SS.0):</label>
+        <input class="form-control" type="text" id="checkin" data-date-format="YYYY-MM-DD HH:MM:SS.0" name="checkin" required th:value="${cuentaconsumo.checkin}" />
+        <label class="col-form-label">Check Out (YYYY-MM-DD HH:MM:SS.0):</label>
+        <input class="form-control" type="text" id="checkout" data-date-format="YYYY-MM-DD HH:MM:SS.0" name="checkout" required th:value="${cuentaconsumo.checkout}" />
+        
         <label class="col-form-label" for="estado">Estado:</label>
         <select class="form-control" id="estado" name="estado" required>
-            <option value="True" th:selected="${cuentaConsumo.estado eq 'True'}">True</option>
-            <option value="False" th:selected="${cuentaConsumo.estado eq 'False'}">False</option>
+            <option value="true" th:selected="${cuentaconsumo.estado}">True</option>
+            <option value="false" th:selected="${cuentaconsumo.estado}">False</option>
         </select>
-        <label class="col-form-label">Check In:</label>
-        <input class="form-control" type="date" id="checkin" name="checkin" required th:value="${cuentaConsumo.checkin}" />
-        <label class="col-form-label">Check Out:</label>
-        <input class="form-control" type="date" id="checkout" name="checkout" required th:value="${cuentaConsumo.checkout}" />
-        
-        <!-- La FK de idHabitacion, idReserva-->
-        <label class="col-form-label">ID Reserva:</label>
-        <input class="form-control" type="number" id="idReserva" name="idReserva" required th:value="${reserva.idReserva}">
-        <label class="col-form-label">ID Habitación:</label>
-        <input class="form-control" type="number" id="idHabitacion" name="idHabitacion" required th:value="${habitacion.idHabitacion}">
+       
         <br>
 
         <div class="text-center">

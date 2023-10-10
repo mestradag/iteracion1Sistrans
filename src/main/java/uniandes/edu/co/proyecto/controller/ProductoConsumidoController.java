@@ -36,16 +36,16 @@ public class ProductoConsumidoController {
     }
 
     @PostMapping("/productosConsumidos/new/save")
-    public String productoConsumidoGuardar(@ModelAttribute("idProducto") int idProducto,
-            @ModelAttribute("idCuenta") int idCuenta) {
+    public String productoConsumidoGuardar(@ModelAttribute("idproducto") int idproducto,
+            @ModelAttribute("idcuenta") int idcuenta) {
 
-        Producto producto = productoRepository.darProductoPorId(idProducto);
-        CuentaConsumo cuentaConsumo = cuentaConsumoRepository.darCuentaConsumo(idCuenta);
+        Producto producto = productoRepository.darProductoPorId(idproducto);
+        CuentaConsumo cuentaConsumo = cuentaConsumoRepository.darCuentaConsumo(idcuenta);
         ProductoConsumidoPK pk = new ProductoConsumidoPK(cuentaConsumo, producto);
         ProductoConsumido productoConsumido = new ProductoConsumido();
         productoConsumido.setId(pk);
-        productoConsumidoRepository.insertarProductoConsumido(productoConsumido.getId().getIdProducto().getIdProducto(),
-                productoConsumido.getId().getIdCuenta().getIdCuenta());
+        productoConsumidoRepository.insertarProductoConsumido(productoConsumido.getId().getIdProducto().getIdproducto(),
+                productoConsumido.getId().getIdCuenta());
         return "redirect:/productosConsumidos";
     }    
 }

@@ -2,17 +2,12 @@ package uniandes.edu.co.proyecto;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
 import uniandes.edu.co.proyecto.modelo.Hotel;
-import uniandes.edu.co.proyecto.modelo.Internet;
-import uniandes.edu.co.proyecto.modelo.Servicio;
-import uniandes.edu.co.proyecto.repositorio.CuentaConsumoRepository;
+import uniandes.edu.co.proyecto.modelo.PlanConsumo;
+import uniandes.edu.co.proyecto.modelo.Reserva;
 import uniandes.edu.co.proyecto.repositorio.HotelRepository;
-import uniandes.edu.co.proyecto.repositorio.InternetRepository;
-import uniandes.edu.co.proyecto.repositorio.ServicioRepository;
-
-
-
+import uniandes.edu.co.proyecto.repositorio.PlanConsumoRepository;
+import uniandes.edu.co.proyecto.repositorio.ReservaRepository;
 
 import java.util.Collection;
 
@@ -21,23 +16,37 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 
 @SpringBootApplication
-public class ProyectoApplication implements CommandLineRunner{
+public class ProyectoApplication{
+	//implements CommandLineRunner
 
+	/* 
 	@Autowired
-	private HotelRepository hotelRepository;
+	private HotelRepository hotelRepository;*/
+
+	/* 
+	@Autowired
+	private PlanConsumoRepository planConsumoRepository;
+	*/
+
+	/*
+	@Autowired
+	private ReservaRepository reservaRepository;
+	*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoApplication.class, args);
 	}
 
+	/*
 	@Override
 	public void run(String... args) throws Exception {
-		Collection<Hotel> hoteles = hotelRepository.darHoteles();
-		for (Hotel h: hoteles) 
+		Collection<Reserva> reservas = reservaRepository.darReservas();
+		for (Reserva h: reservas) 
 		{
 			System.out.println(h);
 		}
 	}
+	*/
 }
 
 

@@ -4,99 +4,79 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
-import jakarta.persistence.InheritanceType;
 
-
-@MappedSuperclass
+@Entity
 @Table(name="servicios")
 public class Servicio {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idServicio;
+    private Integer idservicio;
 
-    private Integer costoTotal;
-    private Integer capacidad;
+    private String nombre;
+    private String descripcion;
     
     @ManyToOne
-    @JoinColumn(name="cuentas_C",referencedColumnName = "idCuenta")
-    private CuentaConsumo cuentaC;
+    @JoinColumn(name="idplanconsumo",referencedColumnName = "idplanconsumo")
+    private PlanConsumo idplanconsumo;
 
     @ManyToOne
-    @JoinColumn(name="planes_c",referencedColumnName = "idPlanConsumo")
-    private PlanConsumo planC;
-
-    @ManyToOne
-    @JoinColumn(name="id_hotel",referencedColumnName = "nombre")
-    private Hotel hotel;
+    @JoinColumn(name="nombrehotel",referencedColumnName = "nombre")
+    private Hotel nombrehotel;
 
     public Servicio(){
     ;
     }
     
-    public Servicio(Integer costoTotal, Integer capacidad, CuentaConsumo cuentaC ,PlanConsumo planC,Hotel hotel ){
-        
-        this.costoTotal=costoTotal;
-        this.capacidad=capacidad;
-        this.cuentaC=cuentaC;
-        this.planC=planC;
-        this.hotel=hotel;
-
+    public Servicio(String nombre, String descripcion,PlanConsumo idplanconsumo,Hotel nombrehotel ){
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.idplanconsumo=idplanconsumo;
+        this.nombrehotel=nombrehotel;
     }
 
-    public Integer getId() {
-        return idServicio;
+    public Integer getIdservicio() {
+        return idservicio;
     }
 
-    public void setId(Integer idServicio) {
-        this.idServicio = idServicio;
+    public void setIdservicio(Integer idservicio) {
+        this.idservicio = idservicio;
     }
 
-    public Integer getCostoTotal() {
-        return costoTotal;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCostoTotal(Integer costoTotal) {
-        this.costoTotal = costoTotal;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public Integer getCapacidad() {
-        return capacidad;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCapacidad(Integer capacidad) {
-        this.capacidad = capacidad;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public CuentaConsumo getCuentaC() {
-        return cuentaC;
+    public  PlanConsumo getIdplanconsumo() {
+        return idplanconsumo;
     }
 
-    public void setCuentaC(CuentaConsumo cuentaC) {
-        this.cuentaC = cuentaC;
+    public  void setIdplanconsumo(PlanConsumo idplanconsumo) {
+        this.idplanconsumo = idplanconsumo;
     }
 
-    public PlanConsumo getPlanC() {
-        return planC;
+    public  Hotel getNombrehotel() {
+        return nombrehotel;
     }
 
-    public void setPlanC(PlanConsumo planC) {
-        this.planC = planC;
-    }
-
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
+    public void setNombrehotel(Hotel nombrehotel) {
+        this.nombrehotel = nombrehotel;
     }
 
     
-
 }

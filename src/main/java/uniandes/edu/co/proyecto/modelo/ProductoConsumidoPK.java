@@ -9,33 +9,37 @@ import jakarta.persistence.ManyToOne;
 @Embeddable
 public class ProductoConsumidoPK implements Serializable{
     @ManyToOne
-    @JoinColumn(name="idCuenta", referencedColumnName="idCuenta")
-    private CuentaConsumo idCuenta;
+    @JoinColumn(name="idcuenta", referencedColumnName="idcuenta")
+    private CuentaConsumo idcuenta;
 
     @ManyToOne
-    @JoinColumn(name="idProducto", referencedColumnName="idProducto")
-    private Producto idProducto;
+    @JoinColumn(name="idproducto", referencedColumnName="idproducto")
+    private Producto idproducto;
 
-    public ProductoConsumidoPK(CuentaConsumo idCuenta, Producto idProducto) {
+    public ProductoConsumidoPK() {
         super();
-        this.idCuenta = idCuenta;
-        this.idProducto = idProducto;
+    }
+
+    public ProductoConsumidoPK(CuentaConsumo idcuenta, Producto idproducto) {
+        super();
+        this.idcuenta = idcuenta;
+        this.idproducto = idproducto;
     }
 
     public CuentaConsumo getIdCuenta() {
-        return idCuenta;
+        return idcuenta;
     }
 
     public Producto getIdProducto() {
-        return idProducto;
+        return idproducto;
     }
 
-    public void setIdCuenta(CuentaConsumo idCuenta) {
-        this.idCuenta = idCuenta;
+    public void setIdCuenta(CuentaConsumo idcuenta) {
+        this.idcuenta = idcuenta;
     }
 
-    public void setIdProducto(Producto idProducto) {
-        this.idProducto = idProducto;
+    public void setIdProducto(Producto idproducto) {
+        this.idproducto = idproducto;
     }
 
     

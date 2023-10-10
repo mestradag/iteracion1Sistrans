@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Cuenta Consumo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+<body>
+    </br>
+    <form th:action="@{/cuentas_c/new/save}" method="post">
+    <div th:replace="~{fragments/cuentaconsumoForm:: cuentaconsumoForm(titulo='Crear cuenta consumo')}">
+    </div>
+    </form>
+</body>
+</html>

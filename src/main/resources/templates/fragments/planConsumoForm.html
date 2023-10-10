@@ -16,29 +16,32 @@
     <form>
         <label class="col-form-label">Nombre:</label>
         <input class="form-control" type="text" id="nombre" name="nombre" required th:value="${planConsumo.nombre}" />
-        <label for="descuentoAlojamiento" class="col-form-label">Descuento Alojamiento:</label>
-        <input class="form-control" type="number" id="descuentoAlojamiento" name="descuentoAlojamiento" required
-            th:value=${planConsumo.descuentoAlojamiento}>
-        <label for="descuentoBar" class="col-form-label">Descuento Bar:</label>
-        <input class="form-control" type="number" id="descuentoBar" name="descuentoBar" required
-            th:value=${planConsumo.descuentoBar}>
-        <label for="descuentoRestaurante" class="col-form-label">Descuento Restaurante:</label>
-        <input class="form-control" type="number" id="descuentoRestaurante" name="descuentoRestaurante" required
-            th:value=${planConsumo.descuentoRestaurante}>
-        <label for="descuentoServicios" class="col-form-label">Descuento Servicios:</label>
-        <input class="form-control" type="number" id="descuentoServicios" name="descuentoServicios" required
-            th:value=${planConsumo.descuentoServicios}>
+        <label for="descuentoalojamiento" class="col-form-label">Descuento Alojamiento:</label>
+        <input class="form-control" type="number" id="descuentoalojamiento" name="descuentoalojamiento" required
+            th:value=${planConsumo.descuentoalojamiento}>
+        <label for="descuentobar" class="col-form-label">Descuento Bar:</label>
+        <input class="form-control" type="number" id="descuentobar" name="descuentobar" required
+            th:value=${planConsumo.descuentobar}>
+        <label for="descuentorestaurante" class="col-form-label">Descuento Restaurante:</label>
+        <input class="form-control" type="number" id="descuentorestaurante" name="descuentorestaurante" required
+            th:value=${planConsumo.descuentorestaurante}>
+        <label for="descuentoservicio" class="col-form-label">Descuento Servicios:</label>
+        <input class="form-control" type="number" id="descuentoservicio" name="descuentoservicio" required
+            th:value=${planConsumo.descuentoservicio}>
+        
         <label for="costoFijo" class="col-form-label">Costo Fijo:</label>
-        <input class="form-control" type="number" id="costoFijo" name="costoFijo" required
-            th:value=${planConsumo.costoFijo}>
+        <input class="form-control" type="number" id="costofijo" name="costofijo" required
+            th:value=${planConsumo.costofijo}>
+
         <label class="col-form-label">Fecha Inicial:</label>
-        <input class="form-control" type="date" id="fechaInicial" name="fechaInicial" required th:value="${planConsumo.fechaInicial}" />
-        <label for="duracion" class="col-form-label">Duracion:</label>
-        <input class="form-control" type="number" id="duarcion" name="duracion" required
-            th:value=${planConsumo.duracion}>
-        <label for="valorFinal" class="col-form-label">valor Final:</label>
-        <input class="form-control" type="number" id="valorFinal" name="valorFinal" required
-            th:value=${planConsumo.valorFinal}>
+        <input class="form-control" type="date" id="fechainicial" name="fechainicial" required th:value="${planConsumo.fechainicial}" />
+        
+        <label for="durancion" class="col-form-label">Duracion:</label>
+        <input class="form-control" type="number" id="durancion" name="durancion" required
+            th:value=${planConsumo.durancion}>
+        <label for="valorfinal" class="col-form-label">valor Final:</label>
+        <input class="form-control" type="number" id="valorfinal" name="valorfinal" required
+            th:value=${planConsumo.valorfinal}>
         <label class="col-form-label" for="valido">Valido:</label>
         <select class="form-control" id="valido" name="valido" required>
             <option value="True" th:selected="${planConsumo.valido eq 'True'}">True</option>

@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
 import uniandes.edu.co.proyecto.modelo.Habitacion;
 import uniandes.edu.co.proyecto.modelo.PlanConsumo;
 import uniandes.edu.co.proyecto.modelo.Reserva;
@@ -24,14 +25,14 @@ public interface ReservaRepository extends JpaRepository <Reserva, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value= "INSERT INTO reservas(idreserva, fechaInicio, fechaFin, duracion, numAcompanantes, idhabitacion, idusuario, idplanconsumo) VALUES (parranderos_sequence.nextval, :fechaInicio, :fechaFin, :duracion, :numAcompanantes, :idhabitacion, :idusuario, idplanconsumo)", nativeQuery=true)
-    void insertarReserva(@Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin, @Param("duracion") Integer duracion, @Param("numAcompanantes") Integer numAcompanantes, @Param("idhabitacion") Habitacion idhabitacion, @Param("idusuario") Usuario idusuario, @Param("idplanconsumo") PlanConsumo idplanconsumo);
+    @Query(value= "INSERT INTO reservas(idreserva, fechainicio, fechafin, duracion, numacompanantes, idhabitacion, idusuario, idplanconsumo, idcuenta) VALUES (parranderos_sequence.nextval, :fechainicio, :fechafin, :duracion, :numacompanantes, :idhabitacion, :idusuario, :idplanconsumo, :idcuenta)", nativeQuery=true)
+    void insertarReserva(@Param("fechainicio") Date fechainicio, @Param("fechafin") Date fechafin, @Param("duracion") Integer duracion, @Param("numacompanantes") Integer numacompanantes, @Param("idhabitacion") Integer idhabitacion, @Param("idusuario") Integer idusuario, @Param("idplanconsumo") Integer idplanconsumo, @Param("idcuenta") Integer idcuenta);
 
 
     @Modifying
     @Transactional
-    @Query(value ="UPDATE reservas SET fechaInicio= :fechaInicio, fechaFin= :fechaFin, duracion= :duracion, numAcompanantes= :numAcompanantes, idhabitacion= :idhabitacion, idusuario= :idusuario idplanconsumo= :idplanconsumo WHERE idreserva = :idreserva", nativeQuery = true)
-    void actualizarReserva(@Param("idreserva") Integer idreserva, @Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin, @Param("duracion") Integer duracion, @Param("numAcompanantes") Integer numAcompanantes, @Param("idhabitacion") Habitacion idhabitacion, @Param("idusuario") Usuario idusuario, @Param("idplanconsumo") PlanConsumo idplanconsumo);
+    @Query(value ="UPDATE reservas SET fechainicio= :fechainicio, fechafin= :fechafin, duracion= :duracion, numacompanantes= :numacompanantes WHERE idreserva = :idreserva", nativeQuery = true)
+    void actualizarReserva(@Param("idreserva") Integer idreserva, @Param("fechainicio") Date fechainicio, @Param("fechafin") Date fechafin, @Param("duracion") Integer duracion, @Param("numacompanantes") Integer numacompanantes);
 
     @Modifying
     @Transactional

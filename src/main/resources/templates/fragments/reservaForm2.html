@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fragmento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+
+<body>
+
+    </br>
+    <div th:fragment="reservaForm2(titulo)" class="container border border-2 w-25">
+        <h1 class="text-center" th:text="${titulo}"></h1>
+    
+    <form th:action="@{/reservas/new/save}" method="post">
+        <label class="col-form-label">Fecha Inicio:</label>
+        <input class="form-control" type="date" data-date-format="YYYY-MM-DD" id="fechainicio" name="fechainicio" required th:value="${reserva.fechainicio}" />
+        <label class="col-form-label">Fecha Fin:</label>
+        <input class="form-control" type="date" data-date-format="YYYY-MM-DD" id="fechafin" name="fechafin" required th:value="${reserva.fechafin}" />
+        <label for="duracion" class="col-form-label">Duracion:</label>
+        <input class="form-control" type="number" id="duracion" name="duracion" required
+            th:value=${reserva.duracion}>
+        <label for="numacompanantes" class="col-form-label">Numero Acompañantes:</label>
+        <input class="form-control" type="number" id="numacompanantes" name="numacompanantes" required
+            th:value=${reserva.numacompanantes}>
+
+        <br>
+        <div class="text-center">
+            <input type="submit" value="Guardar" class="btn btn-primary">
+            <a th:href="@{/reservas}" class="btn btn-primary">Cancelar</a>
+        </div>
+    </form>
+
+    </br>
+</div>
+</body>
+
+</html>

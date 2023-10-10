@@ -21,13 +21,13 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO habitaciones (idhabitacion, capacidad, disponible, tipo, dotacion, precioNoche,nombreHotel,idusuario,idplanconsumo) VALUES (parranderos_sequence.nextval, :cantidad, :disponible, :tipo, :dotacion, :precioNoche, :nombrehotel, :idusuario, :idplanconsumo)", nativeQuery = true)
-    void insertarHabitacion(@Param("capacidad") int capacidad, @Param("disponible") Boolean disponible, @Param("tipo") String tipo, @Param("dotacion") String dotacion, @Param("precioNoche") int precioNoche, @Param("nombreHotel") String nombreHotel, @Param("idusuario") int idusuario, @Param("idplanconsumo") int idplanconsumo);
+    @Query(value = "INSERT INTO habitaciones (idhabitacion, capacidad, disponible, tipo, dotacion, precionoche,nombrehotel) VALUES (parranderos_sequence.nextval, :capacidad, :disponible, :tipo, :dotacion, :precionoche, :nombrehotel)", nativeQuery = true)
+    void insertarHabitacion(@Param("capacidad") int capacidad, @Param("disponible") Boolean disponible, @Param("tipo") String tipo, @Param("dotacion") String dotacion, @Param("precionoche") int precionoche, @Param("nombrehotel") String nombrehotel);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE habitaciones SET capacidad = :capacidad, disponible = :disponible, tipo = :tipo, dotacion = :dotacion, precioNoche = :precioNoche, nombreHotel = :nombreHotel, idusuario = :idusuario, idplanconsumo = :idplanconsumo WHERE idhabitacion = :idhabitacion", nativeQuery = true)
-    void actualizarHabitacion(@Param("idhabitacion") int idhabitacion, @Param("capacidad") int capacidad, @Param("disponible") Boolean disponible, @Param("tipo") String tipo, @Param("dotacion") String dotacion, @Param("precioNoche") int precioNoche, @Param("nombrehotel") String nombreHotel, @Param("idusuario") int idusuario, @Param("idplanconsumo") int idplanconsumo);
+    @Query(value = "UPDATE habitaciones SET capacidad = :capacidad, disponible = :disponible, tipo = :tipo, dotacion = :dotacion, precionoche = :precionoche WHERE idhabitacion = :idhabitacion", nativeQuery = true)
+    void actualizarHabitacion(@Param("idhabitacion") int idHabitacion, @Param("capacidad") int capacidad, @Param("disponible") Boolean disponible, @Param("tipo") String tipo, @Param("dotacion") String dotacion, @Param("precionoche") int precioNoche);
     
     @Modifying
     @Transactional
@@ -35,3 +35,4 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
     void eliminarHabitacion(@Param("idhabitacion") int idhabitacion);
     
 }
+

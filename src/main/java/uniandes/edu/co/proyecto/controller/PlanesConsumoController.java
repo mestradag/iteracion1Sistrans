@@ -33,14 +33,14 @@ public class PlanesConsumoController {
 
     @PostMapping("/planes_c/new/save")
     public String planConsumoGuardar(@ModelAttribute PlanConsumo planConsumo) {
-        planConsumoRepository.insertarPlanConsumo(planConsumo.getNombre(), planConsumo.getDescuentoAlojamiento(), planConsumo.getDescuentoBar(), planConsumo.getDescuentoRestaurante(), planConsumo.getDescuentoServicios(), planConsumo.getCostoFijo(), planConsumo.getFechaInicial(), planConsumo.getDuracion(), planConsumo.getValorFinal(), planConsumo.getValido());
+        planConsumoRepository.insertarPlanConsumo(planConsumo.getNombre(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentorestaurante(), planConsumo.getDescuentoservicio(), planConsumo.getCostofijo(), planConsumo.getFechainicial(), planConsumo.getDurancion(), planConsumo.getValorfinal(), planConsumo.getValido());
         return "redirect:/planes_c";
     }
 
     //planesConsumo o planes_c
-    @GetMapping("/planes_c/{idPlanConsumo}/edit")
-    public String planConsumoEditarForm(@PathVariable("idPlanConsumo") Integer idPlanConsumo, Model model) {
-        PlanConsumo planConsumo = planConsumoRepository.darPlanConsumo(idPlanConsumo);
+    @GetMapping("/planes_c/{idplanconsumo}/edit")
+    public String planConsumoEditarForm(@PathVariable("idplanconsumo") Integer idplanconsumo, Model model) {
+        PlanConsumo planConsumo = planConsumoRepository.darPlanConsumo(idplanconsumo);
         if (planConsumo != null) {
             model.addAttribute("planConsumo", planConsumo);
             return "planConsumoEditar";
@@ -49,15 +49,15 @@ public class PlanesConsumoController {
         }
     }
 
-    @PostMapping("/planes_c/{idPlanConsumo}/edit/save")
-    public String planConsumoEditarGuardar(@PathVariable("idPlanConsumo") Integer idPlanConsumo, @ModelAttribute PlanConsumo planConsumo) {
-        planConsumoRepository.actualizarPlanConsumo(((Integer) idPlanConsumo), planConsumo.getNombre(), planConsumo.getDescuentoAlojamiento(), planConsumo.getDescuentoBar(), planConsumo.getDescuentoRestaurante(), planConsumo.getDescuentoServicios(), planConsumo.getCostoFijo(), planConsumo.getFechaInicial(), planConsumo.getDuracion(), planConsumo.getValorFinal(), planConsumo.getValido());
+    @PostMapping("/planes_c/{idplanconsumo}/edit/save")
+    public String planConsumoEditarGuardar(@PathVariable("idplanconsumo") Integer idplanconsumo, @ModelAttribute PlanConsumo planConsumo) {
+        planConsumoRepository.actualizarPlanConsumo(((Integer) idplanconsumo), planConsumo.getNombre(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentobar(), planConsumo.getDescuentorestaurante(), planConsumo.getDescuentoservicio(), planConsumo.getCostofijo(), planConsumo.getFechainicial(), planConsumo.getDurancion(), planConsumo.getValorfinal(), planConsumo.getValido());
         return "redirect:/planes_c";
     }
 
-    @GetMapping("/planes_c/{idPlanConsumo}/delete")
-    public String reservaEliminar(@PathVariable("idPlanConsumo") Integer idPlanConsumo) {
-        planConsumoRepository.eliminarPlanConsumo(idPlanConsumo);
+    @GetMapping("/planes_c/{idplanconsumo}/delete")
+    public String reservaEliminar(@PathVariable("idplanconsumo") Integer idplanconsumo) {
+        planConsumoRepository.eliminarPlanConsumo(idplanconsumo);
         return "redirect:/planes_c";
     }
 

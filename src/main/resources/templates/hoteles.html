@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/css/jquery.min.js}"></script>
+    <script th:src="@{/css/bootstrap.min.js}"></script>
 </head>
 <body>
     <div>
@@ -14,10 +17,10 @@
                     <th>Ciudad</th>
                 </tr>
             </thead>
-            <th:block th:each="bar : ${hoteles}">
+            <th:block th:each="hotel : ${hoteles}">
                 <tr>
-                    <td th:text="${bar.nombre}"></td>
-                    <td th:text="${bar.ciudad}"></td>
+                    <td th:text="${hotel.nombre}"></td>
+                    <td th:text="${hotel.ciudad}"></td>
                 </tr>
             </th:block>
 

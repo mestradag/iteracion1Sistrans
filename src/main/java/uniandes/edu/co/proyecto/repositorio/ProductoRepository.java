@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface ProductoRepository extends JpaRepository<Producto, Integer>{
         
-        /*The only attributes are Integer idProducto and Integer precio */
+        /*The only attributes are Integer idproducto and Integer precio */
         @Query(value = "SELECT * FROM productos", nativeQuery = true)
         Collection<Producto> darProductos();
 

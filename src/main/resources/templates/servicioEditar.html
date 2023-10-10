@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+<body>
+</br>
+<form th:action="@{'/servicios/'+ ${idservicio} + '/edit/save'}" th:object="${servicio}" method="post">
+    <div th:replace="~{fragments/servicioFormN :: servicioFormN(titulo='Editar servicio', servicio=${servicio})}">
+    </div>
+</form>
+
+</body>
+
+</html>

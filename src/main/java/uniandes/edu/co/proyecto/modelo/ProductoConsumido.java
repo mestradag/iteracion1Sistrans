@@ -21,5 +21,9 @@ public class ProductoConsumido {
     public void setId(ProductoConsumidoPK id) {
         this.id = id;
     }  
-    
+
+    @Override
+    public String toString() {
+        return "ProductoConsumido [idCuenta=" + id.getIdCuenta() + ", idProducto=" + id.getIdProducto().getIdproducto() + "]";
+    }
 }

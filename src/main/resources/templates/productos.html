@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/css/jquery.min.js}"></script>
+    <script th:src="@{/css/bootstrap.min.js}"></script>
 </head>
 <body>
     <div class="text-center">
@@ -12,16 +15,16 @@
             <thead class="thead-dark">
                 <tr>
                     <th>idProducto</th>
-                    <th>precio</th>
+                    <th>Precio</th>
                 </tr>
             </thead>
             <th:block th:each="producto:${productos}">
                 <tr>
-                    <td th:text="${producto.idProducto}"></td>
+                    <td th:text="${producto.idproducto}"></td>
                     <td th:text="${producto.precio}"></td>
                     <td>
-                        <a th:href="@{productos/{idProducto}/edit(idProducto=${producto.idProducto})}">Editar</a>
-                        <a th:href="@{productos/{idProducto}/delete(idProducto=${producto.idProducto})}"
+                        <a th:href="@{productos/{idproducto}/edit(idproducto=${producto.idproducto})}">Editar</a>
+                        <a th:href="@{productos/{idproducto}/delete(idproducto=${producto.idproducto})}"
                             onclick="return confirm('Confirmación de borrar este producto')">Borrar</a>
                     </td>
                 </tr>
@@ -31,9 +34,6 @@
     </table>
     <div>
         <a th:href='@{productos/new}' class="btn btn-primary">Añadir Producto</a>
-        <a th:href="@{productoConsumido/new}" class="btn btn-primary">Añadir Producto Consumido</a>
-        <a th:href="@{productosMenu/new}" class="btn btn-primary">Añadir Producto Menu</a>
-        <a th:href="@{productosOfrecidos/new}" class="btn btn-primary">Añadir Producto Ofrecido</a>
         <a th:href='@{/}' class="btn btn-primary">Atrás</a>
     </div>
     <br />

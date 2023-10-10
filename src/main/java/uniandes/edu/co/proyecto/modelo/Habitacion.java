@@ -8,57 +8,45 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.GenerationType;
+
 @Entity
 @Table(name="habitaciones")
 public class Habitacion {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idHabitacion;
+    private Integer idhabitacion;
     private Integer capacidad;
     private Boolean disponible;
     private String tipo;
     private String dotacion;
-    private Integer precioNoche;
+    private Integer precionoche;
 
     @ManyToOne
-    @JoinColumn(name = "nombreHotel", referencedColumnName = "nombre")
-    private Hotel nombreHotel;
+    @JoinColumn(name = "nombrehotel", referencedColumnName = "nombre")
+    private Hotel nombrehotel;
 
-    @ManyToOne
-    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    private Usuario idUsuario;
-
-    @ManyToOne
-    @JoinColumn(name = "idPlanconsumo", referencedColumnName = "idPlanConsumo")
-    private PlanConsumo idPlanConsumo;
 
     public Habitacion(
-        Integer idHabitacion, 
         Integer capacidad, 
         Boolean disponible, 
         String tipo, 
         String dotacion, 
-        Integer precioNoche,
-        Hotel nombreHotel,
-        Usuario idUsuario,
-        PlanConsumo idPlanConsumo
+        Integer precionoche,
+        Hotel nombrehotel
         ) {
-        this.idHabitacion = idHabitacion;
         this.capacidad = capacidad;
         this.disponible = disponible;
         this.tipo = tipo;
         this.dotacion = dotacion;
-        this.precioNoche = precioNoche;
-        this.nombreHotel = nombreHotel;
-        this.idUsuario = idUsuario;
-        this.idPlanConsumo = idPlanConsumo;
+        this.precionoche = precionoche;
+        this.nombrehotel = nombrehotel;
     }
 
     public Habitacion()
     {;}
-    public Integer getIdHabitacion() {
-        return idHabitacion;
+    public Integer getIdhabitacion() {
+        return idhabitacion;
     }
     public Integer getCapacidad() {
         return capacidad;
@@ -72,11 +60,11 @@ public class Habitacion {
     public String getDotacion() {
         return dotacion;
     }
-    public Integer getPrecioNoche() {
-        return precioNoche;
+    public Integer getPrecionoche() {
+        return precionoche;
     }
-    public void setIdHabitacion(Integer id) {
-        this.idHabitacion = id;
+    public void setIdhabitacion(Integer idhabitacion) {
+        this.idhabitacion = idhabitacion;
     }
     public void setCapacidad(Integer cantidad) {
         this.capacidad = cantidad;
@@ -90,32 +78,19 @@ public class Habitacion {
     public void setDotacion(String dotacion) {
         this.dotacion = dotacion;
     }
-    public void setPrecioNoche(Integer precioNoche) {
-        this.precioNoche = precioNoche;
+    public void setPrecionoche(Integer precionoche) {
+        this.precionoche = precionoche;
     }
-    public Hotel getNombreHotel() {
-        return nombreHotel;
+    public Hotel getNombrehotel() {
+        return nombrehotel;
     }
-    public void setNombreHotel(Hotel nombrehotel) {
-        this.nombreHotel = nombrehotel;
+    public void setNombrehotel(Hotel nombrehotel) {
+        this.nombrehotel = nombrehotel;
     }
-
-    public Usuario getIdUsuario() {
-        return idUsuario;
+    @Override
+    public String toString() {
+        return "Habitacion [capacidad=" + capacidad + ", disponible=" + disponible + ", dotacion=" + dotacion
+                + ", idhabitacion=" + idhabitacion + ", nombrehotel=" + nombrehotel.getNombre() + ", precionoche=" + precionoche
+                + ", tipo=" + tipo + "]";
     }
-
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public PlanConsumo getIdPlanConsumo() {
-        return idPlanConsumo;
-    }
-
-    public void setIdPlanConsumo(PlanConsumo idPlanConsumo) {
-        this.idPlanConsumo = idPlanConsumo;
-    }
-    
-
 }
-
