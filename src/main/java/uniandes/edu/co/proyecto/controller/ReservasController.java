@@ -57,7 +57,7 @@ public class ReservasController {
     public String reservaGuardar(@ModelAttribute Reserva reserva ) {
         
     
-        reservaRepository.insertarReserva(reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getNumacompanantes(), 1, 1, 1, 36);
+        reservaRepository.insertarReserva(reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getNumacompanantes(), 1, 1, 1, 1);
         return "redirect:/reservas";
     }
 
