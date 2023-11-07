@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import uniandes.edu.co.proyecto.modelo.Hotel;
 import uniandes.edu.co.proyecto.modelo.PlanConsumo;
@@ -30,10 +31,17 @@ public class ServiciosController {
     private HotelRepository hotelRepository;
 
     @GetMapping("/servicios")
-    public String servicios(Model model) {
+    public String servicios(Model model){
         model.addAttribute("servicios", servicioRepository.darServicios());
 
         return "servicios";
+    }
+
+    @GetMapping("/servicios/populares")
+    public String serviciosPopulares(Model model, @RequestParam("fechainicio") String fechainicio, @RequestParam("fechafin") String fechafin) {
+        // Lógica para mostrar los 20 servicios más populares utilizando fechainicio y fechafin
+        model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
+        return "servicios"; // O utiliza una vista diferente si es necesario
     }
 
     @GetMapping("/servicios/new")
