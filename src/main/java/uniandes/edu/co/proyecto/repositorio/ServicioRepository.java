@@ -23,6 +23,14 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
 
     }
 
+    public interface RespuestaServiciosCaracteristicas {
+
+        int getID_SERV();
+        String getNOMBRE();
+        int getCOSTO_TOTAL();
+
+    }
+
     public interface RespuestaServiciosNoMuchaDemanda {
 
         String getNOMBRE_SERVICIO();
@@ -59,6 +67,17 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
                     "ORDER BY veces_consumido DESC " +//
                     "FETCH FIRST 20 ROWS ONLY", nativeQuery = true)
     Collection<Respuesta20Servicios> dar20serviciosPopulares (@Param("fechainicio") String fechainicio, @Param("fechafin") String fechafin); //'11-11-2023 00:00:00'
+
+    @Query (value = "SELECT s.idservicio AS ID_SERV, s.nombre AS NOMBRE, s.costototal AS COSTO_TOTAL\r\n" + //
+            "FROM servicios s, usuarios u, reservas r\r\n" + //
+            "WHERE s.nombre = 'Piscina'\r\n" + //
+            "AND s.costoTotal BETWEEN CONVERT(INT, :precioinicio) AND CONVERT(INT, :preciofin)\r\n" + //
+            "AND u.rol = 'empleado'\r\n" + //
+            "AND u.nombre = :nombre\r\n" + //
+            "AND r.idusuario = u.idusuario\r\n" + //
+            "AND r.fechainicio >= TO_DATE(:fechainicioo, 'YYYY-MM-DD')\r\n" + //
+            "AND r.fechafin <= TO_DATE(:fechafino, 'YYYY-MM-DD')", nativeQuery = true)
+    Collection<RespuestaServiciosCaracteristicas> darServiciosCaracteristicas(@Param("precioinicio") String precioinicio, @Param("preciofin") String preciofin, @Param("nombre") String nombre, @Param("fechainicioo") String fechainicioo, @Param("fechafino") String fechafino);
 
     @Query (value = "SELECT s.nombre AS nombre_servicio, COUNT(rs.idservicio) AS veces_solicitado " +//
                     "FROM servicios s " +//

@@ -31,14 +31,17 @@ public class ServiciosController {
     private HotelRepository hotelRepository;
 
     @GetMapping("/servicios")
-    public String servicios(Model model, String fechainicio, String fechafin){
+    public String servicios(Model model, String fechainicio, String fechafin, String precioinicio, String preciofin, String nombre, String fechainicioo, String fechafino){
         
-        if ( (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals(""))) {
+        if ( (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals("")) && (precioinicio == null || precioinicio.equals("")) 
+            && (preciofin == null || preciofin.equals("")) && (nombre == null || nombre.equals("")) && (fechainicioo == null || fechainicioo.equals("")) && (fechafino == null || fechafino.equals(""))) {
             model.addAttribute("servicios", servicioRepository.darServicios());
             model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
         }
-        else if((!fechainicio.equals("")) && !(fechafin.equals(""))){
+        else if(!(fechainicio.equals("")) && !(fechafin.equals("")) && !(precioinicio.equals("")) 
+            && !(preciofin.equals("")) && !(nombre.equals("")) && !(fechainicioo.equals("")) && !(fechafino.equals(""))){
             model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
+            model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino));
             model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
             model.addAttribute("servicios", servicioRepository.darServicios());
 
@@ -46,6 +49,7 @@ public class ServiciosController {
         else{        
 
             model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
+            model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino));
         }
 
         return "servicios";
