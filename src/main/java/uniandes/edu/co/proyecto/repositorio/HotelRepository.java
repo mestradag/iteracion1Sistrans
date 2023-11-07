@@ -34,7 +34,6 @@ public interface HotelRepository extends JpaRepository <Hotel, String> {
     @Transactional
     @Query(value = "DELETE FROM hoteles WHERE nombre= :nombre", nativeQuery = true)
     void eliminarHotel(@Param("nombre") String nombre);
-
 }
 
 

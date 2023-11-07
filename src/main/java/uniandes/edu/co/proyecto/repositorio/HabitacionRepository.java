@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.repositorio;
 
+import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
 import uniandes.edu.co.proyecto.modelo.Habitacion;
 
 import java.util.Collection;
@@ -13,6 +14,14 @@ import jakarta.transaction.Transactional;
 
 
 public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>{
+
+    public interface RespuestaDineroRecolectado {
+        
+        int getID_HAB();
+        int getDINERO_REC();
+
+    }
+
     @Query(value = "SELECT * FROM habitaciones", nativeQuery = true)
     Collection<Habitacion> darHabitaciones();
 
@@ -33,6 +42,14 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
     @Transactional
     @Query(value = "DELETE FROM habitaciones WHERE idhabitacion = :idhabitacion", nativeQuery = true)
     void eliminarHabitacion(@Param("idhabitacion") int idhabitacion);
+
+    @Query(value = "SELECT rs.idhabitacion id_hab, SUM(s.costoTotal) AS dinero_rec "+//
+                   "FROM reservas_servicios rs "+// 
+                   "JOIN servicios s ON rs.idservicio = s.idservicio "+//
+                   "WHERE rs.fechareserva BETWEEN TO_DATE('2023/01/01 12:00', 'yyyy/mm/dd hh24:mi') AND TO_DATE('2023/12/31 12:00', 'yyyy/mm/dd hh24:mi') " + //
+                   "GROUP BY rs.idhabitacion", nativeQuery = true)
+    Collection<RespuestaDineroRecolectado> darDineroRecolectadoPorHabitacion();
+    
     
 }
 
