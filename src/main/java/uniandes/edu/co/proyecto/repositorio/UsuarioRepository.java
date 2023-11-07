@@ -27,7 +27,7 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
         
     }
 
-    @Query(value = "SELECT * FROM usuarios", nativeQuery = true)
+    @Query(value = "SELECT * FROM usuarios FETCH FIRST 30 ROWS ONLY ", nativeQuery = true)
     Collection<Usuario> darUsuarios();
 
     @Query(value = "SELECT * FROM usuarios WHERE idusuario= :idusuario", nativeQuery = true)

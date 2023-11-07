@@ -12,7 +12,7 @@ import uniandes.edu.co.proyecto.modelo.Hotel;
 
 public interface HotelRepository extends JpaRepository <Hotel, String> {
     
-    @Query(value = "SELECT * FROM hoteles", nativeQuery=true)
+    @Query(value = "SELECT * FROM hoteles FETCH FIRST 30 ROWS ONLY", nativeQuery=true)
     Collection<Hotel> darHoteles();
 
     @Query(value= "SELECT * FROM hoteles WHERE nombre= :nombre", nativeQuery=true)

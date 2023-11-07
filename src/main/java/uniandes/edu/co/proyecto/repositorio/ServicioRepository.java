@@ -37,7 +37,7 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
         int getVECES_SOLICITADO();
     }
 
-    @Query(value="SELECT * FROM servicios", nativeQuery=true) 
+    @Query(value="SELECT * FROM servicios FETCH FIRST 30 ROWS ONLY", nativeQuery=true) 
     Collection<Servicio> darServicios();
 
     @Query(value="SELECT * FROM servicios WHERE idservicio= :idservicio", nativeQuery = true)
@@ -69,13 +69,13 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
     Collection<Respuesta20Servicios> dar20serviciosPopulares (@Param("fechainicio") String fechainicio, @Param("fechafin") String fechafin); //'11-11-2023 00:00:00'
 
     @Query (value = "SELECT s.idservicio AS ID_SERV, s.nombre AS NOMBRE, s.costototal AS COSTO_TOTAL\r\n" + //
-            "FROM servicios s, usuarios u, reservas r\r\n" + //
-            "WHERE s.nombre = 'Piscina'\r\n" + //
+            "FROM servicios s, usuarios u, reservas r " + //
+            "WHERE s.nombre = 'Piscina' " + //
             "AND s.costoTotal BETWEEN CONVERT(INT, :precioinicio) AND CONVERT(INT, :preciofin)\r\n" + //
-            "AND u.rol = 'empleado'\r\n" + //
-            "AND u.nombre = :nombre\r\n" + //
-            "AND r.idusuario = u.idusuario\r\n" + //
-            "AND r.fechainicio >= TO_DATE(:fechainicioo, 'YYYY-MM-DD')\r\n" + //
+            "AND u.rol = 'empleado' " + //
+            "AND u.nombre = :nombre " + //
+            "AND r.idusuario = u.idusuario " + //
+            "AND r.fechainicio >= TO_DATE(:fechainicioo, 'YYYY-MM-DD')" + //
             "AND r.fechafin <= TO_DATE(:fechafino, 'YYYY-MM-DD')", nativeQuery = true)
     Collection<RespuestaServiciosCaracteristicas> darServiciosCaracteristicas(@Param("precioinicio") String precioinicio, @Param("preciofin") String preciofin, @Param("nombre") String nombre, @Param("fechainicioo") String fechainicioo, @Param("fechafino") String fechafino);
 

@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface ProductoConsumidoRepository extends JpaRepository<ProductoConsumido, Integer>{
         
-        @Query(value = "SELECT * FROM productos_c", nativeQuery = true)
+        @Query(value = "SELECT * FROM productos_c FETCH FIRST 30 ROWS ONLY", nativeQuery = true)
         Collection<ProductoConsumido> darProductosConsumidos();
     
         @Query(value = "SELECT * FROM productos_c WHERE idProducto = :idProducto AND idCuenta = :idCuenta", nativeQuery = true)

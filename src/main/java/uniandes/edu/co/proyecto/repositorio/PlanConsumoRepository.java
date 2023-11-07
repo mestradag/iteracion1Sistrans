@@ -13,7 +13,7 @@ import uniandes.edu.co.proyecto.modelo.PlanConsumo;
 
 public interface PlanConsumoRepository extends JpaRepository <PlanConsumo, Integer>{
 
-    @Query(value = "SELECT * FROM planes_c", nativeQuery=true)
+    @Query(value = "SELECT * FROM planes_c FETCH FIRST 30 ROWS ONLY", nativeQuery=true)
     Collection<PlanConsumo> darPlanConsumos();
 
     @Query(value= "SELECT * FROM planes_c WHERE idplanconsumo= :idplanconsumo", nativeQuery=true)

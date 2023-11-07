@@ -31,7 +31,7 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
 
     }
 
-    @Query(value = "SELECT * FROM habitaciones", nativeQuery = true)
+    @Query(value = "SELECT * FROM habitaciones FETCH FIRST 30 ROWS ONLY", nativeQuery = true)
     Collection<Habitacion> darHabitaciones();
 
     @Query(value = "SELECT * FROM habitaciones WHERE idhabitacion = :idhabitacion", nativeQuery = true)

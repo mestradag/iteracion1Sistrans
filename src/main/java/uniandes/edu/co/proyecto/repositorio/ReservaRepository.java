@@ -17,7 +17,7 @@ import uniandes.edu.co.proyecto.modelo.Usuario;
 
 public interface ReservaRepository extends JpaRepository <Reserva, Integer> {
 
-    @Query(value = "SELECT * FROM reservas", nativeQuery=true)
+    @Query(value = "SELECT * FROM reservas FETCH FIRST 30 ROWS ONLY", nativeQuery=true)
     Collection<Reserva> darReservas();
 
     @Query(value= "SELECT * FROM reservas WHERE idreserva= :idreserva", nativeQuery=true)

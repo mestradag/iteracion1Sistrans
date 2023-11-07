@@ -19,7 +19,7 @@ import oracle.net.aso.h;
 public interface CuentaConsumoRepository extends JpaRepository<CuentaConsumo, Integer> {
     
 
-    @Query(value = "SELECT * FROM cuentas_c", nativeQuery = true) 
+    @Query(value = "SELECT * FROM cuentas_c FETCH FIRST 30 ROWS ONLY", nativeQuery = true) 
     Collection<CuentaConsumo> darCuentasConsumo();
 
     @Query(value = "SELECT * FROM cuentas_c WHERE idcuenta = :idcuenta", nativeQuery = true)

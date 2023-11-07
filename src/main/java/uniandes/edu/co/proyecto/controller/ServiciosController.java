@@ -38,12 +38,17 @@ public class ServiciosController {
             model.addAttribute("servicios", servicioRepository.darServicios());
             model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
         }
-        else if(!(fechainicio.equals("")) && !(fechafin.equals("")) && !(precioinicio.equals("")) 
-            && !(preciofin.equals("")) && !(nombre.equals("")) && !(fechainicioo.equals("")) && !(fechafino.equals(""))){
+        else if(!(fechainicio.equals("")) && !(fechafin.equals("")) ){
             model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
-            model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino));
             model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
             model.addAttribute("servicios", servicioRepository.darServicios());
+
+        }
+        else if (!(precioinicio.equals("")) 
+            && !(preciofin.equals("")) && !(nombre.equals("")) && !(fechainicioo.equals("")) && !(fechafino.equals(""))){
+            model.addAttribute("servicios", servicioRepository.darServicios());
+            model.addAttribute("reqs8", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
+            model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino));
 
         }
         else{        
