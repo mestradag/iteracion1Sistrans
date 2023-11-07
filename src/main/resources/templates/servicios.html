@@ -20,10 +20,10 @@
                     </a>
                 </h5>
                 <div id="busqueda" class="collapse">
-                    <form th:action="@{reqs2}" method="get">
-                        <label class="col-form-label">Fecha inicio (YYYY-MM-DD HH:MM:SS.0):</label>
+                    <form th:action="@{servicios}" method="get">
+                        <label class="col-form-label">Fecha inicio (DD-MM-YYYY HH:MM:SS):</label>
                         <input class="form-control" type="text" id="fechainicio" name= "fechainicio" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
-                        <label class="col-form-label">Fecha fin (YYYY-MM-DD HH:MM:SS.0):</label>
+                        <label class="col-form-label">Fecha fin (DD-MM-YYYY HH:MM:SS):</label>
                         <input class="form-control" type="text" id="fechafin" name= "fechafin" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
 
                         <br />
@@ -40,10 +40,6 @@
 
         </div>
 
-        <br />
-
-        <br />
-
 
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
@@ -51,33 +47,30 @@
                     <th>idServicio</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
-                    <!-- <th>idplanconsumo</th>
-                    <th>Nombre Hotel</th> -->
+                    <th>Costo Total</th>
                 </tr>
             </thead>
-            <th:block th:each="servicio:${servicios}">
+            <th:block th:each="servicio : ${servicios}">
                 <tr>
                     <td th:text="${servicio.idservicio}"></td>
                     <td th:text="${servicio.nombre}"></td>
                     <td th:text="${servicio.descripcion}"></td>
-                    <!-- <td th:text="${servicio.idplanconsumo}"></td>
-                    <td th:text="${servicio.nombrehotel}"></td> -->
+                    <td th:text="${servicio.costototal}"></td>
                     <td>
-                        <a th:href="@{servicios/{idservicio}/edit(idservicio=${servicio.idservicio})}">Editar</a>
-                        <a th:href="@{servicios/{idservicio}/delete(idservicio=${servicio.idservicio})}"
+                        <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/edit'}">Editar</a>n
+                        <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/delete'}"
                             onclick="return confirm('Confirmación de borrar este servicio')">Borrar</a>
                     </td>
                 </tr>
             </th:block>
-
         </table>
 
         <h2>Requerimiento 2 </h2>
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>nombre</th>
-                    <th>veces_consumido</th>
+                    <th>Nombre</th>
+                    <th>Veces Consumido</th>
                 </tr>
             </thead>
             <th:block th:each="req2: ${reqs2}">
@@ -89,13 +82,28 @@
 
         </table>
 
+        <h2>Requerimiento 8 </h2>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre Servicio</th>
+                    <th>Veces Solicitado</th>
+                </tr>
+            </thead>
+            <th:block th:each="req8: ${reqs8}">
+                <tr>
+                    <td th:text="${req8.NOMBRE_SERVICIO}"></td>
+                    <td th:text="${req8.VECES_SOLICITADO}"></td>
+                </tr>
+            </th:block>
+
+        </table>
+
     </table>
     <div>
         <a th:href='@{servicios/new}' class="btn btn-primary">Añadir Servicio</a>
         <a th:href='@{/}' class="btn btn-primary">Atrás</a>
     </div>
     <br />
-    </div>
 </body>
-
 </html>

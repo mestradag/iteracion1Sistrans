@@ -2,6 +2,7 @@ package uniandes.edu.co.proyecto.repositorio;
 
 import java.util.Collection;
 
+import org.antlr.v4.runtime.atn.SemanticContext.AND;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -17,9 +18,15 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
 
     public interface Respuesta20Servicios {
         
-        int getNOMBRE_SERVICIO();
+        String getNOMBRE_SERVICIO();
         int getVECES_CONSUMIDO();
 
+    }
+
+    public interface RespuestaServiciosNoMuchaDemanda {
+
+        String getNOMBRE_SERVICIO();
+        int getVECES_SOLICITADO();
     }
 
     @Query(value="SELECT * FROM servicios", nativeQuery=true) 
@@ -30,13 +37,13 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO servicios(idservicio,nombre,descripcion,idplanconsumo, nombrehotel) VALUES (parranderos_sequence.nextval, :nombre, :descripcion, :idplanconsumo, :nombrehotel)", nativeQuery = true) 
-    void insertarServicio(@Param("nombre") String nombre,@Param("descripcion") String descripcion,@Param("idplanconsumo") Integer idplanconsumo, @Param("nombrehotel") String nombrehotel);
+    @Query(value="INSERT INTO servicios(idservicio,nombre,descripcion,costototal,idplanconsumo, nombrehotel,costototal) VALUES (parranderos_sequence.nextval, :nombre, :descripcion, :idplanconsumo, :nombrehotel, :costototal)", nativeQuery = true) 
+    void insertarServicio(@Param("nombre") String nombre,@Param("descripcion") String descripcion,@Param("idplanconsumo") Integer idplanconsumo, @Param("nombrehotel") String nombrehotel,@Param("costototal") Integer costototal);
 
     @Modifying
     @Transactional
-    @Query (value ="UPDATE servicios SET nombre= :nombre, descripcion= :descripcion WHERE idservicio= :idservicio", nativeQuery = true)
-    void actualizarServicio(@Param("idservicio") Integer idservicio, @Param("nombre") String nombre,@Param("descripcion") String descripcion);
+    @Query (value ="UPDATE servicios SET nombre= :nombre, descripcion= :descripcion , costototal= :costototal WHERE idservicio= :idservicio", nativeQuery = true)
+    void actualizarServicio(@Param("idservicio") Integer idservicio, @Param("nombre") String nombre,@Param("descripcion") String descripcion,@Param("costototal") Integer costototal);
 
     @Modifying
     @Transactional
@@ -52,4 +59,16 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
                     "ORDER BY veces_consumido DESC " +//
                     "FETCH FIRST 20 ROWS ONLY", nativeQuery = true)
     Collection<Respuesta20Servicios> dar20serviciosPopulares (@Param("fechainicio") String fechainicio, @Param("fechafin") String fechafin); //'11-11-2023 00:00:00'
+
+    @Query (value = "SELECT s.nombre AS nombre_servicio, COUNT(rs.idservicio) AS veces_solicitado " +//
+                    "FROM servicios s " +//
+                    "INNER JOIN reservas_servicios rs ON s.idservicio = rs.idservicio " +//
+                    "WHERE rs.fechareserva BETWEEN TO_DATE('2023/01/01 12:00', 'yyyy/mm/dd hh24:mi') AND TO_DATE('2023/12/31 12:00', 'yyyy/mm/dd hh24:mi') " +//
+                    "GROUP BY s.idservicio, s.nombre " +//
+                    "HAVING COUNT(rs.idservicio) < 3", nativeQuery = true)
+    Collection<RespuestaServiciosNoMuchaDemanda> darServiciosNoMuchaDemanda();
+
 }
+
+
+

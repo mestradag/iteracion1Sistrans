@@ -2,17 +2,7 @@ package uniandes.edu.co.proyecto;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import uniandes.edu.co.proyecto.modelo.Hotel;
-import uniandes.edu.co.proyecto.modelo.PlanConsumo;
-import uniandes.edu.co.proyecto.modelo.Reserva;
-import uniandes.edu.co.proyecto.repositorio.HotelRepository;
-import uniandes.edu.co.proyecto.repositorio.PlanConsumoRepository;
-import uniandes.edu.co.proyecto.repositorio.ReservaRepository;
 
-import java.util.Collection;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 
 @SpringBootApplication

@@ -5,6 +5,7 @@ import uniandes.edu.co.proyecto.modelo.Habitacion;
 
 import java.util.Collection;
 
+import org.antlr.v4.runtime.atn.SemanticContext.AND;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -19,6 +20,14 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
         
         int getID_HAB();
         int getDINERO_REC();
+
+    }
+
+    public interface RespuestaIndiceOcupacion {
+
+        int getID_HAB();
+        int getUSUARIOS_EN_HABITACION();
+        float getINDICE_OCUPACION();
 
     }
 
@@ -50,6 +59,16 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
                    "GROUP BY rs.idhabitacion", nativeQuery = true)
     Collection<RespuestaDineroRecolectado> darDineroRecolectadoPorHabitacion();
     
+    @Query (value = "SELECT h.idhabitacion AS id_hab, " +//
+                    "COUNT(DISTINCT u.idusuario) AS usuarios_en_habitacion, " +//
+                    "ROUND((COUNT(DISTINCT u.idusuario) / 365) * 100, 2) AS indice_ocupacion " +//
+                    "FROM habitaciones h " +//
+                    "INNER JOIN reservas r ON h.idhabitacion = r.idhabitacion " +//
+                    "AND r.fechainicio  BETWEEN TO_DATE('2023/01/01 12:00', 'yyyy/mm/dd hh24:mi') AND TO_DATE('2023/12/31 12:00', 'yyyy/mm/dd hh24:mi') " +//
+                    "INNER JOIN usuarios u ON r.idusuario = u.idusuario " +//
+                    "GROUP BY h.idhabitacion ", nativeQuery = true)
+    Collection<RespuestaIndiceOcupacion> darIndiceOcupacion();
+
     
 }
 

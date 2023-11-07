@@ -11,6 +11,48 @@
 <body>
     <div class="text-center">
         <h1>Lista de Usuarios</h1>
+        <div class="container w-25">
+
+            <div class="card border border-2 mx-auto">
+
+                <input type="hidden" name="req7" id="req7" value="true">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-secondary" id="req7Button">Req  7</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container w-25">
+            <div class="card border border-2 mx-auto">
+                <h5 class="card-header" role="button" id="headingOne">
+                    <a href="#" class="collapsed d-block" data-toggle="collapse" data-target="#busqueda">
+                        Req 9
+                    </a>
+                </h5>
+                <div id="busqueda" class="collapse">
+                    <form th:action="@{usuarios}" method="get">
+                        <label class="col-form-label">Fecha inicio (YYYY-MM-DD HH:MM:SS.0):</label>
+                        <input class="form-control" type="text" id="fechainicio" name= "fechainicio" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
+                        <label class="col-form-label">Fecha fin (YYYY-MM-DD HH:MM:SS.0):</label>
+                        <input class="form-control" type="text" id="fechafin" name= "fechafin" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
+                        <label class="col-form-label">Orden: </label>
+                        <select class="form-control" name="orden" id="orden">
+                            <option value=""></option>
+                            <option th.value="ASC"  th:text="ASC"></option>
+                            <option th.value="DESC"  th:text="DESC"></option>
+                        </select><br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-secondary">Buscar por intervalo de usuario</button>
+                        </div>
+                    </form>    
+                </div>
+            </div>
+
+        </div>
+
+        
+
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -36,6 +78,32 @@
 
         </table>
     </table>
+
+    <h2>Requerimiento 9</h2>
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>idUsuario</th>
+                <th>Nombre</th>
+                <th>Servicio</th>
+                <th>Veces consumido</th>
+                
+            </tr>
+        </thead>
+        <th:block th:each="consumoHotel:${re9}">
+            <tr>
+                <td th:text="${consumoHotel.idusuario}"></td>
+                <td th:text="${consumoHotel.nombre_cliente}"></td> 
+                <td th:text="${consumoHotel.nombre_servicio}"></td> 
+                <td th:text="${consumoHotel.veces_consumido}"></td> 
+
+            </tr>
+        </th:block>
+
+    </table>
+</table>
+
+
     <div>
         <a th:href='@{usuarios/new}' class="btn btn-primary">Añadir Usario</a>
         <a th:href='@{/}' class="btn btn-primary">Atrás</a>

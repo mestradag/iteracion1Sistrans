@@ -31,17 +31,24 @@ public class ServiciosController {
     private HotelRepository hotelRepository;
 
     @GetMapping("/servicios")
-    public String servicios(Model model){
-        model.addAttribute("servicios", servicioRepository.darServicios());
+    public String servicios(Model model, String fechainicio, String fechafin){
+        
+        if ( (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals(""))) {
+            model.addAttribute("servicios", servicioRepository.darServicios());
+            model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
+        }
+        else if((!fechainicio.equals("")) && !(fechafin.equals(""))){
+            model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
+            model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
+            model.addAttribute("servicios", servicioRepository.darServicios());
+
+        }
+        else{        
+
+            model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
+        }
 
         return "servicios";
-    }
-
-    @GetMapping("/servicios/populares")
-    public String serviciosPopulares(Model model, @RequestParam("fechainicio") String fechainicio, @RequestParam("fechafin") String fechafin) {
-        // Lógica para mostrar los 20 servicios más populares utilizando fechainicio y fechafin
-        model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
-        return "servicios"; // O utiliza una vista diferente si es necesario
     }
 
     @GetMapping("/servicios/new")
@@ -61,7 +68,7 @@ public class ServiciosController {
         // servicio.setIdplanconsumo(planConsumo);
         // servicio.setNombrehotel(hotel);
         
-        servicioRepository.insertarServicio(servicio.getNombre(),servicio.getDescripcion(),1,"Dann");
+        servicioRepository.insertarServicio(servicio.getNombre(),servicio.getDescripcion(),1,"Dann",servicio.getCostoTotal());
         
         return "redirect:/servicios";
     }
@@ -79,7 +86,7 @@ public class ServiciosController {
 
     @PostMapping("/servicios/{idservicio}/edit/save")
     public String servicioEditarGuardar(@PathVariable("idservicio") Integer idservicio, @ModelAttribute Servicio servicio) {
-        servicioRepository.actualizarServicio(((Integer) idservicio), servicio.getNombre(), servicio.getDescripcion());
+        servicioRepository.actualizarServicio(((Integer) idservicio), servicio.getNombre(), servicio.getDescripcion(), servicio.getCostoTotal());
         return "redirect:/servicios";
     }
 

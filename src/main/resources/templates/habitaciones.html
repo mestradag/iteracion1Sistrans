@@ -45,7 +45,7 @@
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>idHabitacion</th>
+                    <th>IdHabitacion</th>
                     <th>Dinero Recolectado</th>
                 </tr>
             </thead>
@@ -53,6 +53,25 @@
                 <tr>
                     <td th:text="${dinerorec.ID_HAB}"></td>
                     <td th:text="${dinerorec.DINERO_REC}"></td>
+                </tr>
+            </th:block>
+
+        </table>
+
+        <h2>Requerimiento 3</h2>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>IdHabitacion</th>
+                    <th>Usuarios En Habitacion</th>
+                    <th>Indice de Ocupacion</th>
+                </tr>
+            </thead>
+            <th:block th:each="req3: ${reqs3}">
+                <tr>
+                    <td th:text="${req3.ID_HAB}"></td>
+                    <td th:text="${req3.USUARIOS_EN_HABITACION}"></td>
+                    <td th:text="${req3.INDICE_OCUPACION}"></td>
                 </tr>
             </th:block>
 
