@@ -1,5 +1,7 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import uniandes.edu.co.proyecto.modelo.Usuario;
 import uniandes.edu.co.proyecto.repositorio.UsuarioRepository;
+import uniandes.edu.co.proyecto.repositorio.UsuarioRepository.RespuestaConsumoHotel;
 
 //@RestController
 @Controller
@@ -20,9 +23,27 @@ public class UsuariosController {
     private UsuarioRepository usuarioRepository;
 
     @GetMapping("/usuarios")
-    public String usuarios(Model model) {
+    public String usuarios(Model model, Boolean req7, String fechainicio, String fechafin, String orden) {
+        req7=false;
 
-        model.addAttribute("usuarios", usuarioRepository.darUsuarios());
+
+        if ( (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals("")) && (orden == null || orden.equals(""))) {
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+        }
+        else if (req7 == true){
+            model.addAttribute("usuarios", usuarioRepository.darBuenosClientes());
+        }
+        else if((!fechainicio.equals("")) && !(fechafin.equals("")) && !(orden.equals(""))){
+            model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
+
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+
+        }
+        else{        
+
+            model.addAttribute("usuarios", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
+        }
+
         return "usuarios"; 
         
     }

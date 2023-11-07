@@ -18,6 +18,8 @@ public class Servicio {
 
     private String nombre;
     private String descripcion;
+    public Integer costototal;
+
     
     @ManyToOne
     @JoinColumn(name="idplanconsumo",referencedColumnName = "idplanconsumo")
@@ -27,15 +29,19 @@ public class Servicio {
     @JoinColumn(name="nombrehotel",referencedColumnName = "nombre")
     private Hotel nombrehotel;
 
+
+
     public Servicio(){
     ;
     }
     
-    public Servicio(String nombre, String descripcion,PlanConsumo idplanconsumo,Hotel nombrehotel ){
+    public Servicio(String nombre, String descripcion,  PlanConsumo idplanconsumo,Hotel nombrehotel ,Integer costototal){
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.idplanconsumo=idplanconsumo;
         this.nombrehotel=nombrehotel;
+        this.costototal = costototal;
+
     }
 
     public Integer getIdservicio() {
@@ -76,6 +82,14 @@ public class Servicio {
 
     public void setNombrehotel(Hotel nombrehotel) {
         this.nombrehotel = nombrehotel;
+    }
+
+    public Integer getCostoTotal() {
+        return costototal;
+    }
+
+    public void setCostoTotal(Integer costototal) {
+        this.costototal = costototal;
     }
 
     

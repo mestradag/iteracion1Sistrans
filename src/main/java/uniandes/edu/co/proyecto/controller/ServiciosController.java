@@ -53,7 +53,7 @@ public class ServiciosController {
         // servicio.setIdplanconsumo(planConsumo);
         // servicio.setNombrehotel(hotel);
         
-        servicioRepository.insertarServicio(servicio.getNombre(),servicio.getDescripcion(),1,"Dann");
+        servicioRepository.insertarServicio(servicio.getNombre(),servicio.getDescripcion(),1,"Dann",servicio.getCostoTotal());
         
         return "redirect:/servicios";
     }
@@ -71,7 +71,7 @@ public class ServiciosController {
 
     @PostMapping("/servicios/{idservicio}/edit/save")
     public String servicioEditarGuardar(@PathVariable("idservicio") Integer idservicio, @ModelAttribute Servicio servicio) {
-        servicioRepository.actualizarServicio(((Integer) idservicio), servicio.getNombre(), servicio.getDescripcion());
+        servicioRepository.actualizarServicio(((Integer) idservicio), servicio.getNombre(), servicio.getDescripcion(), servicio.getCostoTotal());
         return "redirect:/servicios";
     }
 

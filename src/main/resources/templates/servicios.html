@@ -17,33 +17,29 @@
                     <th>idServicio</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
-                    <!-- <th>idplanconsumo</th>
-                    <th>Nombre Hotel</th> -->
+                    <th>Costo Total</th>
                 </tr>
             </thead>
-            <th:block th:each="servicio:${servicios}">
+            <th:block th:each="servicio : ${servicios}">
                 <tr>
                     <td th:text="${servicio.idservicio}"></td>
                     <td th:text="${servicio.nombre}"></td>
                     <td th:text="${servicio.descripcion}"></td>
-                    <!-- <td th:text="${servicio.idplanconsumo}"></td>
-                    <td th:text="${servicio.nombrehotel}"></td> -->
+                    <td th:text="${servicio.costototal}"></td>
                     <td>
-                        <a th:href="@{servicios/{idservicio}/edit(idservicio=${servicio.idservicio})}">Editar</a>
-                        <a th:href="@{servicios/{idservicio}/delete(idservicio=${servicio.idservicio})}"
+                        <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/edit'}">Editar</a>
+                        <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/delete'}"
                             onclick="return confirm('Confirmación de borrar este servicio')">Borrar</a>
                     </td>
                 </tr>
             </th:block>
-
         </table>
-    </table>
-    <div>
-        <a th:href='@{servicios/new}' class="btn btn-primary">Añadir Servicio</a>
-        <a th:href='@{/}' class="btn btn-primary">Atrás</a>
-    </div>
-    <br />
+
+        <div>
+            <a th:href="@{/servicios/new}" class="btn btn-primary">Añadir Servicio</a>
+            <a th:href="@{/}" class="btn btn-primary">Atrás</a>
+        </div>
+        <br />
     </div>
 </body>
-
 </html>

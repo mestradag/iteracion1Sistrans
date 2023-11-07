@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.Hotel;
 
-public interface HotelRepository extends JpaRepository <Hotel, Integer> {
+public interface HotelRepository extends JpaRepository <Hotel, String> {
     
     @Query(value = "SELECT * FROM hoteles", nativeQuery=true)
     Collection<Hotel> darHoteles();
