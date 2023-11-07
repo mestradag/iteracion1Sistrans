@@ -14,8 +14,8 @@ import uniandes.edu.co.proyecto.modelo.Usuario;
 public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
     
     public interface RespuestaBuenosClientes {
-        String usuario();
-        
+        String getNombre();
+        Integer getTotalcost();
     }
 
     public interface RespuestaConsumoHotel {
@@ -53,16 +53,19 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
     @Query(value = "SELECT * FROM usuarios  ",nativeQuery=true)
     Collection<Usuario> darBuenosClientes(@Param("idusuario") Integer idusuario);
     
-    @Query(value = "SELECT U.NOMBRE, SUM(S.COSTOTOTAL) AS TotalCost" + //
-            "FROM USUARIOS U, RESERVAS R, CUENTAS_C C, S_CONSUMIDOS SC, SERVICIOS S" + //
-            "WHERE U.IDUSUARIO = R.IDUSUARIO" + //
-            "AND R.IDCUENTA = C.IDCUENTA" + //
-            "AND C.IDCUENTA = SC.IDCUENTA" + //
-            "AND SC.IDSERVICIO = S.IDSERVICIO" + //
-            "AND C.CHECKOUT - C.CHECKIN >= INTERVAL '14' DAY" + //
-            "GROUP BY U.NOMBRE" + //
-            "HAVING SUM(S.COSTOTOTAL) > 15000000", nativeQuery = true)
-    Collection<RespuestaBuenosClientes> darBuenosClientes( );
+    @Query(value = "SELECT U.NOMBRE AS nombre, SUM(S.COSTOTOTAL) AS totalcost " +
+            "FROM USUARIOS U, RESERVAS R, CUENTAS_C C, S_CONSUMIDOS SC, SERVICIOS S " +
+            "WHERE U.IDUSUARIO = R.IDUSUARIO " +
+            "AND R.IDCUENTA = C.IDCUENTA " +
+            "AND C.IDCUENTA = SC.IDCUENTA " +
+            "AND SC.IDSERVICIO = S.IDSERVICIO " +
+            "AND U.ROL='cliente' " +
+            "AND (C.CHECKOUT - C.CHECKIN) >= INTERVAL '14' DAY " +
+            "GROUP BY U.NOMBRE " +
+            "HAVING SUM(S.COSTOTOTAL) > 15000000"
+            , nativeQuery = true)
+    Collection<RespuestaBuenosClientes> darBuenosClientes();
+
 
     @Query(value ="SELECT u.idusuario idusuario, u.nombre AS nombre_cliente, s.nombre AS nombre_servicio, COUNT(rc.idservicio) AS veces_consumido " +
         "FROM usuarios u " +
@@ -78,6 +81,22 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
         "         CASE WHEN :orden = 'ASC' THEN s.nombre END ASC, " +
         "         CASE WHEN :orden = 'DESC' THEN s.nombre END DESC", nativeQuery = true)
     Collection<RespuestaConsumoHotel> darConsumoHotel(@Param("fechainicio") String fechainicio, @Param("fechafin") String fechafin, @Param("orden") String orden);
+
+    @Query(value ="SELECT u.idusuario,u.nombre AS nombre_cliente,s.nombre AS nombre_servicio,COUNT(rc.idservicio) AS veces_consumido " + //
+        "FROM usuarios u " + //
+        "JOIN reservas r ON u.idusuario = r.idusuario " + //
+        "JOIN reservas_servicios rs ON r.idhabitacion = rs.idhabitacion " + //
+        "JOIN servicios s ON rs.idservicio = s.idservicio " + //
+        "LEFT JOIN s_consumidos rc ON rc.idcuenta = r.idcuenta AND rc.idservicio = s.idservicio " + //
+        "WHERE rs.fechareserva BETWEEN TO_DATE(:fechainicio, 'YYYY-MM-DD') " + //
+        "AND TO_DATE(:fechafin, 'YYYY-MM-DD') " + //
+        "AND rc.idservicio IS NULL " + //
+        "GROUP BY u.idusuario, u.nombre, s.nombre " + //
+        "ORDER BY CASE WHEN :orden = 'ASC' THEN u.idusuario END ASC, " +
+        "         CASE WHEN :orden = 'DESC' THEN u.idusuario END DESC, " +
+        "         CASE WHEN :orden = 'ASC' THEN s.nombre END ASC, " +
+        "         CASE WHEN :orden = 'DESC' THEN s.nombre END DESC", nativeQuery = true)
+Collection<RespuestaConsumoHotel> darNoConsumoHotel(@Param("fechainicio") String fechainicio, @Param("fechafin") String fechafin, @Param("orden") String orden);
 
 }
 

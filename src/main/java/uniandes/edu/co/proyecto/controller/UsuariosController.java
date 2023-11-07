@@ -23,25 +23,29 @@ public class UsuariosController {
     private UsuarioRepository usuarioRepository;
 
     @GetMapping("/usuarios")
-    public String usuarios(Model model, Boolean req7, String fechainicio, String fechafin, String orden) {
-        req7=false;
+    public String usuarios(Model model, String fechainicio, String fechafin, String orden,String fechainicioo, String fechafino, String ordeno) {
 
 
         if ( (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals("")) && (orden == null || orden.equals(""))) {
             model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
+
+
         }
-        else if (req7 == true){
-            model.addAttribute("usuarios", usuarioRepository.darBuenosClientes());
-        }
+       
         else if((!fechainicio.equals("")) && !(fechafin.equals("")) && !(orden.equals(""))){
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+
             model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
 
-            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+        }
+        else if((!fechainicioo.equals("")) && !(fechafino.equals("")) && !(ordeno.equals(""))){
+            model.addAttribute("re10", usuarioRepository.darNoConsumoHotel(fechainicio,fechafin,orden));
 
         }
         else{        
 
-            model.addAttribute("usuarios", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
+            model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
         }
 
         return "usuarios"; 
