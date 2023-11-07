@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.Hotel;
 
-public interface HotelRepository extends JpaRepository <Hotel, Integer> {
+public interface HotelRepository extends JpaRepository <Hotel, String> {
     
     @Query(value = "SELECT * FROM hoteles", nativeQuery=true)
     Collection<Hotel> darHoteles();
@@ -34,7 +34,6 @@ public interface HotelRepository extends JpaRepository <Hotel, Integer> {
     @Transactional
     @Query(value = "DELETE FROM hoteles WHERE nombre= :nombre", nativeQuery = true)
     void eliminarHotel(@Param("nombre") String nombre);
-
 }
 
 

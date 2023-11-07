@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
 import uniandes.edu.co.proyecto.modelo.Hotel;
 import uniandes.edu.co.proyecto.modelo.PlanConsumo;
 import uniandes.edu.co.proyecto.modelo.Servicio;
@@ -33,4 +34,6 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
     @Transactional
     @Query (value ="DELETE FROM servicios WHERE idservicio= :idservicio", nativeQuery=true)
     void eliminarServicio(@Param("idservicio") Integer idservicio);
+
+
 }
