@@ -93,7 +93,7 @@
                     <td th:text="${servicio.descripcion}"></td>
                     <td th:text="${servicio.costototal}"></td>
                     <td>
-                        <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/edit'}">Editar</a>n
+                        <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/edit'}">Editar</a>
                         <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/delete'}"
                             onclick="return confirm('Confirmación de borrar este servicio')">Borrar</a>
                     </td>
