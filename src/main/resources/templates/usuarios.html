@@ -22,9 +22,9 @@
                 </h5>
                 <div id="busqueda" class="collapse">
                     <form th:action="@{usuarios}" method="get">
-                        <label class="col-form-label">Fecha inicio (YYYY-MM-DD HH:MM:SS.0):</label>
+                        <label class="col-form-label">Fecha inicio (YYYY-MM-DD):</label>
                         <input class="form-control" type="text" id="fechainicio" name= "fechainicio" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
-                        <label class="col-form-label">Fecha fin (YYYY-MM-DD HH:MM:SS.0):</label>
+                        <label class="col-form-label">Fecha fin (YYYY-MM-DD):</label>
                         <input class="form-control" type="text" id="fechafin" name= "fechafin" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
                         <label class="col-form-label">Orden: </label>
                         <select class="form-control" name="orden" id="orden">
@@ -52,9 +52,9 @@
                 </h5>
                 <div id="busqueda" class="collapse">
                     <form th:action="@{usuarios}" method="get">
-                        <label class="col-form-label">Fecha inicio (YYYY-MM-DD HH:MM:SS.0):</label>
+                        <label class="col-form-label">Fecha inicio (YYYY-MM-DD):</label>
                         <input class="form-control" type="text" id="fechainicioo" name= "fechainicioo" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
-                        <label class="col-form-label">Fecha fin (YYYY-MM-DD HH:MM:SS.0):</label>
+                        <label class="col-form-label">Fecha fin (YYYY-MM-DD):</label>
                         <input class="form-control" type="text" id="fechafino" name= "fechafino" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
                         <label class="col-form-label">Orden: </label>
                         <select class="form-control" name="ordeno" id="ordeno">
@@ -113,7 +113,7 @@
         <th:block th:each="consumoHotel:${re7}">
             <tr>
                 <td th:text="${consumoHotel.nombre}"></td>
-                <td th:text="${consumoHotel.costoTotal}"></td> 
+                <td th:text="${consumoHotel.totalcost}"></td> 
        
 
             </tr>
@@ -163,7 +163,7 @@
         </th:block>
 
     </table>
-<!-- 
+    
     <h2>Requerimiento 12</h2>
     <table class="table table-hover table-bordered">
         <thead class="thead-dark">
@@ -182,10 +182,10 @@
             </tr>
         </th:block> 
 
-    </table>-->
+    </table>
 
     
-</table>
+    </table>
 
 
     <div>

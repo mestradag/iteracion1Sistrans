@@ -36,16 +36,20 @@ public class UsuariosController {
        
         else if((!fechainicio.equals("")) && !(fechafin.equals("")) && !(orden.equals(""))){
             model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
-
+            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
             model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
 
         }
         else if((!fechainicioo.equals("")) && !(fechafino.equals("")) && !(ordeno.equals(""))){
-            model.addAttribute("re10", usuarioRepository.darNoConsumoHotel(fechainicio,fechafin,orden));
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
+            model.addAttribute("re10", usuarioRepository.darNoConsumoHotel(fechainicioo,fechafino,ordeno));
 
         }
-        else{        
-
+        else{      
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
+            model.addAttribute("re10", usuarioRepository.darNoConsumoHotel(fechainicioo,fechafino,ordeno));
             model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
         }
 
