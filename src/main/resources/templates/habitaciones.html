@@ -76,6 +76,23 @@
             </th:block>
 
         </table>
+
+        <h2>Requerimiento 6</h2>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Fecha Mayor Demanda</th>
+                    <th>Cantidad demanda</th>
+                </tr>
+            </thead>
+            <th:block th:each="rec6: ${recs6}">
+                <tr>
+                    <td th:text="${rec6.fechainicio}"></td>
+                    <td th:text="${rec6.habitaciones_ocupadas}"></td>
+                </tr>
+            </th:block>
+
+        </table>
     </table>
     <div>
         <a th:href='@{habitaciones/new}' class="btn btn-primary">Añadir Habitacion</a>

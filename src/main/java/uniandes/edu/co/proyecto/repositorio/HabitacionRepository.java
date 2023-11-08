@@ -1,17 +1,11 @@
 package uniandes.edu.co.proyecto.repositorio;
-
-import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
 import uniandes.edu.co.proyecto.modelo.Habitacion;
-
-import java.util.Collection;
-
-import org.antlr.v4.runtime.atn.SemanticContext.AND;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
 import jakarta.transaction.Transactional;
+import java.util.Collection;
 
 
 public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>{
@@ -28,6 +22,13 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
         int getID_HAB();
         int getUSUARIOS_EN_HABITACION();
         float getINDICE_OCUPACION();
+
+    }
+
+    public interface RespuestaMayorDemanda {
+        
+        String getFechainicio();
+        String getHabitaciones_ocupadas();
 
     }
 
@@ -69,6 +70,14 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
                     "GROUP BY h.idhabitacion ", nativeQuery = true)
     Collection<RespuestaIndiceOcupacion> darIndiceOcupacion();
 
+
+    @Query (value = "SELECT r.fechainicio fechainicio, COUNT(DISTINCT r.idhabitacion) AS habitaciones_ocupadas " + //
+            "FROM reservas r " + //
+            "INNER JOIN cuentas_c c ON r.idcuenta = c.idcuenta " + //
+            "GROUP BY r.fechainicio " + //
+            "ORDER BY habitaciones_ocupadas DESC " + //
+            "FETCH FIRST 1 ROWS ONLY ", nativeQuery = true)
+    Collection<RespuestaMayorDemanda> darMayorDemanda();
     
 }
 

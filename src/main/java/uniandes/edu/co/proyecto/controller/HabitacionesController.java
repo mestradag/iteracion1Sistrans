@@ -1,17 +1,12 @@
 package uniandes.edu.co.proyecto.controller;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import uniandes.edu.co.proyecto.repositorio.HabitacionRepository;
-import uniandes.edu.co.proyecto.repositorio.HabitacionRepository.RespuestaDineroRecolectado;
 import uniandes.edu.co.proyecto.modelo.Habitacion;
 
 //@RestController
@@ -24,11 +19,11 @@ public class HabitacionesController{
     @GetMapping("/habitaciones")
     public String habitaciones(Model model) {
 
-        
+        model.addAttribute("habitaciones", habitacionRepository.darHabitaciones());
         model.addAttribute("recs1", habitacionRepository.darDineroRecolectadoPorHabitacion());
         model.addAttribute("reqs3", habitacionRepository.darIndiceOcupacion());
-        
-        model.addAttribute("habitaciones", habitacionRepository.darHabitaciones());
+        model.addAttribute("recs6", habitacionRepository.darMayorDemanda());
+
         return "habitaciones";
         //return model.toString();
 
