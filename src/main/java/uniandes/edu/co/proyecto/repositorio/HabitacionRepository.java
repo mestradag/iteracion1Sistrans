@@ -7,7 +7,6 @@ import org.springframework.data.repository.query.Param;
 import jakarta.transaction.Transactional;
 import java.util.Collection;
 
-
 public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>{
 
     public interface RespuestaDineroRecolectado {

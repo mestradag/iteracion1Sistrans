@@ -1,0 +1,168 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3EAF3889-98FE-E9B0-2740-134B2946CAA6" name="PLANES C">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:06:54 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idPlanConsumo" id="F1C72164-D33E-74A9-84B3-0D759C7E4736">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:07:01 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="37A3DE55-3C47-997C-54BB-EF3A4F8D25F5">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:07:10 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descuentoAlojamiento" id="F8724F74-93A9-7F3C-7405-05F53508F5D6">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:07:21 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descuentoBar" id="F2E17AE9-45AF-2A3F-EA76-71F9F403CB06">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:07:41 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descuentoRestaurante" id="EB27547D-6414-D770-A979-80804238A963">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:07:57 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descuentoServicio" id="6CCFE443-9D0D-D1C3-892D-ED1902177C51">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:08:28 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="costoFijo" id="4257D149-24D9-D1B5-1AF9-05BA4D67B9F8">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:08:42 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fechaInicial" id="360EBC57-447A-C954-4E15-D4B08DAB9A2D">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:08:56 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="durancion" id="D19539D4-C1D3-47BC-FB54-0271ED754044">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:09:07 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valorFinal" id="41D424C7-87A6-9605-721A-CAC7320EF4E6">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:09:23 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valido" id="57C9F435-2AA7-7BF4-43FC-A196665BB3B4">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:09:36 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="68230CF2-0515-43C2-8CF4-9C8CEDE38A49" name="PLANES_C_PK">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 05:07:09 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F1C72164-D33E-74A9-84B3-0D759C7E4736</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

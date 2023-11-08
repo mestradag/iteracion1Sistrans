@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="PRODUCTOS_E" directorySegmentName="seg_0" id="282AB38F-A437-7CA3-069A-F2331E1CF707">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 12:55:27 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>D63850A0-9F1A-39D5-5688-9D544EB35867</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BE908C9F-9213-5EDC-461E-1D99A8410DB5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

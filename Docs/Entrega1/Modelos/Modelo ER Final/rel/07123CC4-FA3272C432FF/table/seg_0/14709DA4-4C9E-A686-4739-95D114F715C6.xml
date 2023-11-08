@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="14709DA4-4C9E-A686-4739-95D114F715C6" name="SERVICIOS">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>FED8286A-CB9F-D117-3E0A-598A92E8A364</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idServicio" id="DDEE3BB5-D0B5-F18C-2DDA-852595FB85F1">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>475DD8C2-7A58-6C8D-F363-BB8D6D827DCB</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="costoTotal" id="5ADA8B06-FD97-E806-F8BD-2EEE3AF66CA9">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>37EBF508-E591-A39A-57BA-1027E9679E7A</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="capacidad" id="83CF7C47-FF0D-2710-D171-C84F9392844E">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>89A1B1FF-EBD8-AC29-F4B9-4ADD5554FD15</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombreHotel" id="DD494FF4-13DD-8B28-B6E1-D0999A96B1D1">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>A4269886-9473-476F-3202-36BD372F1637</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6FEA322C-3A17-5F84-A5C1-C07B0DB7715F" referredColumn="4BC01E12-E31E-1174-97F3-8B3EA48BC54C"/>
+</associations>
+</Column>
+<Column name="idPlanConsumo" id="FF715713-B8F0-ECB9-4E62-0BCEC0E1F9AC">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>9F9EAC16-ECAC-8562-8C81-B3FF33B805AB</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C0FDB04B-1F82-3CC3-A829-A9F0139B6E35" referredColumn="2821CA9A-FEC0-74CF-6EAC-D528E7448537"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2C8B49AF-B0A0-C09E-EEE3-5C069C21F7C4" name="SERVICIOS_PK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>60BD61AE-B5D0-BDFE-0872-2BCB609A1F99</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DDEE3BB5-D0B5-F18C-2DDA-852595FB85F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91AD50A8-E8E3-A1C6-3D1C-A40AE7CFB5C7" name="SERVICIOS_HOTELES_FK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>ADAD46BC-7822-45B5-BC6C-72696AA43282</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD494FF4-13DD-8B28-B6E1-D0999A96B1D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7512C3AB-ADCE-A2EE-E6DF-FB42E5F730F1" name="SERVICIOS_PLANES_C_FK">
+<createdBy>user</createdBy>
+<createdTime>2023-09-27 22:35:01 UTC</createdTime>
+<generatorID>4E8D8600-4DAF-B43A-7E7F-599E67D58F69</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FF715713-B8F0-ECB9-4E62-0BCEC0E1F9AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

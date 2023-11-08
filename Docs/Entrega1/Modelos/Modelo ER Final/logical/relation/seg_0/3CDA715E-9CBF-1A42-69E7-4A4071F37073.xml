@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="USUARIOS HOTELES FK" directorySegmentName="seg_0" id="3CDA715E-9CBF-1A42-69E7-4A4071F37073">
+<createdBy>maria</createdBy>
+<createdTime>2023-09-22 13:07:52 UTC</createdTime>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="07123CC4-DDD5-1D6D-B4FD-FA3272C432FF" value="true"/>
+</engineerTo>
+<sourcePk>69277F8E-9179-F44F-6DD0-23DBB9EB36B5</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>72CCEFCD-7255-AE9B-80CE-8E20DDF2DCC7</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>CEB7D9F0-9E98-719A-0562-80CEC27FA32F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

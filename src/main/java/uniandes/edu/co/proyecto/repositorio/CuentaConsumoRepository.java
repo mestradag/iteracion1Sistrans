@@ -46,7 +46,7 @@ public interface CuentaConsumoRepository extends JpaRepository<CuentaConsumo, In
                    "INNER JOIN HABITACIONES h ON cu.idhabitacion=h.idhabitacion "+//
                    "INNER JOIN RESERVAS r ON h.idhabitacion= r.idhabitacion "+//
                    "INNER JOIN USUARIOS u ON r.idusuario= u.idusuario "+//
-                   "WHERE u.nombre = :nombreusuario AND CHECKIN BETWEEN :fechainicio and :fechafin", nativeQuery = true)
+                   "WHERE u.nombre = :nombreusuario AND CHECKIN BETWEEN TO_DATE(:fechainicio , 'yyyy/mm/dd') and TO_DATE(:fechafin,'yyyy/mm/dd')", nativeQuery = true)
     Collection<CuentaConsumo> darConsumoPorUsuarioEnRango(@Param("nombreusuario") String nombreusuario, @Param("fechainicio") String fechainicio, @Param("fechafin") String fechafin);
 }
 
