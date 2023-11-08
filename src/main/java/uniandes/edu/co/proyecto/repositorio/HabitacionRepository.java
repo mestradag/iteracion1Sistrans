@@ -31,6 +31,15 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
 
     }
 
+    public interface RespuestaMasConsumido {
+        
+        int getMOST_OCCURRING();
+        int getLEAST_OCCURRING();
+        int getMOST_OCUPADO();
+        int getLEAST_OCUPADO();
+
+    }
+
     @Query(value = "SELECT * FROM habitaciones FETCH FIRST 30 ROWS ONLY", nativeQuery = true)
     Collection<Habitacion> darHabitaciones();
 
@@ -77,6 +86,59 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
             "ORDER BY habitaciones_ocupadas DESC " + //
             "FETCH FIRST 1 ROWS ONLY ", nativeQuery = true)
     Collection<RespuestaMayorDemanda> darMayorDemanda();
+
+
+    @Query (value = 
+            "SELECT " + //
+            "    MIN(LEAST_SERVICE.IDSERVICIO) AS MOST_OCCURRING, " + //
+            "    MAX(MOST_SERVICE.IDSERVICIO) AS LEAST_OCCURRING, " + //
+            "    MAX(MOST_ROOM.IDHABITACION) AS MOST_OCUPADO, " + //
+            "    MIN(LEAST_ROOM.IDHABITACION) AS LEAST_OCUPADO " + //
+            "FROM ( " + //
+            "    SELECT IDSERVICIO, COUNT(IDSERVICIO) AS SERVICE_COUNT " + //
+            "    FROM S_CONSUMIDOS " + //
+            "    GROUP BY IDSERVICIO " + //
+            ") MOST_SERVICE " + //
+            "JOIN ( " + //
+            "    SELECT IDSERVICIO, COUNT(IDSERVICIO) AS SERVICE_COUNT " + //
+            "    FROM S_CONSUMIDOS " + //
+            "    GROUP BY IDSERVICIO " + //
+            ") LEAST_SERVICE ON MOST_SERVICE.SERVICE_COUNT = ( " + //
+            "    SELECT MAX(SERVICE_COUNT) FROM ( " + //
+            "        SELECT COUNT(IDSERVICIO) AS SERVICE_COUNT " + //
+            "        FROM S_CONSUMIDOS " + //
+            "        GROUP BY IDSERVICIO " + //
+            "    ) " + //
+            ") OR LEAST_SERVICE.SERVICE_COUNT = ( " + //
+            "    SELECT MIN(SERVICE_COUNT) FROM ( " + //
+            "        SELECT COUNT(IDSERVICIO) AS SERVICE_COUNT " + //
+            "        FROM S_CONSUMIDOS " + //
+            "        GROUP BY IDSERVICIO " + //
+            "    ) " + //
+            ") " + //
+            "JOIN ( " + //
+            "    SELECT IDHABITACION, COUNT(IDHABITACION) AS ROOM_COUNT " + //
+            "    FROM HABITACIONES " + //
+            "    GROUP BY IDHABITACION " + //
+            ") MOST_ROOM ON MOST_ROOM.ROOM_COUNT = ( " + //
+            "    SELECT MAX(ROOM_COUNT) FROM ( " + //
+            "        SELECT COUNT(IDHABITACION) AS ROOM_COUNT " + //
+            "        FROM HABITACIONES " + //
+            "        GROUP BY IDHABITACION " + //
+            "    ) " + //
+            ") " + //
+            "JOIN ( " + //
+            "    SELECT IDHABITACION, COUNT(IDHABITACION) AS ROOM_COUNT " + //
+            "    FROM HABITACIONES " + //
+            "    GROUP BY IDHABITACION " + //
+            ") LEAST_ROOM ON LEAST_ROOM.ROOM_COUNT = ( " + //
+            "    SELECT MIN(ROOM_COUNT) FROM ( " + //
+            "        SELECT COUNT(IDHABITACION) AS ROOM_COUNT " + //
+            "        FROM HABITACIONES " + //
+            "        GROUP BY IDHABITACION " + //
+            "    ) " + //
+            ") ", nativeQuery = true)
+    Collection<RespuestaMasConsumido> darMasConsumido();
     
 }
 

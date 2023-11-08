@@ -23,10 +23,14 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
         String getNombre_cliente();
         String getNombre_servicio();
         String getVeces_consumido();
-
-        
     }
 
+    // public interface RespuestaClientesExcelentes{
+    //     String getNombre();
+    //     String getCorreo();
+
+
+    // }
     @Query(value = "SELECT * FROM usuarios FETCH FIRST 30 ROWS ONLY ", nativeQuery = true)
     Collection<Usuario> darUsuarios();
 
@@ -96,7 +100,26 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
         "         CASE WHEN :orden = 'DESC' THEN u.idusuario END DESC, " +
         "         CASE WHEN :orden = 'ASC' THEN s.nombre END ASC, " +
         "         CASE WHEN :orden = 'DESC' THEN s.nombre END DESC", nativeQuery = true)
-Collection<RespuestaConsumoHotel> darNoConsumoHotel(@Param("fechainicio") String fechainicio, @Param("fechafin") String fechafin, @Param("orden") String orden);
+    Collection<RespuestaConsumoHotel> darNoConsumoHotel(@Param("fechainicio") String fechainicio, @Param("fechafin") String fechafin, @Param("orden") String orden);
+
+
+    // @Query(value ="SELECT Distinct c1.nombre,c1.correo\r\n" + //
+    //         "FROM (SELECT U.idusuario,u.nombre,u.correo,C.CHECKIN,R.IDHABITACION\r\n" + //
+    //         "        FROM CUENTAS_C C\r\n" + //
+    //         "        INNER JOIN RESERVAS R ON R.IDCUENTA=C.IDCUENTA\r\n" + //
+    //         "        INNER JOIN USUARIOS U ON U.IDUSUARIO=R.IDUSUARIO) C1\r\n" + //
+    //         "JOIN (SELECT U.idusuario,u.nombre,u.correo,C.CHECKIN,R.IDHABITACION\r\n" + //
+    //         "        FROM CUENTAS_C C\r\n" + //
+    //         "        INNER JOIN RESERVAS R ON R.IDCUENTA=C.IDCUENTA\r\n" + //
+    //         "        INNER JOIN USUARIOS U ON U.IDUSUARIO=R.IDUSUARIO) C2\r\n" + //
+    //         "ON C1.IDUSUARIO=C2.IDUSUARIO\r\n" + //
+    //         "INNER JOIN HABITACIONES H ON C1.IDHABITACION=H.IDHABITACION\r\n" + //
+    //         "INNER JOIN RESERVAS_SERVICIOS RS ON H.IDHABITACION = RS.IDHABITACION\r\n" + //
+    //         "INNER JOIN SERVICIOS S ON S.IDSERVICIO=RS.IDSERVICIO\r\n" + //
+    //         "WHERE  C1.CHECKIN - C2.CHECKIN >= INTERVAL '90' DAY\r\n" + //
+    //         "AND s.costototal > 300000\r\n" + //
+    //         "FETCH FIRST 5 ROWS ONLY  ", nativeQuery = true)
+    // Collection<RespuestaClientesExcelentes> darClientesExcelentes();
 
 }
 

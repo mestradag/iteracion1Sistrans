@@ -23,6 +23,7 @@ public class HabitacionesController{
         model.addAttribute("recs1", habitacionRepository.darDineroRecolectadoPorHabitacion());
         model.addAttribute("reqs3", habitacionRepository.darIndiceOcupacion());
         model.addAttribute("recs6", habitacionRepository.darMayorDemanda());
+        model.addAttribute("recs11", habitacionRepository.darMasConsumido());
 
         return "habitaciones";
         //return model.toString();

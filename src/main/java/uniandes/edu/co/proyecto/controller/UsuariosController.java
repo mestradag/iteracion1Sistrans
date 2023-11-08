@@ -29,6 +29,7 @@ public class UsuariosController {
         if ( (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals("")) && (orden == null || orden.equals(""))) {
             model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
             model.addAttribute("re7", usuarioRepository.darBuenosClientes());
+            // model.addAttribute("re12", usuarioRepository.darClientesExcelentes());
 
 
         }

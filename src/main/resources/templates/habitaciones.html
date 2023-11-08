@@ -93,6 +93,30 @@
             </th:block>
 
         </table>
+
+        <h2>Requerimiento 11</h2>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id Servicio más consumido</th>
+                    <th>Id Servicio menos consumido</th>
+                    <th>Id habitacion más opcupada</th>
+                    <th>Id habitacion menos opcupada</th>
+
+
+                </tr>
+            </thead>
+            <th:block th:each="rec11: ${recs11}">
+                <tr>
+                    <td th:text="${rec11.MOST_OCCURRING}"></td>
+                    <td th:text="${rec11.LEAST_OCCURRING}"></td>
+                    <td th:text="${rec11.MOST_OCUPADO}"></td>
+                    <td th:text="${rec11.LEAST_OCUPADO}"></td>
+
+                </tr>
+            </th:block>
+
+        </table>
     </table>
     <div>
         <a th:href='@{habitaciones/new}' class="btn btn-primary">Añadir Habitacion</a>
