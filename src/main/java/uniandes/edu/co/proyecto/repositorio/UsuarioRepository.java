@@ -103,7 +103,7 @@ public interface UsuarioRepository extends JpaRepository <Usuario, Integer>{
     Collection<RespuestaConsumoHotel> darNoConsumoHotel(@Param("fechainicioo") String fechainicioo, @Param("fechafino") String fechafino, @Param("ordeno") String ordeno);
 
 
-    @Query(value ="SELECT Distinct c1.nombre,c1.correo\r\n" + //
+    @Query(value ="SELECT Distinct c1.nombre AS nombre, c1.correo AS correo\r\n" + //
             "FROM (SELECT U.idusuario,u.nombre,u.correo,C.CHECKIN,R.IDHABITACION\r\n" + //
             "        FROM CUENTAS_C C\r\n" + //
             "        INNER JOIN RESERVAS R ON R.IDCUENTA=C.IDCUENTA\r\n" + //

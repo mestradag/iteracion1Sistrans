@@ -38,6 +38,8 @@ public class UsuariosController {
         else{
             model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
             model.addAttribute("re7", usuarioRepository.darBuenosClientes());
+            model.addAttribute("re12", usuarioRepository.darClientesExcelentes());
+
         }
         return "usuarios"; 
     }
