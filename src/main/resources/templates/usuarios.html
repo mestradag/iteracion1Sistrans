@@ -148,16 +148,20 @@
     <table class="table table-hover table-bordered">
         <thead class="thead-dark">
             <tr>
+                <th>idUsuario</th>
                 <th>Nombre</th>
-                <th>Consumo total</th>
+                <th>Servicio</th>
+                <th>Veces consumido</th>
             
-                
             </tr>
         </thead>
         <th:block th:each="consumoHotel:${re10}">
             <tr>
                 <td th:text="${consumoHotel.idusuario}"></td>
-                <td th:text="${consumoHotel.nombre}"></td> 
+                <td th:text="${consumoHotel.nombre_cliente}"></td>
+                <td th:text="${consumoHotel.nombre_servicio}"></td> 
+                <td th:text="${consumoHotel.veces_consumido}"></td>
+
 
             </tr>
         </th:block>

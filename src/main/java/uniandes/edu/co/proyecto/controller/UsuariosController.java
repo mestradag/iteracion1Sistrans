@@ -24,37 +24,22 @@ public class UsuariosController {
 
     @GetMapping("/usuarios")
     public String usuarios(Model model, String fechainicio, String fechafin, String orden,String fechainicioo, String fechafino, String ordeno) {
-
-
-        if ( (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals("")) && (orden == null || orden.equals(""))) {
-            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
-            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
-            // model.addAttribute("re12", usuarioRepository.darClientesExcelentes());
-
-
-        }
-       
-        else if((!fechainicio.equals("")) && !(fechafin.equals("")) && !(orden.equals(""))){
-            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
-            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
-            model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
-
-        }
-        else if((!fechainicioo.equals("")) && !(fechafino.equals("")) && !(ordeno.equals(""))){
-            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
-            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
-            model.addAttribute("re10", usuarioRepository.darNoConsumoHotel(fechainicioo,fechafino,ordeno));
-
-        }
-        else{      
-            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
-            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
-            model.addAttribute("re10", usuarioRepository.darNoConsumoHotel(fechainicioo,fechafino,ordeno));
-            model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
-        }
-
-        return "usuarios"; 
         
+        if ((fechainicio != null && !fechainicio.equals("")) && (fechafin != null && !fechafin.equals("")) && (orden != null && !orden.equals(""))) {
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
+            model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
+        }
+        else if ((fechainicioo != null && !fechainicioo.equals("")) && (fechafino != null && !fechafino.equals("")) && (ordeno != null && !ordeno.equals(""))) { 
+            model.addAttribute("re10", usuarioRepository.darNoConsumoHotel(fechainicioo,fechafino,ordeno));
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios());
+            model.addAttribute("re7", usuarioRepository.darBuenosClientes());;
+        }
+        else{
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+            model.addAttribute("re7", usuarioRepository.darBuenosClientes());
+        }
+        return "usuarios"; 
     }
 
     @GetMapping("/usuarios/new")
