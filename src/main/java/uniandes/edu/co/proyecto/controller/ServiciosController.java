@@ -30,33 +30,29 @@ public class ServiciosController {
     @Autowired
     private HotelRepository hotelRepository;
 
+
     @GetMapping("/servicios")
-    public String servicios(Model model, String fechainicio, String fechafin, String precioinicio, String preciofin, String nombre, String fechainicioo, String fechafino){
+    public String servicios(Model model, String fechainicio, String fechafin, String precioinicio, String preciofin, String nombre, String fechainicioo, String fechafino, String servicio){
         
-        if ( (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals("")) && (precioinicio == null || precioinicio.equals("")) 
-            && (preciofin == null || preciofin.equals("")) && (nombre == null || nombre.equals("")) && (fechainicioo == null || fechainicioo.equals("")) && (fechafino == null || fechafino.equals(""))) {
-            model.addAttribute("servicios", servicioRepository.darServicios());
-            model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
-        }
-        else if(! (fechainicio == null || fechainicio.equals("")) && !(fechafin == null || fechafin.equals(""))){
+        model.addAttribute("servicios", servicioRepository.darServicios());
+
+        if ((fechainicio != null && !fechainicio.equals("")) && (fechainicio != null && !fechainicio.equals(""))){
             model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
             model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
             model.addAttribute("servicios", servicioRepository.darServicios());
 
         }
-        else if (!(precioinicio == null || precioinicio.equals("")) 
-            && !(preciofin == null || preciofin.equals("")) && !(nombre == null || nombre.equals("")) && !(fechainicioo == null || fechainicioo.equals("")) && !(fechafino == null || fechafino.equals(""))){
+        else if ((fechainicioo != null && !fechainicioo.equals("")) && (fechafino != null && !fechafino.equals("")) && (precioinicio != null && !precioinicio.equals("")) 
+            && (preciofin != null && !preciofin.equals("")) && (nombre != null && !nombre.equals("")) && (servicio != null && !servicio.equals(""))){
             model.addAttribute("servicios", servicioRepository.darServicios());
             model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
-            model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino));
+            model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino, servicio));
 
         }
+
         else{        
             model.addAttribute("servicios", servicioRepository.darServicios());
             model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
-            model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
-            model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino));
-
         }
 
         return "servicios";

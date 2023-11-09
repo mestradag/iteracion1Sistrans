@@ -61,9 +61,20 @@
                         <input class="form-control" type="text" id="fechainicioo" name= "fechainicioo" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
                         <label class="col-form-label">Fecha fin (YYYY-MM-DD):</label>
                         <input class="form-control" type="text" id="fechafino" name= "fechafino" data-date-format="YYYY-MM-DD HH:MM:SS.0" />                       
+                        <label class="col-form-label">Servicio: </label>
 
-                        <br />
+                        <select class="form-control" name="servicio" id="servicio">
+                            <option value=""></option>
+                            <option th.value="Piscina"  th:text="Piscina"></option>
+                            <option th.value="Spa"  th:text="Spa"></option>
+                            <option th.value="Internet"  th:text="Internet"></option>
+                            <option th.value="Lavado"  th:text="Lavado"></option>
+                            <option th.value="Gimnasio"  th:text="Gimnasio"></option>
+                            <option th.value="Salon"  th:text="Salon"></option>
+                            <option th.value="Prestamo"  th:text="Prestamo"></option>
 
+
+                        </select><br>
                         <div class="text-center">
                             <button type="submit" class="btn btn-secondary" >Buscar los servicios por características</button>
                         </div>

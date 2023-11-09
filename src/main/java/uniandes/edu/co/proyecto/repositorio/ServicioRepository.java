@@ -70,14 +70,14 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer>{
 
     @Query(value = "SELECT s.idservicio AS ID_SERV, s.nombre AS NOMBRE, s.costototal AS COSTO_TOTAL " +
     "FROM servicios s, usuarios u, reservas r " +
-    "WHERE s.nombre = 'Piscina' " +
+    "WHERE s.nombre = :servicio " +
     "AND s.costoTotal BETWEEN TO_NUMBER(:precioinicio) AND TO_NUMBER(:preciofin) " +
     "AND u.rol = 'empleado' " +
     "AND u.nombre = :nombre " +
     "AND r.idusuario = u.idusuario " +
     "AND r.fechainicio >= TO_DATE(:fechainicioo, 'YYYY-MM-DD') " +
     "AND r.fechafin <= TO_DATE(:fechafino, 'YYYY-MM-DD')", nativeQuery = true)
-    Collection<RespuestaServiciosCaracteristicas> darServiciosCaracteristicas(@Param("precioinicio") String precioinicio, @Param("preciofin") String preciofin, @Param("nombre") String nombre, @Param("fechainicioo") String fechainicioo, @Param("fechafino") String fechafino);
+    Collection<RespuestaServiciosCaracteristicas> darServiciosCaracteristicas(@Param("precioinicio") String precioinicio, @Param("preciofin") String preciofin, @Param("nombre") String nombre, @Param("fechainicioo") String fechainicioo, @Param("fechafino") String fechafino, @Param("servicio") String servicio);
 
     @Query (value = "SELECT s.nombre AS nombre_servicio, COUNT(rs.idservicio) AS veces_solicitado " +//
                     "FROM servicios s " +//
