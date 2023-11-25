@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://ISIS2304B20202320:uKTZraKSNxbv@157.253.236.88:8087/
+      database: ISIS2304B20202320
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
