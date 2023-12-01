@@ -6,8 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;   
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.GenerationType;
 import java.util.List;
 
@@ -22,24 +20,27 @@ public class CuentaConsumo {
     private boolean estado;
     private Timestamp checkin;
     private Timestamp checkout;
-    private List<Integer> productosConsumidos;
+    private List<Integer> productosconsumidos;
+    private List<ServicioConsumido> serviciosconsumidos;
+    private List<ReservaServicio> reservaservicio;
 
-
-
-    @OneToOne
-    @JoinColumn(name = "idhabitacion", referencedColumnName = "idhabitacion")
-    private Habitacion idhabitacion;
+    private Integer idreserva;
 
     public CuentaConsumo(
         Boolean estado, 
         Timestamp checkin, 
         Timestamp checkout,
-        Habitacion idhabitacion
+        Habitacion idhabitacion,
+        Integer idreserva,
+        List<ServicioConsumido> serviciosconsumidos,
+        List<ReservaServicio> reservaservicio
         ) {
         this.estado = estado;
         this.checkin = checkin;
         this.checkout = checkout;
-        this.idhabitacion = idhabitacion;
+        this.idreserva = idreserva;
+        this.serviciosconsumidos = serviciosconsumidos;
+        this.reservaservicio = reservaservicio;
     }
 
     public CuentaConsumo()
@@ -69,21 +70,29 @@ public class CuentaConsumo {
     public void setCheckout(Timestamp checkout) {
         this.checkout = checkout;
     }
-    public Habitacion getIdhabitacion() {
-        return idhabitacion;
-    }
-
-    public void setIdHabitacion(Habitacion idHabitacion) {
-        this.idhabitacion = idHabitacion;
-    }
-
     public List<Integer> getProductos() {
-        return productosConsumidos;
+        return productosconsumidos;
     }
-
-    public void setProductos(List<Integer> productosConsumidos) {
-        this.productosConsumidos = productosConsumidos;
+    public void setProductos(List<Integer> productosconsumidos) {
+        this.productosconsumidos = productosconsumidos;
     }
-    
+    public Integer getIdreserva() {
+        return idreserva;
+    }
+    public void setIdreserva(Integer idreserva) {
+        this.idreserva = idreserva;
+    }
+    public List<ServicioConsumido> getServiciosconsumidos() {
+        return serviciosconsumidos;
+    }
+    public void setServiciosconsumidos(List<ServicioConsumido> serviciosconsumidos) {
+        this.serviciosconsumidos = serviciosconsumidos;
+    }
+    public List<ReservaServicio> getReservaservicio() {
+        return reservaservicio;
+    }
+    public void setReservaservicio(List<ReservaServicio> reservaservicio) {
+        this.reservaservicio = reservaservicio;
+    }
     
 }

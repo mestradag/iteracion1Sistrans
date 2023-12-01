@@ -8,9 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 
@@ -28,127 +25,62 @@ public class Reserva {
     private List<CuentaConsumo> cuentas_c;
     private List<PlanConsumo> planes_c;
 
-    @ManyToOne
-    @JoinColumn(name = "idhabitacion", referencedColumnName = "idhabitacion")
-    private Habitacion idhabitacion;
-
-    @ManyToOne
-    @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
-    private Usuario idusuario;
-
-    @ManyToOne
-    @JoinColumn(name = "idplanconsumo", referencedColumnName = "idplanconsumo")
-    private PlanConsumo idplanconsumo;
-
-    @OneToOne
-    @JoinColumn(name = "idcuenta", referencedColumnName = "idcuenta")
-    private CuentaConsumo idcuenta;
-
     //Constructor
-    public Reserva(Integer idreserva, Date fechainicio,  Date fechafin, Integer duracion, Integer numacompanantes, Habitacion idhabitacion, Usuario idusuario, PlanConsumo idplanconsumo, CuentaConsumo idcuenta){
+    public Reserva(Integer idreserva, Date fechainicio,  Date fechafin, Integer duracion, Integer numacompanantes, List<CuentaConsumo> cuentas_c,List<PlanConsumo> planes_c){
         this.idreserva=idreserva;
         this.fechainicio=fechainicio;
         this.fechafin=fechafin;
         this.duracion=duracion;
         this.numacompanantes=numacompanantes;
-        this.idhabitacion=idhabitacion;
-        this.idusuario=idusuario;
-        this.idplanconsumo=idplanconsumo;
-        this.idcuenta=idcuenta;
-
+        this.cuentas_c = cuentas_c;
+        this.planes_c = planes_c;
+    
     }
 
     public Reserva(){;}
 
-    //Getters and Setters
     public Integer getIdreserva() {
         return idreserva;
     }
-
     public void setIdreserva(Integer idreserva) {
         this.idreserva = idreserva;
     }
-
     public Date getFechainicio() {
         return fechainicio;
     }
-
     public void setFechainicio(Date fechainicio) {
         this.fechainicio = fechainicio;
     }
-
     public Date getFechafin() {
         return fechafin;
     }
-
     public void setFechafin(Date fechafin) {
         this.fechafin = fechafin;
     }
-
     public Integer getDuracion() {
         return duracion;
     }
-
     public void setDuracion(Integer duracion) {
         this.duracion = duracion;
     }
-
     public Integer getNumacompanantes() {
         return numacompanantes;
     }
-
     public void setNumacompanantes(Integer numacompanantes) {
         this.numacompanantes = numacompanantes;
     }
-
-    public Habitacion getIdhabitacion() {
-        return idhabitacion;
-    }
-
-    public void setIdhabitacion(Habitacion idhabitacion) {
-        this.idhabitacion = idhabitacion;
-    }
-
-    public Usuario getIdusuario() {
-        return idusuario;
-    }
-
-    public void setIdusuario(Usuario idusuario) {
-        this.idusuario = idusuario;
-    }
-
-    public PlanConsumo getIdplanconsumo() {
-        return idplanconsumo;
-    }
-
-    public void setIdplanconsumo(PlanConsumo idplanconsumo) {
-        this.idplanconsumo = idplanconsumo;
-    }
-
-    public CuentaConsumo getIdcuenta() {
-        return idcuenta;
-    }
-
-    public void setIdcuenta(CuentaConsumo idcuenta) {
-        this.idcuenta = idcuenta;
-    }
-
     public List<CuentaConsumo> getCuentas_c() {
         return cuentas_c;
     }
-
     public void setCuentas_c(List<CuentaConsumo> cuentas_c) {
         this.cuentas_c = cuentas_c;
     }
-
     public List<PlanConsumo> getPlanes_c() {
         return planes_c;
     }
-
     public void setPlanes_c(List<PlanConsumo> planes_c) {
         this.planes_c = planes_c;
     }
 
-    
 }
 

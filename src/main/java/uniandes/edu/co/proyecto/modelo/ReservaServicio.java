@@ -12,18 +12,20 @@ public class ReservaServicio {
 
     private Timestamp fechaReserva;
     public Integer duracion;
-    public Integer servicioID;
+    public Integer idservicio;
+
+    public Integer idcuentaconsumo;
 
 
     public ReservaServicio(){
     ;
     }
     
-    public ReservaServicio(Timestamp fechaReserva, Integer duracion,  Integer servicioID){
+    public ReservaServicio(Timestamp fechaReserva, Integer duracion,  Integer idservicio, Integer idcuentaconsumo){
         this.fechaReserva=fechaReserva;
         this.duracion=duracion;
-        this.servicioID=servicioID;
-      
+        this.idservicio=idservicio;
+        this.idcuentaconsumo = idcuentaconsumo;
 
     }
 
@@ -44,11 +46,11 @@ public class ReservaServicio {
     }
 
     public Integer getServicioID() {
-        return servicioID;
+        return idservicio;
     }
 
-    public void setServicioID(Integer servicioID) {
-        this.servicioID = servicioID;
+    public void setServicioID(Integer idservicio) {
+        this.idservicio = idservicio;
     }
 
 

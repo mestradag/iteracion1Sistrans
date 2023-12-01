@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.List;
 
@@ -22,23 +20,19 @@ public class Usuario {
     private String rol;
     private List<Reserva> reservas;
 
-    @ManyToOne
-    @JoinColumn(name = "nombrehotel", referencedColumnName = "nombre")
-    private Hotel nombrehotel;
+    private String nombrehotel;
+
 
     public Usuario(){;}
-    // Constructor
-    public Usuario(String nombre, String correo, String rol, Hotel nombrehotel){
+
+    public Usuario(String nombre, String correo, String rol, String nombrehotel){
         this.nombre=nombre;
         this.correo=correo; 
         this.rol=rol;
         this.nombrehotel=nombrehotel; 
     }
 
-    
-
-    //Getters and Setters
-    public Integer getIdusuario() {
+        public Integer getIdusuario() {
         return idusuario;
     }
 
@@ -70,11 +64,11 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public Hotel getNombrehotel() {
+    public String getNombrehotel() {
         return nombrehotel;
     }
 
-    public void setNombrehotel(Hotel nombrehotel) {
+    public void setNombrehotel(String nombrehotel) {
         this.nombrehotel = nombrehotel;
     }
 
@@ -92,7 +86,7 @@ public class Usuario {
                 ", nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
                 ", rol=" + rol +
-                ", nombrehotel=" + nombrehotel.getNombre() +
+                ", nombrehotel=" + nombrehotel +
                 '}';
     }
 

@@ -10,18 +10,19 @@ import jakarta.persistence.Table;
 public class ServicioConsumido {
 
     private Timestamp fechaReserva;
-    private Integer idServicio;
+    private Integer idservicio;
 
+    private Integer idcuentaconsumo;
 
     public ServicioConsumido(){
     ;
     }
     
-    public ServicioConsumido(Timestamp fechaReserva, Integer idServicio){
+    public ServicioConsumido(Timestamp fechaReserva, Integer idservicio, Integer idcuentaconsumo){
         this.fechaReserva=fechaReserva;
-        this.idServicio=idServicio;
-       
-
+        this.idservicio=idservicio;
+        this.idcuentaconsumo = idcuentaconsumo;
+    
     }
 
     public Timestamp getFechaReserva() {
@@ -33,12 +34,19 @@ public class ServicioConsumido {
     }
 
     public Integer getIdServicio() {
-        return idServicio;
+        return idservicio;
     }
 
-    public void setIdServicio(Integer idServicio) {
-        this.idServicio = idServicio;
+    public void setIdServicio(Integer idservicio) {
+        this.idservicio = idservicio;
     }
 
+    public Integer getIdCuenta() {
+        return idcuentaconsumo;
+    }
+
+    public void setIdCuenta(Integer idcuentaconsumo) {
+        this.idcuentaconsumo = idcuentaconsumo;
+    }
 
 }

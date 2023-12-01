@@ -21,8 +21,6 @@ public class Servicio {
     public Integer costototal;
     public List<Integer> ofertaProductos;
 
-
-
     public Servicio(){
     ;
     }

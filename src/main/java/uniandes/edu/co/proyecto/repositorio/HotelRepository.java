@@ -23,6 +23,19 @@ public interface HotelRepository extends JpaRepository <Hotel, String> {
     }
 
     public class RespuestadarServicios{
+        List<Integer> servicios;
+
+        public RespuestadarServicios(List<Integer> servicios){
+            this.servicios = servicios;
+        }
+
+        public List<Integer> getServicios() {
+            return servicios;
+        }
+
+        public void setServicios(List<Integer> servicios) {
+            this.servicios = servicios;
+        }
         
     }
 
