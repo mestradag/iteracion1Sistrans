@@ -1,5 +1,7 @@
 package uniandes.edu.co.proyecto.modelo;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -10,6 +12,7 @@ public class Hotel {
     @Id
     private String nombre;
     private String ciudad;
+    private List<Integer> servicios;
     
     // Constructor
     public Hotel(String nombre, String ciudad) {
@@ -33,5 +36,14 @@ public class Hotel {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
+    public List<Integer> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<Integer> servicios) {
+        this.servicios = servicios;
+    }
+    
 }
 

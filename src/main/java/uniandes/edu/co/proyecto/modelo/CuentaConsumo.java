@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.GenerationType;
+import java.util.List;
+
 
 @Entity
 @Table(name="cuentas_c")
@@ -21,6 +23,9 @@ public class CuentaConsumo {
     private boolean estado;
     private Timestamp checkin;
     private Timestamp checkout;
+    private List<Producto> productos;
+
+
 
     @OneToOne
     @JoinColumn(name = "idhabitacion", referencedColumnName = "idhabitacion")
@@ -72,5 +77,14 @@ public class CuentaConsumo {
     public void setIdHabitacion(Habitacion idHabitacion) {
         this.idhabitacion = idHabitacion;
     }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+    
     
 }

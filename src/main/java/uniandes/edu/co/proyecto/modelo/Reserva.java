@@ -2,6 +2,8 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.sql.Date;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name="reservas")
@@ -22,6 +25,8 @@ public class Reserva {
     private Date fechafin;
     private Integer duracion;
     private Integer numacompanantes;
+    private List<CuentaConsumo> cuentas_c;
+    private List<PlanConsumo> planes_c;
 
     @ManyToOne
     @JoinColumn(name = "idhabitacion", referencedColumnName = "idhabitacion")
@@ -128,5 +133,22 @@ public class Reserva {
         this.idcuenta = idcuenta;
     }
 
+    public List<CuentaConsumo> getCuentas_c() {
+        return cuentas_c;
+    }
+
+    public void setCuentas_c(List<CuentaConsumo> cuentas_c) {
+        this.cuentas_c = cuentas_c;
+    }
+
+    public List<PlanConsumo> getPlanes_c() {
+        return planes_c;
+    }
+
+    public void setPlanes_c(List<PlanConsumo> planes_c) {
+        this.planes_c = planes_c;
+    }
+
+    
 }
 

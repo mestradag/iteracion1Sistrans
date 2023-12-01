@@ -16,6 +16,7 @@ public class Habitacion {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer idhabitacion;
+    
     private Integer capacidad;
     private Boolean disponible;
     private String tipo;

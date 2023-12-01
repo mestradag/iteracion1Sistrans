@@ -1,5 +1,7 @@
 package uniandes.edu.co.proyecto.modelo;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +21,7 @@ public class Servicio {
     private String nombre;
     private String descripcion;
     public Integer costototal;
+    public List<Producto> productos;
 
     
     @ManyToOne
@@ -90,6 +93,14 @@ public class Servicio {
 
     public void setCostoTotal(Integer costototal) {
         this.costototal = costototal;
+    }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 
     

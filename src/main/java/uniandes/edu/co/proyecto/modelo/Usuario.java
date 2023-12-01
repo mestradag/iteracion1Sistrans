@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name="usuarios")
@@ -19,6 +20,7 @@ public class Usuario {
     public String nombre;
     private String correo;
     private String rol;
+    private List<Reserva> reservas;
 
     @ManyToOne
     @JoinColumn(name = "nombrehotel", referencedColumnName = "nombre")
@@ -74,6 +76,13 @@ public class Usuario {
 
     public void setNombrehotel(Hotel nombrehotel) {
         this.nombrehotel = nombrehotel;
+    }
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
     }
 
     @Override
