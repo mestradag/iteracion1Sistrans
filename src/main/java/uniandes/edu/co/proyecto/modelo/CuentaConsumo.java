@@ -22,7 +22,7 @@ public class CuentaConsumo {
     private boolean estado;
     private Timestamp checkin;
     private Timestamp checkout;
-    private List<Producto> productos;
+    private List<Integer> productosConsumidos;
 
 
 
@@ -77,12 +77,12 @@ public class CuentaConsumo {
         this.idhabitacion = idHabitacion;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
+    public List<Integer> getProductos() {
+        return productosConsumidos;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setProductos(List<Integer> productosConsumidos) {
+        this.productosConsumidos = productosConsumidos;
     }
     
     

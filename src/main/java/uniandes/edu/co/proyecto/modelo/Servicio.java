@@ -19,7 +19,7 @@ public class Servicio {
     private String nombre;
     private String descripcion;
     public Integer costototal;
-    public List<Producto> productos;
+    public List<Integer> ofertaProductos;
 
 
 
@@ -66,12 +66,12 @@ public class Servicio {
         this.costototal = costototal;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
+    public List<Integer> getProductos() {
+        return ofertaProductos;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setProductos(List<Integer> ofertaProductos) {
+        this.ofertaProductos = ofertaProductos;
     }
 
     
