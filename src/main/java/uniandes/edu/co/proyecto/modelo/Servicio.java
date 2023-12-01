@@ -6,8 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,26 +21,15 @@ public class Servicio {
     public Integer costototal;
     public List<Producto> productos;
 
-    
-    @ManyToOne
-    @JoinColumn(name="idplanconsumo",referencedColumnName = "idplanconsumo")
-    private PlanConsumo idplanconsumo;
-
-    @ManyToOne
-    @JoinColumn(name="nombrehotel",referencedColumnName = "nombre")
-    private Hotel nombrehotel;
-
 
 
     public Servicio(){
     ;
     }
     
-    public Servicio(String nombre, String descripcion,  PlanConsumo idplanconsumo,Hotel nombrehotel ,Integer costototal){
+    public Servicio(String nombre, String descripcion, Integer costototal){
         this.nombre=nombre;
         this.descripcion=descripcion;
-        this.idplanconsumo=idplanconsumo;
-        this.nombrehotel=nombrehotel;
         this.costototal = costototal;
 
     }
@@ -69,22 +56,6 @@ public class Servicio {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public  PlanConsumo getIdplanconsumo() {
-        return idplanconsumo;
-    }
-
-    public  void setIdplanconsumo(PlanConsumo idplanconsumo) {
-        this.idplanconsumo = idplanconsumo;
-    }
-
-    public  Hotel getNombrehotel() {
-        return nombrehotel;
-    }
-
-    public void setNombrehotel(Hotel nombrehotel) {
-        this.nombrehotel = nombrehotel;
     }
 
     public Integer getCostoTotal() {

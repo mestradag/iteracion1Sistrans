@@ -36,11 +36,9 @@ public class Hotel {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
     public List<Integer> getServicios() {
         return servicios;
     }
-
     public void setServicios(List<Integer> servicios) {
         this.servicios = servicios;
     }

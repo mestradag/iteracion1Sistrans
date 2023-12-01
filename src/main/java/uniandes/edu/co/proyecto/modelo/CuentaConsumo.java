@@ -1,6 +1,5 @@
 package uniandes.edu.co.proyecto.modelo;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 
 import jakarta.persistence.Entity;

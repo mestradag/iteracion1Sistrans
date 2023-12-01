@@ -1,12 +1,8 @@
 package uniandes.edu.co.proyecto.modelo;
-import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;   
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.GenerationType;
 
 @Entity
@@ -23,25 +19,18 @@ public class Habitacion {
     private String dotacion;
     private Integer precionoche;
 
-    @ManyToOne
-    @JoinColumn(name = "nombrehotel", referencedColumnName = "nombre")
-    private Hotel nombrehotel;
-
-
     public Habitacion(
         Integer capacidad, 
         Boolean disponible, 
         String tipo, 
         String dotacion, 
-        Integer precionoche,
-        Hotel nombrehotel
+        Integer precionoche
         ) {
         this.capacidad = capacidad;
         this.disponible = disponible;
         this.tipo = tipo;
         this.dotacion = dotacion;
         this.precionoche = precionoche;
-        this.nombrehotel = nombrehotel;
     }
 
     public Habitacion()
@@ -82,16 +71,11 @@ public class Habitacion {
     public void setPrecionoche(Integer precionoche) {
         this.precionoche = precionoche;
     }
-    public Hotel getNombrehotel() {
-        return nombrehotel;
-    }
-    public void setNombrehotel(Hotel nombrehotel) {
-        this.nombrehotel = nombrehotel;
-    }
+   
     @Override
     public String toString() {
         return "Habitacion [capacidad=" + capacidad + ", disponible=" + disponible + ", dotacion=" + dotacion
-                + ", idhabitacion=" + idhabitacion + ", nombrehotel=" + nombrehotel.getNombre() + ", precionoche=" + precionoche
+                + ", idhabitacion=" + idhabitacion + ", precionoche=" + precionoche
                 + ", tipo=" + tipo + "]";
     }
 }
