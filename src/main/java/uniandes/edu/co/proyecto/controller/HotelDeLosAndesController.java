@@ -8,6 +8,6 @@ public class HotelDeLosAndesController {
     
     @RequestMapping("/")
     public String index(){
-        return "index";
+        return "index.html";
     }
 }
