@@ -13,7 +13,7 @@ import uniandes.edu.co.proyecto.modelo.Servicio;
 
 public interface ServicioRepository extends MongoRepository<Servicio,Integer>{
 
-    @Query("")
+    @Query("{}")
     List<Servicio> darServicios();
 
     @Query("{_id: ?0}")

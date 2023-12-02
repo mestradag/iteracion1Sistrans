@@ -43,7 +43,7 @@ public interface HabitacionRepository extends MongoRepository<Habitacion, Intege
 
     }
 
-    @Query("")
+    @Query("{}")
     List<Habitacion> darHabitaciones();
 
     //RF2 Consultar habitacion

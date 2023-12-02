@@ -45,7 +45,7 @@ public interface HotelRepository extends MongoRepository<Hotel, String> {
     @Query("{_id: ?0}")
     Hotel darHotel(String nombre);
 
-    @Query("")
+    @Query("{}")
     List<Hotel> darHoteles();
 
     @Query("{_id: ?0}")

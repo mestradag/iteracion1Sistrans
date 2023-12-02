@@ -17,7 +17,7 @@ public interface PlanConsumoRepository extends MongoRepository<PlanConsumo, Inte
     @Query("{_id: ?0}")
     PlanConsumo darPlanConsumo(Integer id);
 
-    @Query("")
+    @Query("{}")
     List<PlanConsumo> darPlanConsumos();
 
     // @Modifying

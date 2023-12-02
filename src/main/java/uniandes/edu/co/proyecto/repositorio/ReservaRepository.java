@@ -13,7 +13,7 @@ import uniandes.edu.co.proyecto.modelo.Reserva;
 
 public interface ReservaRepository extends MongoRepository<Reserva, Integer> {
 
-    @Query("")
+    @Query("{}")
     List<Reserva> darReservas();
 
     @Query("{_id: ?0}")

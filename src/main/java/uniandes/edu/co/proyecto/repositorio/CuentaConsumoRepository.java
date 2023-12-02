@@ -14,7 +14,7 @@ public interface CuentaConsumoRepository extends MongoRepository<CuentaConsumo, 
 
     }
 
-    @Query("")
+    @Query("{}")
     List<CuentaConsumo> darCuentasConsumo();
 
     @Query("{_id: ?0}")

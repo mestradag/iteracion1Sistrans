@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.repository.Update;
 public interface ProductoRepository extends MongoRepository<Producto, Integer>{
         
         /*The only attributes are Integer idproducto and Integer precio */
-        @Query("")
+        @Query("{}")
         List<Producto> darProductos();
 
         @Query("{_id: ?0}")

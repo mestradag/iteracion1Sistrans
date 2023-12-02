@@ -1,6 +1,6 @@
 package uniandes.edu.co.proyecto.modelo;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

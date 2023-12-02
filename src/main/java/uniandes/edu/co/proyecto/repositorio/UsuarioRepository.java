@@ -10,7 +10,7 @@ import uniandes.edu.co.proyecto.modelo.Usuario;
 public interface UsuarioRepository extends MongoRepository<Usuario, Integer>{
     
     
-    @Query("")
+    @Query("{}")
     Collection<Usuario> darUsuarios();
 
     @Query("{_id: ?0}")
