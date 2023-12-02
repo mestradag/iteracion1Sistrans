@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import uniandes.edu.co.proyecto.repositorio.CuentaConsumoRepository;
 import uniandes.edu.co.proyecto.repositorio.UsuarioRepository;
 import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
+import uniandes.edu.co.proyecto.modelo.Habitacion;
 
 @Controller
 public class CuentasConsumoController {
@@ -25,12 +27,12 @@ public class CuentasConsumoController {
 
         model.addAttribute("cuentas_c", cuentaconsumoRepository.darCuentasConsumo()); 
         model.addAttribute("usuarios", usuarioRepository.darUsuarios());
-        if ((nombreusuario == null || nombreusuario.equals("")) && (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals(""))) {
-            model.addAttribute("cuentas_c", cuentaconsumoRepository.darCuentasConsumo()); 
-        }
-        else{
-            model.addAttribute("cuentas_c", cuentaconsumoRepository.darConsumoPorUsuarioEnRango(nombreusuario, fechainicio, fechafin));
-        }
+        // if ((nombreusuario == null || nombreusuario.equals("")) && (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals(""))) {
+        //     model.addAttribute("cuentas_c", cuentaconsumoRepository.darCuentasConsumo()); 
+        // }
+        // else{
+        //     model.addAttribute("cuentas_c", cuentaconsumoRepository.darConsumoPorUsuarioEnRango(nombreusuario, fechainicio, fechafin));
+        // }
 
         return "cuentas_c";
 
@@ -44,8 +46,11 @@ public class CuentasConsumoController {
     }
     
     @PostMapping("/cuentas_c/new/save")
-    public String cuentaConsumoGuardar(CuentaConsumo cuentaconsumo) {
-        cuentaconsumoRepository.insertarCuentaConsumo(cuentaconsumo.getEstado(), cuentaconsumo.getCheckin(), cuentaconsumo.getCheckout(), 1);
+    public String cuentaConsumoGuardar(@ModelAttribute("cuentaconsumo") CuentaConsumo cuentaconsumo) {
+        CuentaConsumo nueva = new CuentaConsumo(
+            cuentaconsumo.getEstado(),cuentaconsumo.getCheckin(),cuentaconsumo.getCheckout(),cuentaconsumo.getProductos(),cuentaconsumo.getServiciosconsumidos(),cuentaconsumo.getReservaservicio()
+        );
+        cuentaconsumoRepository.save(nueva);
         return "redirect:/cuentas_c";
     }
 

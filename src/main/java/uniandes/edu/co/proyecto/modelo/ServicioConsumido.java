@@ -2,11 +2,9 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.security.Timestamp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name="servicios_consumidos")
+@Document(collection="servicios_consumidos")
 public class ServicioConsumido {
 
     private Timestamp fechaReserva;

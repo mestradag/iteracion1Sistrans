@@ -39,9 +39,13 @@ public class HotelesController {
         return "hotelNuevo";
     }
 
+    ///////////////
     @PostMapping("/hoteles/new/save")
     public String hotelGuardar(@ModelAttribute Hotel hotel) {
-        hotelRepository.insertarHotel(hotel.getCiudad());
+        Hotel nueva = new Hotel(
+            hotel.getNombre(),hotel.getCiudad()
+        );
+        hotelRepository.save(nueva);
         return "redirect:/hoteles";
     }
 

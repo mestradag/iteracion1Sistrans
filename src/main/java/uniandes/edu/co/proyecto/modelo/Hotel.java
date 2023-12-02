@@ -1,13 +1,10 @@
 package uniandes.edu.co.proyecto.modelo;
 
 import java.util.List;
-
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name="hoteles")
+@Document(collection="hoteles")
 public class Hotel {
     @Id
     private String nombre;

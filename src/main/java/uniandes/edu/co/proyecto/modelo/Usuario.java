@@ -1,14 +1,13 @@
 package uniandes.edu.co.proyecto.modelo;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import java.util.List;
 
-@Entity
-@Table(name="usuarios")
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="usuarios")
 public class Usuario {
     
     @Id
@@ -25,10 +24,11 @@ public class Usuario {
 
     public Usuario(){;}
 
-    public Usuario(String nombre, String correo, String rol, String nombrehotel){
+    public Usuario(String nombre, String correo, String rol, List<Reserva> reservas, String nombrehotel){
         this.nombre=nombre;
         this.correo=correo; 
         this.rol=rol;
+        this.reservas=reservas;
         this.nombrehotel=nombrehotel; 
     }
 

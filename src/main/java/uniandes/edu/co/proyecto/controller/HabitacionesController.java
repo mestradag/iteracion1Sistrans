@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import uniandes.edu.co.proyecto.repositorio.HabitacionRepository;
@@ -18,12 +19,12 @@ public class HabitacionesController{
 
     @GetMapping("/habitaciones")
     public String habitaciones(Model model) {
-
+        model.addAttribute("habitacionNueva", new Habitacion());
         model.addAttribute("habitaciones", habitacionRepository.darHabitaciones());
-        model.addAttribute("recs1", habitacionRepository.darDineroRecolectadoPorHabitacion());
-        model.addAttribute("reqs3", habitacionRepository.darIndiceOcupacion());
-        model.addAttribute("recs6", habitacionRepository.darMayorDemanda());
-        model.addAttribute("recs11", habitacionRepository.darMasConsumido());
+        // model.addAttribute("recs1", habitacionRepository.darDineroRecolectadoPorHabitacion());
+        // model.addAttribute("reqs3", habitacionRepository.darIndiceOcupacion());
+        // model.addAttribute("recs6", habitacionRepository.darMayorDemanda());
+        // model.addAttribute("recs11", habitacionRepository.darMasConsumido());
 
         return "habitaciones";
         //return model.toString();
@@ -37,8 +38,13 @@ public class HabitacionesController{
     }
 
     @PostMapping("/habitaciones/new/save")
-    public String habitacionGuardar(Habitacion habitacion) {
-        habitacionRepository.insertarHabitacion(habitacion.getCapacidad(), habitacion.getDisponible(), habitacion.getTipo(), habitacion.getDotacion(), habitacion.getPrecionoche(), "Dann");
+    public String habitacionGuardar( @ModelAttribute("habitacion")  Habitacion habitacion) {
+        Habitacion nueva = new Habitacion(
+            habitacion.getCapacidad(), habitacion.getDisponible(), habitacion.getTipo(), habitacion.getDotacion(), habitacion.getPrecionoche()
+        );
+        habitacionRepository.save(nueva);
+        
+        
         return "redirect:/habitaciones";
     }
 

@@ -1,25 +1,27 @@
 package uniandes.edu.co.proyecto.repositorio;
 import java.util.List;
 import org.springframework.data.mongodb.repository.Aggregation;
+import org.springframework.data.mongodb.repository.DeleteQuery;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.Update;
-import org.springframework.data.jpa.repository.JpaRepository;
+
 import uniandes.edu.co.proyecto.modelo.Hotel;
 
-public interface HotelRepository extends JpaRepository <Hotel, String> {
+public interface HotelRepository extends MongoRepository<Hotel, String> {
     
     public class RespuestadarHotelesPorCiudad{
         String ciudad;
         
-         public RespuestadarHotelesPorCiudad(String ciudad) {
-             this.ciudad = ciudad;
-         }
-         public void setCiudad(String ciudad) {
-             this.ciudad = ciudad;
-         }
-         public String getCiudad() {
-             return ciudad;
-         }
+        public RespuestadarHotelesPorCiudad(String ciudad) {
+            this.ciudad = ciudad;
+        }
+        public void setCiudad(String ciudad) {
+            this.ciudad = ciudad;
+        }
+        public String getCiudad() {
+            return ciudad;
+        }
     }
 
     public class RespuestadarServicios{
@@ -41,7 +43,15 @@ public interface HotelRepository extends JpaRepository <Hotel, String> {
 
     //find
     @Query("{_id: ?0}")
-    List<Hotel> buscarPorId(int id);
+    Hotel darHotel(String nombre);
+
+    @Query("")
+    List<Hotel> darHoteles();
+
+    @Query("{_id: ?0}")
+    @Update("{$push:{ciudad:?1}}")
+    void actualizarHotel(String nombre,  String ciudad);
+
 
     //aggregate
     @Aggregation(pipeline={"{$group:{_id:'$ciudad', cantidad:{$sum:1}}}","{$project:{'ciudad':'$_id',cantidad:1}}"})
@@ -63,6 +73,9 @@ public interface HotelRepository extends JpaRepository <Hotel, String> {
     //       55,
     //       16 ]
     // }
+
+    @DeleteQuery("{_id: ?0}")
+    void eliminarHotel(String nombre);
 
 }
 

@@ -2,19 +2,19 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.sql.Date;
 
-import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name="planes_c")
+@Document(collection="planes_c")
 public class PlanConsumo {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer idplanconsumo;
+
     private String nombre;
     private Double descuentoalojamiento;
     private Double descuentobar;
@@ -27,8 +27,7 @@ public class PlanConsumo {
     private Boolean valido;
     private Integer idreserva;
     // Constructor
-    public PlanConsumo(Integer idplanconsumo, String nombre, Double descuentoalojamiento, Double descuentobar, Double descuentorestaurante, Double descuentoservicio, Integer costofijo, Date fechainicial, Integer durancion, Double valorfinal, Boolean valido, Integer idreserva){
-        this.idplanconsumo=idplanconsumo;
+    public PlanConsumo(String nombre, Double descuentoalojamiento, Double descuentobar, Double descuentorestaurante, Double descuentoservicio, Integer costofijo, Date fechainicial, Integer durancion, Double valorfinal, Boolean valido, Integer idreserva){
         this.nombre=nombre;
         this.descuentoalojamiento=descuentoalojamiento;
         this.descuentobar=descuentobar;

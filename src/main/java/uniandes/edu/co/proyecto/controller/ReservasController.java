@@ -56,8 +56,10 @@ public class ReservasController {
     @PostMapping("/reservas/new/save")
     public String reservaGuardar(@ModelAttribute Reserva reserva ) {
         
-    
-        reservaRepository.insertarReserva(reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getNumacompanantes(), 1, 1, 1, 1);
+        Reserva nueva = new Reserva(
+            reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getNumacompanantes(), reserva.getCuentas_c(),reserva.getPlanes_c()
+        );
+        reservaRepository.save(nueva);
         return "redirect:/reservas";
     }
 

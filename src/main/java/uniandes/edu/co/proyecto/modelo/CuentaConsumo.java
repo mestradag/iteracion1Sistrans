@@ -9,9 +9,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 import java.util.List;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name="cuentas_c")
+
+@Document(collection="cuentas_c")
 public class CuentaConsumo {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,15 +31,14 @@ public class CuentaConsumo {
         Boolean estado, 
         Timestamp checkin, 
         Timestamp checkout,
-        Habitacion idhabitacion,
-        Integer idreserva,
+        List<Integer> productosconsumidos,
         List<ServicioConsumido> serviciosconsumidos,
         List<ReservaServicio> reservaservicio
         ) {
         this.estado = estado;
         this.checkin = checkin;
         this.checkout = checkout;
-        this.idreserva = idreserva;
+        this.productosconsumidos = productosconsumidos;
         this.serviciosconsumidos = serviciosconsumidos;
         this.reservaservicio = reservaservicio;
     }

@@ -36,24 +36,24 @@ public class ServiciosController {
         
         model.addAttribute("servicios", servicioRepository.darServicios());
 
-        if ((fechainicio != null && !fechainicio.equals("")) && (fechainicio != null && !fechainicio.equals(""))){
-            model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
-            model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
-            model.addAttribute("servicios", servicioRepository.darServicios());
+        // if ((fechainicio != null && !fechainicio.equals("")) && (fechainicio != null && !fechainicio.equals(""))){
+        //     model.addAttribute("reqs2", servicioRepository.dar20serviciosPopulares(fechainicio, fechafin));
+        //     model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
+        //     model.addAttribute("servicios", servicioRepository.darServicios());
 
-        }
-        else if ((fechainicioo != null && !fechainicioo.equals("")) && (fechafino != null && !fechafino.equals("")) && (precioinicio != null && !precioinicio.equals("")) 
-            && (preciofin != null && !preciofin.equals("")) && (nombre != null && !nombre.equals("")) && (servicio != null && !servicio.equals(""))){
-            model.addAttribute("servicios", servicioRepository.darServicios());
-            model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
-            model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino, servicio));
+        // }
+        // else if ((fechainicioo != null && !fechainicioo.equals("")) && (fechafino != null && !fechafino.equals("")) && (precioinicio != null && !precioinicio.equals("")) 
+        //     && (preciofin != null && !preciofin.equals("")) && (nombre != null && !nombre.equals("")) && (servicio != null && !servicio.equals(""))){
+        //     model.addAttribute("servicios", servicioRepository.darServicios());
+        //     model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
+        //     model.addAttribute("reqs4", servicioRepository.darServiciosCaracteristicas(precioinicio, preciofin, nombre, fechainicioo, fechafino, servicio));
 
-        }
+        // }
 
-        else{        
-            model.addAttribute("servicios", servicioRepository.darServicios());
-            model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
-        }
+        // else{        
+        //     model.addAttribute("servicios", servicioRepository.darServicios());
+        //     model.addAttribute("reqs8", servicioRepository.darServiciosNoMuchaDemanda());
+        // }
 
         return "servicios";
     }
@@ -69,13 +69,10 @@ public class ServiciosController {
 
     @PostMapping("/servicios/new/save")
     public String servicioGuardar(@ModelAttribute Servicio servicio) {
-        // PlanConsumo planConsumo = planConsumoRepository.darPlanConsumo(idplanconsumo);
-        // Hotel hotel = hotelRepository.darHotel(nombrehotel);
-
-        // servicio.setIdplanconsumo(planConsumo);
-        // servicio.setNombrehotel(hotel);
-        
-        servicioRepository.insertarServicio(servicio.getNombre(),servicio.getDescripcion(),1,"Dann",servicio.getCostoTotal());
+        Servicio nueva = new Servicio(
+            servicio.getNombre(),servicio.getDescripcion(),servicio.getCostoTotal()
+        );
+        servicioRepository.save(nueva);
         
         return "redirect:/servicios";
     }
@@ -99,7 +96,7 @@ public class ServiciosController {
 
     @GetMapping("/servicios/{idservicio}/delete")
     public String servicioEliminar(@PathVariable("idservicio") Integer idservicio) {
-        servicioRepository.eliminarServicio(idservicio);
+        servicioRepository.deleteById(idservicio);
         return "redirect:/servicios";
     }
 

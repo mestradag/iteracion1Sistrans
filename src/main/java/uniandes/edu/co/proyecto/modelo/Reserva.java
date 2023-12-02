@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,13 +13,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
-@Entity
-@Table(name="reservas")
+@Document(collection="reservas")
 public class Reserva {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer idreserva;
+
     private Date fechainicio;
     private Date fechafin;
     private Integer duracion;
@@ -26,8 +28,7 @@ public class Reserva {
     private List<PlanConsumo> planes_c;
 
     //Constructor
-    public Reserva(Integer idreserva, Date fechainicio,  Date fechafin, Integer duracion, Integer numacompanantes, List<CuentaConsumo> cuentas_c,List<PlanConsumo> planes_c){
-        this.idreserva=idreserva;
+    public Reserva( Date fechainicio,  Date fechafin, Integer duracion, Integer numacompanantes, List<CuentaConsumo> cuentas_c,List<PlanConsumo> planes_c){
         this.fechainicio=fechainicio;
         this.fechafin=fechafin;
         this.duracion=duracion;

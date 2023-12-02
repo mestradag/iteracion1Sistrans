@@ -32,7 +32,10 @@ public class ProductosController {
     
     @PostMapping("/productos/new/save")
     public String productoGuardar(Producto producto) {
-        productoRepository.insertarProducto(producto.getPrecio());
+        Producto nueva = new Producto(
+            producto.getNombre(),producto.getPrecio()
+        );
+        productoRepository.save(nueva);
         return "redirect:/productos";
     }
 

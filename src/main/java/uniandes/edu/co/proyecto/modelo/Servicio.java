@@ -2,14 +2,13 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.util.List;
 
-import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name="servicios")
+@Document(collection="servicios")
 public class Servicio {
 
     @Id
