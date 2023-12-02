@@ -1,8 +1,11 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://ISIS2304B20202320:uKTZraKSNxbv@157.253.236.88:8087/
-      database: ISIS2304B20202320
+      uri: mongodb://ISIS2304B15202320:UvyctAFjnTMV@157.253.236.88:8087/ISIS2304B15202320
+      database: ISIS2304B15202320
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
   thymeleaf:
     prefix: classpath:/templates/
