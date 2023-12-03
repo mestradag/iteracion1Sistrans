@@ -25,9 +25,8 @@ public class PlanConsumo {
     private Integer durancion;
     private Double valorfinal;
     private Boolean valido;
-    private Integer idreserva;
-    // Constructor
-    public PlanConsumo(String nombre, Double descuentoalojamiento, Double descuentobar, Double descuentorestaurante, Double descuentoservicio, Integer costofijo, Date fechainicial, Integer durancion, Double valorfinal, Boolean valido, Integer idreserva){
+    
+    public PlanConsumo(String nombre, Double descuentoalojamiento, Double descuentobar, Double descuentorestaurante, Double descuentoservicio, Integer costofijo, Date fechainicial, Integer durancion, Double valorfinal, Boolean valido){
         this.nombre=nombre;
         this.descuentoalojamiento=descuentoalojamiento;
         this.descuentobar=descuentobar;
@@ -38,7 +37,6 @@ public class PlanConsumo {
         this.durancion=durancion;
         this.valorfinal=valorfinal;
         this.valido=valido;
-        this.idreserva=idreserva;
     }
 
     public PlanConsumo(){;}
@@ -109,12 +107,6 @@ public class PlanConsumo {
     }
     public void setValido(Boolean valido) {
         this.valido = valido;
-    }
-    public Integer getIdreserva() {
-        return idreserva;
-    }
-    public void setIdreserva(Integer idreserva) {
-        this.idreserva = idreserva;
     }
 
 }

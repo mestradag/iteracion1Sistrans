@@ -7,17 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
-import uniandes.edu.co.proyecto.modelo.Habitacion;
-import uniandes.edu.co.proyecto.modelo.PlanConsumo;
 import uniandes.edu.co.proyecto.modelo.Reserva;
-import uniandes.edu.co.proyecto.modelo.Usuario;
-import uniandes.edu.co.proyecto.repositorio.CuentaConsumoRepository;
-import uniandes.edu.co.proyecto.repositorio.HabitacionRepository;
-import uniandes.edu.co.proyecto.repositorio.PlanConsumoRepository;
 import uniandes.edu.co.proyecto.repositorio.ReservaRepository;
-import uniandes.edu.co.proyecto.repositorio.UsuarioRepository;
 
 @Controller
 public class ReservasController {
@@ -25,19 +16,6 @@ public class ReservasController {
     
     @Autowired
     private ReservaRepository reservaRepository;
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    @Autowired
-    private HabitacionRepository habitacionRepository;
-
-    @Autowired
-    private PlanConsumoRepository planConsumoRepository;
-
-    @Autowired
-    private CuentaConsumoRepository cuentaConsumoRepository;
-
 
 
     @GetMapping("/reservas")
@@ -57,7 +35,7 @@ public class ReservasController {
     public String reservaGuardar(@ModelAttribute Reserva reserva ) {
         
         Reserva nueva = new Reserva(
-            reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getNumacompanantes(), reserva.getCuentas_c(),reserva.getPlanes_c()
+            reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getIdhabitacion(),reserva.getCuenta_c(),reserva.getPlan_c()
         );
         reservaRepository.save(nueva);
         return "redirect:/reservas";
@@ -76,7 +54,7 @@ public class ReservasController {
 
     @PostMapping("/reservas/{idreserva}/edit/save")
     public String reservaEditarGuardar(@PathVariable("idreserva") Integer idreserva, @ModelAttribute Reserva reserva) {
-        reservaRepository.actualizarReserva(((Integer) idreserva), reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getNumacompanantes());
+        reservaRepository.actualizarReserva(((Integer) idreserva), reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getIdhabitacion());
         return "redirect:/reservas";
     }
 

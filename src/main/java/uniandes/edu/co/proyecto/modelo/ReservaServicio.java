@@ -4,27 +4,27 @@ import java.sql.Timestamp;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import jakarta.persistence.Id;
+
 
 @Document(collection="reservas_servicio")
 public class ReservaServicio {
 
+    @Id
+    private Integer idresser;
 
     private Timestamp fechaReserva;
     public Integer duracion;
     public Integer idservicio;
 
-    public Integer idcuentaconsumo;
-
-
     public ReservaServicio(){
     ;
     }
     
-    public ReservaServicio(Timestamp fechaReserva, Integer duracion,  Integer idservicio, Integer idcuentaconsumo){
+    public ReservaServicio(Timestamp fechaReserva, Integer duracion,  Integer idservicio){
         this.fechaReserva=fechaReserva;
         this.duracion=duracion;
         this.idservicio=idservicio;
-        this.idcuentaconsumo = idcuentaconsumo;
 
     }
 

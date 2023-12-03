@@ -40,7 +40,7 @@ public class HabitacionesController{
     @PostMapping("/habitaciones/new/save")
     public String habitacionGuardar( @ModelAttribute("habitacion")  Habitacion habitacion) {
         Habitacion nueva = new Habitacion(
-            habitacion.getCapacidad(), habitacion.getDisponible(), habitacion.getTipo(), habitacion.getDotacion(), habitacion.getPrecionoche()
+            habitacion.getCapacidad(), habitacion.getDisponible(), habitacion.getTipo(), habitacion.getDotacion(), habitacion.getPrecionoche(), habitacion.getReservasservicios()
         );
         habitacionRepository.save(nueva);
         

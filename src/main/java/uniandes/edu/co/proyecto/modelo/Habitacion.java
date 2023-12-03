@@ -1,9 +1,11 @@
 package uniandes.edu.co.proyecto.modelo;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.List;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
+
 
 @Document(collection="habitaciones")
 public class Habitacion {
@@ -17,19 +19,22 @@ public class Habitacion {
     private String tipo;
     private String dotacion;
     private Integer precionoche;
+    private List<ReservaServicio> reservasservicios;
 
     public Habitacion(
         Integer capacidad, 
         Boolean disponible, 
         String tipo, 
         String dotacion, 
-        Integer precionoche
+        Integer precionoche,
+        List<ReservaServicio> reservasservicios
         ) {
         this.capacidad = capacidad;
         this.disponible = disponible;
         this.tipo = tipo;
         this.dotacion = dotacion;
         this.precionoche = precionoche;
+        this.reservasservicios = reservasservicios;
     }
 
     public Habitacion()
@@ -70,11 +75,18 @@ public class Habitacion {
     public void setPrecionoche(Integer precionoche) {
         this.precionoche = precionoche;
     }
-   
+    public List<ReservaServicio> getReservasservicios() {
+        return reservasservicios;
+    }
+    public void setReservasservicios(List<ReservaServicio> reservasservicios) {
+        this.reservasservicios = reservasservicios;
+    }
     @Override
     public String toString() {
         return "Habitacion [capacidad=" + capacidad + ", disponible=" + disponible + ", dotacion=" + dotacion
                 + ", idhabitacion=" + idhabitacion + ", precionoche=" + precionoche
                 + ", tipo=" + tipo + "]";
     }
+
+   
 }

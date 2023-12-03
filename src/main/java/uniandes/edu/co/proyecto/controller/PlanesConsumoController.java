@@ -34,7 +34,7 @@ public class PlanesConsumoController {
     @PostMapping("/planes_c/new/save")
     public String planConsumoGuardar(@ModelAttribute("planConsumo")  PlanConsumo planConsumo) {
         PlanConsumo nueva = new PlanConsumo(
-            planConsumo.getNombre(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentorestaurante(), planConsumo.getDescuentoservicio(), planConsumo.getCostofijo(), planConsumo.getFechainicial(), planConsumo.getDurancion(), planConsumo.getValorfinal(), planConsumo.getValido(), planConsumo.getIdreserva()
+            planConsumo.getNombre(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentorestaurante(), planConsumo.getDescuentoservicio(), planConsumo.getCostofijo(), planConsumo.getFechainicial(), planConsumo.getDurancion(), planConsumo.getValorfinal(), planConsumo.getValido()
         );
         planConsumoRepository.save(nueva);
         return "redirect:/planes_c";

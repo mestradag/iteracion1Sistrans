@@ -27,6 +27,6 @@ public interface UsuarioRepository extends MongoRepository<Usuario, Integer>{
     // void eliminarUsuario(@Param("idusuario") Integer idusuario);
 
     @DeleteQuery("{_id: ?0}")
-    void eliminarUsuario(Integer idusuairio);
+    void eliminarUsuario(Integer idusuario);
 }
 

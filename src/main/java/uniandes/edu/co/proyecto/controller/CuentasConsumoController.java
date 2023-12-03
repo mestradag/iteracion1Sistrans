@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import uniandes.edu.co.proyecto.repositorio.CuentaConsumoRepository;
 import uniandes.edu.co.proyecto.repositorio.UsuarioRepository;
 import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
-import uniandes.edu.co.proyecto.modelo.Habitacion;
 
 @Controller
 public class CuentasConsumoController {
@@ -48,7 +47,7 @@ public class CuentasConsumoController {
     @PostMapping("/cuentas_c/new/save")
     public String cuentaConsumoGuardar(@ModelAttribute("cuentaconsumo") CuentaConsumo cuentaconsumo) {
         CuentaConsumo nueva = new CuentaConsumo(
-            cuentaconsumo.getEstado(),cuentaconsumo.getCheckin(),cuentaconsumo.getCheckout(),cuentaconsumo.getProductos(),cuentaconsumo.getServiciosconsumidos(),cuentaconsumo.getReservaservicio()
+            cuentaconsumo.getEstado(),cuentaconsumo.getCheckin(),cuentaconsumo.getCheckout(),cuentaconsumo.getProductos(),cuentaconsumo.getServiciosconsumidos()
         );
         cuentaconsumoRepository.save(nueva);
         return "redirect:/cuentas_c";

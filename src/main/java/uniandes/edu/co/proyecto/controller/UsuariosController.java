@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import uniandes.edu.co.proyecto.modelo.Usuario;
 import uniandes.edu.co.proyecto.repositorio.UsuarioRepository;
@@ -22,7 +23,7 @@ public class UsuariosController {
     public String usuarios(Model model, String fechainicio, String fechafin, String orden,String fechainicioo, String fechafino, String ordeno) {
         
         // if ((fechainicio != null && !fechainicio.equals("")) && (fechafin != null && !fechafin.equals("")) && (orden != null && !orden.equals(""))) {
-        //     model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
+            model.addAttribute("usuarios", usuarioRepository.darUsuarios()); 
         //     model.addAttribute("re7", usuarioRepository.darBuenosClientes());
         //     model.addAttribute("re9", usuarioRepository.darConsumoHotel(fechainicio,fechafin,orden));
         // }
@@ -39,6 +40,8 @@ public class UsuariosController {
         // }
         return "usuarios"; 
     }
+
+    
 
     @GetMapping("/usuarios/new")
     public String usuarioForm(Model model) {
@@ -72,8 +75,8 @@ public class UsuariosController {
         return "redirect:/usuarios";
     }
 
-    @GetMapping("/usuarios/{idusuario}/delete")
-    public String reservaEliminar(@PathVariable("idusuario") Integer idusuario) {
+    @PostMapping("/usuarios/{idusuario}/delete")
+    public String usuarioEliminar(@RequestParam(name = "idusuario", required = false) Integer idusuario) {
         usuarioRepository.eliminarUsuario(idusuario);
         return "redirect:/usuarios";
     } 

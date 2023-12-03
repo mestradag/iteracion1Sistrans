@@ -77,7 +77,6 @@
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>idUsuario</th>
                     <th>Nombre</th>
                     <th>Correo</th>
                     <th>Rol</th>
@@ -85,7 +84,6 @@
             </thead>
             <th:block th:each="usuario:${usuarios}">
                 <tr>
-                    <td th:text="${usuario.idusuario}"></td>
                     <td th:text="${usuario.nombre}"></td>
                     <td th:text="${usuario.correo}"></td>
                     <td th:text="${usuario.rol}"></td>
