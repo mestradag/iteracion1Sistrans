@@ -52,11 +52,11 @@ public class Servicio {
         this.descripcion = descripcion;
     }
 
-    public Integer getCostoTotal() {
+    public Integer getCostototal() {
         return costototal;
     }
 
-    public void setCostoTotal(Integer costototal) {
+    public void setCostototal(Integer costototal) {
         this.costototal = costototal;
     }
 

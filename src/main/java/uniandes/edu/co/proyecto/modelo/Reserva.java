@@ -2,6 +2,7 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.util.Date;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.data.annotation.Id;
 
 
@@ -10,8 +11,9 @@ public class Reserva {
     
     @Id
     private String idreserva;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date fechainicio;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date fechafin;
     private Integer duracion;
     private Integer idhabitacion;

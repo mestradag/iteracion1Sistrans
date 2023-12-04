@@ -15,9 +15,9 @@
     
     <form>
         <label class="col-form-label">Fecha Inicio:</label>
-        <input class="form-control" type="date" data-date-format="YYYY-MM-DD" id="fechainicio" name="fechainicio" required th:value="${reserva.fechainicio}" />
+        <input class="form-control" type="datetime-local" data-date-format="YYYY-MM-DD" id="fechainicio" name="fechainicio" required th:value="${reserva.fechainicio}" />
         <label class="col-form-label">Fecha Fin:</label>
-        <input class="form-control" type="date" data-date-format="YYYY-MM-DD" id="fechafin" name="fechafin" required th:value="${reserva.fechafin}" />
+        <input class="form-control" type="datetime-local" data-date-format="YYYY-MM-DD" id="fechafin" name="fechafin" required th:value="${reserva.fechafin}" />
         <label for="duracion" class="col-form-label">Duracion:</label>
         <input class="form-control" type="number" id="duracion" name="duracion" required
             th:value=${reserva.duracion}>

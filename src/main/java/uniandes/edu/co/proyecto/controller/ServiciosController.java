@@ -36,7 +36,7 @@ public class ServiciosController {
     @PostMapping("/servicios/new/save")
     public String servicioGuardar(@ModelAttribute Servicio servicio) {
         Servicio nueva = new Servicio(
-            servicio.getNombre(),servicio.getDescripcion(),servicio.getCostoTotal()
+            servicio.getNombre(),servicio.getDescripcion(),servicio.getCostototal()
         );
         servicioRepository.save(nueva);
         
@@ -60,16 +60,15 @@ public class ServiciosController {
         Servicio servicioExistente = servicioRepository.findById(idservicio).get();
         servicioExistente.setNombre(servicio.getNombre());
         servicioExistente.setDescripcion(servicio.getDescripcion());
-        servicioExistente.setCostoTotal(servicio.getCostoTotal());
+        servicioExistente.setCostototal(servicio.getCostototal());
 
         servicioRepository.save(servicioExistente);
         return "redirect:/servicios";
     }
 
-    @GetMapping("/deleteServicio")
+    @PostMapping("/deleteServicio")
     public String servicioEliminar(@RequestParam(name = "id", required = false) String id) {
         servicioRepository.deleteById(id);
         return "redirect:/servicios";
     }
-
 }

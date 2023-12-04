@@ -1,5 +1,7 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,7 +40,7 @@ public class ReservasController {
     public String reservaGuardar(@ModelAttribute Reserva reserva ) {
         
         Reserva nueva = new Reserva(
-            reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getIdhabitacion(),reserva.getCuenta_c(),reserva.getPlan_c()
+            (Date)reserva.getFechainicio(),(Date) reserva.getFechafin(), reserva.getDuracion(), reserva.getIdhabitacion(),reserva.getCuenta_c(),reserva.getPlan_c()
         );
         reservaRepository.save(nueva);
         return "redirect:/reservas";
@@ -58,18 +60,18 @@ public class ReservasController {
     @PostMapping("/reservas/{idreserva}/edit/save")
     public String reservaEditarGuardar(@PathVariable("idreserva") String idreserva, @ModelAttribute Reserva reserva) {
         Reserva reservaExistente = reservaRepository.findById(idreserva).get();
-        reservaExistente.setFechainicio(reserva.getFechainicio());
-        reservaExistente.setFechafin(reserva.getFechafin());
+        reservaExistente.setFechainicio((Date)reserva.getFechainicio());
+        reservaExistente.setFechafin((Date)reserva.getFechafin());
         reservaExistente.setDuracion(reserva.getDuracion());
         reservaRepository.save(reservaExistente);
 
         return "redirect:/reservas";
     }
 
-    @GetMapping("/reservas/{idreserva}/delete")
+    @PostMapping("/deleteReserva")
     public String reservaEliminar(@RequestParam(name = "id", required = false) String idreserva) {
         reservaRepository.deleteById(idreserva);
         return "redirect:/reservas";
-    } 
+    }
 
 }
