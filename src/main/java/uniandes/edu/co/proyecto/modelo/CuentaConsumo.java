@@ -1,7 +1,7 @@
 package uniandes.edu.co.proyecto.modelo;
 
 import java.util.Date;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 import java.util.List;
 

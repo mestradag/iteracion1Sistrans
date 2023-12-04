@@ -1,7 +1,7 @@
 package uniandes.edu.co.proyecto.modelo;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 
 @Document(collection="habitaciones")

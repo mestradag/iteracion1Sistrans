@@ -2,7 +2,7 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.util.Date;
 import org.springframework.data.mongodb.core.mapping.Document;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 
 @Document(collection="reservas")

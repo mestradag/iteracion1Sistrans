@@ -37,7 +37,7 @@ public class CuentasConsumoController {
     @PostMapping("/cuentas_c/new/save")
     public String cuentaConsumoGuardar(@ModelAttribute CuentaConsumo cuentaconsumo) {
         CuentaConsumo nueva = new CuentaConsumo(
-            cuentaconsumo.getEstado(),cuentaconsumo.getCheckin(),cuentaconsumo.getCheckout(),cuentaconsumo.getProductos(),cuentaconsumo.getServiciosconsumidos()
+            cuentaconsumo.getEstado(),(Date)cuentaconsumo.getCheckin(),cuentaconsumo.getCheckout(),cuentaconsumo.getProductos(),cuentaconsumo.getServiciosconsumidos()
         );
         cuentaconsumoRepository.save(nueva);
         return "redirect:/cuentas_c";
