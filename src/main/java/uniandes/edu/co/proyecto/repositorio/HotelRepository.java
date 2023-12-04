@@ -74,7 +74,7 @@ public interface HotelRepository extends MongoRepository<Hotel, String> {
     //       16 ]
     // }
 
-    @DeleteQuery("{_id: ?0}")
+    @Query(value="{_id: ?0}", delete = true)
     void eliminarHotel(String nombre);
 
 }

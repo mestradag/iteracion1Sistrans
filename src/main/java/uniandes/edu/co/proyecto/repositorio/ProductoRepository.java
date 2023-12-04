@@ -27,6 +27,6 @@ public interface ProductoRepository extends MongoRepository<Producto, Integer>{
         @Update("{$push:{precio:?1}}")
         void actualizarProducto(Integer idproducto, Integer precio);
 
-        @DeleteQuery("{_id: ?0}")
+        @Query(value="{_id: ?0}", delete = true)
         void eliminarProducto(Integer idproducto);
 }

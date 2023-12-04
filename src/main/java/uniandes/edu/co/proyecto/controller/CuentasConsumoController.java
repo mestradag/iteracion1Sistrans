@@ -18,14 +18,14 @@ public class CuentasConsumoController {
     @Autowired
     private CuentaConsumoRepository cuentaconsumoRepository;
     
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    // @Autowired
+    // private UsuarioRepository usuarioRepository;
 
     @GetMapping("/cuentas_c")
     public String cuentasConsumo(Model model, String nombreusuario, String fechainicio, String fechafin) {
 
         model.addAttribute("cuentas_c", cuentaconsumoRepository.darCuentasConsumo()); 
-        model.addAttribute("usuarios", usuarioRepository.darUsuarios());
+        //model.addAttribute("usuarios", usuarioRepository.darUsuarios());
         // if ((nombreusuario == null || nombreusuario.equals("")) && (fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals(""))) {
         //     model.addAttribute("cuentas_c", cuentaconsumoRepository.darCuentasConsumo()); 
         // }

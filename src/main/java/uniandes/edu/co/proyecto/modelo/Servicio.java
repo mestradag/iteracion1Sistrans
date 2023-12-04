@@ -13,7 +13,7 @@ public class Servicio {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idservicio;
+    private Integer _id;
 
     private String nombre;
     private String descripcion;
@@ -32,11 +32,11 @@ public class Servicio {
     }
 
     public Integer getIdservicio() {
-        return idservicio;
+        return _id;
     }
 
-    public void setIdservicio(Integer idservicio) {
-        this.idservicio = idservicio;
+    public void setIdservicio(Integer _id) {
+        this._id = _id;
     }
 
     public String getNombre() {

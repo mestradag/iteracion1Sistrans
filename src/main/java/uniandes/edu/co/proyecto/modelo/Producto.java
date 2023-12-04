@@ -1,9 +1,6 @@
     package uniandes.edu.co.proyecto.modelo;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Table;   
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 
@@ -12,7 +9,7 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idproducto;
+    private Integer _id;
 
     private String nombre;
     private Integer precio;
@@ -28,10 +25,10 @@ public class Producto {
     {;}
 
     public Integer getIdproducto() {
-        return idproducto;
+        return _id;
     }
-    public void setIdproducto(Integer idproducto) {
-        this.idproducto = idproducto;
+    public void setIdproducto(Integer _id) {
+        this._id = _id;
     }
     public String getNombre() {
         return nombre;

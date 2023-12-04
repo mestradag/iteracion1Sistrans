@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.repository.DeleteQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.Update;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -51,8 +50,8 @@ public interface HabitacionRepository extends MongoRepository<Habitacion, Intege
     Habitacion darHabitacion(int id);
 
     @Query("{_id: ?0}")
-    @Update("{$push:{capacidad:?1, disponible:?2, tipo:?3, dotacion:?4, precioNoche?5}}")
-    void actualizarHabitacion(int idHabitacion, int capacidad, Boolean disponible, String tipo, String dotacion, int precioNoche);
+    @Update("{$push:{capacidad:?1, disponible:?2, tipo:?3, dotacion:?4, precioNoche:?5}}")
+    void actualizarHabitacion(int idhabitacion, int capacidad, Boolean disponible, String tipo, String dotacion, int precioNoche);
 
     //RF1 Actualizar tipo de habitacion
     @Query("{_id: ?0}")
@@ -63,7 +62,7 @@ public interface HabitacionRepository extends MongoRepository<Habitacion, Intege
     @Query("{_id: ?0},{tipo:1}")
     List<RespuestadarTipodeHabitacion> darTipodeHabitacion();
 
-    @DeleteQuery("{_id: ?0}")
+    @Query(value="{_id: ?0}", delete = true)
     void eliminarHabitacion(int idhabitacion);
 
     //RFC1 -  MOSTRAR EL DINERO RECOLECTADO POR SERVICIOS EN CADA HABITACIÓN EN EL ÚLTIMO AÑO CORRIDO. 

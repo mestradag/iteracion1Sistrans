@@ -1,20 +1,18 @@
 package uniandes.edu.co.proyecto.modelo;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @Document(collection="usuarios")
 public class Usuario {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    public Integer idusuario;
-    
-    public String nombre;
+    private String idusuario;
+
+    private String nombre;
     private String correo;
     private String rol;
     private List<Reserva> reservas;
@@ -32,13 +30,10 @@ public class Usuario {
         this.nombrehotel=nombrehotel; 
     }
 
-        public Integer getIdusuario() {
+    public String getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(Integer idusuario) {
-        this.idusuario=idusuario;
-    }
 
     public String getNombre() {
         return nombre;

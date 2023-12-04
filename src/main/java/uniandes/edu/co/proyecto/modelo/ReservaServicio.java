@@ -1,19 +1,18 @@
 package uniandes.edu.co.proyecto.modelo;
-
-import java.sql.Timestamp;
+import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.persistence.Id;
 
 
-@Document(collection="reservas_servicio")
+@Document(collection="reservas_servicios")
 public class ReservaServicio {
 
     @Id
-    private Integer idresser;
+    private Integer _id;
 
-    private Timestamp fechaReserva;
+    private Date fechareserva;
     public Integer duracion;
     public Integer idservicio;
 
@@ -21,19 +20,19 @@ public class ReservaServicio {
     ;
     }
     
-    public ReservaServicio(Timestamp fechaReserva, Integer duracion,  Integer idservicio){
-        this.fechaReserva=fechaReserva;
+    public ReservaServicio(Date fechaReserva, Integer duracion,  Integer idservicio){
+        this.fechareserva=fechaReserva;
         this.duracion=duracion;
         this.idservicio=idservicio;
 
     }
 
-    public Timestamp getFechaReserva() {
-        return fechaReserva;
+    public Date getFechaReserva() {
+        return fechareserva;
     }
 
-    public void setFechaReserva(Timestamp fechaReserva) {
-        this.fechaReserva = fechaReserva;
+    public void setFechaReserva(Date fechaReserva) {
+        this.fechareserva = fechaReserva;
     }
 
     public Integer getDuracion() {

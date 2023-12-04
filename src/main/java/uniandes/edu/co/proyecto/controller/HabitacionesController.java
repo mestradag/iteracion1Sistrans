@@ -19,7 +19,7 @@ public class HabitacionesController{
 
     @GetMapping("/habitaciones")
     public String habitaciones(Model model) {
-        model.addAttribute("habitacionNueva", new Habitacion());
+        // model.addAttribute("habitacionNueva", new Habitacion());
         model.addAttribute("habitaciones", habitacionRepository.darHabitaciones());
         // model.addAttribute("recs1", habitacionRepository.darDineroRecolectadoPorHabitacion());
         // model.addAttribute("reqs3", habitacionRepository.darIndiceOcupacion());

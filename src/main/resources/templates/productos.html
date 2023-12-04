@@ -15,12 +15,14 @@
             <thead class="thead-dark">
                 <tr>
                     <th>idProducto</th>
+                    <th>Nombre</th>
                     <th>Precio</th>
                 </tr>
             </thead>
             <th:block th:each="producto:${productos}">
                 <tr>
                     <td th:text="${producto.idproducto}"></td>
+                    <td th:text="${producto.nombre}"></td>
                     <td th:text="${producto.precio}"></td>
                     <td>
                         <a th:href="@{productos/{idproducto}/edit(idproducto=${producto.idproducto})}">Editar</a>

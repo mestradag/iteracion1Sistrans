@@ -18,7 +18,6 @@
                     <th>fechaInicio</th>
                     <th>fechaFin</th>
                     <th>duracion</th>
-                    <th>numAcompanantes</th>
 
                 </tr>
             </thead>
@@ -28,7 +27,6 @@
                     <td th:text="${reserva.fechainicio}"></td>
                     <td th:text="${reserva.fechafin}"></td>
                     <td th:text="${reserva.duracion}"></td>
-                    <td th:text="${reserva.numacompanantes}"></td>
                     <td>
                         <a th:href="@{reservas/{idreserva}/edit(idreserva=${reserva.idreserva})}">Editar</a>
                         <a th:href="@{reservas/{idreserva}/delete(idreserva=${reserva.idreserva})}"

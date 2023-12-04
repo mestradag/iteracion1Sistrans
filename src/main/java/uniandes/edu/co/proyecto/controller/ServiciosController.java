@@ -6,11 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import uniandes.edu.co.proyecto.modelo.Hotel;
-import uniandes.edu.co.proyecto.modelo.PlanConsumo;
 import uniandes.edu.co.proyecto.modelo.Servicio;
 import uniandes.edu.co.proyecto.repositorio.HotelRepository;
 import uniandes.edu.co.proyecto.repositorio.PlanConsumoRepository;
@@ -96,7 +91,7 @@ public class ServiciosController {
 
     @GetMapping("/servicios/{idservicio}/delete")
     public String servicioEliminar(@PathVariable("idservicio") Integer idservicio) {
-        servicioRepository.deleteById(idservicio);
+        servicioRepository.eliminarServicio(idservicio);
         return "redirect:/servicios";
     }
 

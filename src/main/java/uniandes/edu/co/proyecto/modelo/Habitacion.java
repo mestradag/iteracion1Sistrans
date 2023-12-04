@@ -11,8 +11,7 @@ import jakarta.persistence.GenerationType;
 public class Habitacion {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idhabitacion;
+    private Integer _id;
     
     private Integer capacidad;
     private Boolean disponible;
@@ -40,7 +39,7 @@ public class Habitacion {
     public Habitacion()
     {;}
     public Integer getIdhabitacion() {
-        return idhabitacion;
+        return _id;
     }
     public Integer getCapacidad() {
         return capacidad;
@@ -57,8 +56,8 @@ public class Habitacion {
     public Integer getPrecionoche() {
         return precionoche;
     }
-    public void setIdhabitacion(Integer idhabitacion) {
-        this.idhabitacion = idhabitacion;
+    public void setIdhabitacion(Integer _id) {
+        this._id = _id;
     }
     public void setCapacidad(Integer cantidad) {
         this.capacidad = cantidad;
@@ -84,7 +83,7 @@ public class Habitacion {
     @Override
     public String toString() {
         return "Habitacion [capacidad=" + capacidad + ", disponible=" + disponible + ", dotacion=" + dotacion
-                + ", idhabitacion=" + idhabitacion + ", precionoche=" + precionoche
+                + ", _id=" + _id + ", precionoche=" + precionoche
                 + ", tipo=" + tipo + "]";
     }
 

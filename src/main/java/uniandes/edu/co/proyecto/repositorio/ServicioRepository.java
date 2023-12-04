@@ -3,7 +3,6 @@ package uniandes.edu.co.proyecto.repositorio;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.Query;
-import org.springframework.data.mongodb.repository.DeleteQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Update;
 
@@ -29,8 +28,8 @@ public interface ServicioRepository extends MongoRepository<Servicio,Integer>{
     void actualizarServicio(Integer idservicio, String nombre, String descripcion, Integer costototal);
 
 
-    @DeleteQuery("{_id: ?0}")
-    void eliminarCuentaConsumo(Integer idservicio);
+    @Query(value="{_id: ?0}", delete = true)
+    void eliminarServicio(Integer idservicio);
 }
 
 

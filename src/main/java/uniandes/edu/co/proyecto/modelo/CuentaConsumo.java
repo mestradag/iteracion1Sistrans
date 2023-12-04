@@ -1,10 +1,11 @@
 package uniandes.edu.co.proyecto.modelo;
 
-import java.sql.Timestamp;
-
+import java.util.Date;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
+
+
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,18 +15,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class CuentaConsumo {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idcuenta;
+    private Integer _id;
     
     private boolean estado;
-    private Timestamp checkin;
-    private Timestamp checkout;
+    private Date checkin;
+    private Date checkout;
     private List<Integer> productosconsumidos;
     private List<ServicioConsumido> serviciosconsumidos;
 
     public CuentaConsumo(
         Boolean estado, 
-        Timestamp checkin, 
-        Timestamp checkout,
+        Date checkin, 
+        Date checkout,
         List<Integer> productosconsumidos,
         List<ServicioConsumido> serviciosconsumidos
         ) {
@@ -40,27 +41,27 @@ public class CuentaConsumo {
     {;}
     
     public Integer getIdcuenta() {
-        return idcuenta;
+        return _id;
     }
     public Boolean getEstado() {
         return estado;
     }
-    public Timestamp getCheckin() {
+    public Date getCheckin() {
         return checkin;
     }
-    public Timestamp getCheckout() {
+    public Date getCheckout() {
         return checkout;
     }
     public void setIdcuenta(Integer id) {
-        this.idcuenta = id;
+        this._id = id;
     }
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
-    public void setCheckin(Timestamp checkin) {
+    public void setCheckin(Date checkin) {
         this.checkin = checkin;
     }
-    public void setCheckout(Timestamp checkout) {
+    public void setCheckout(Date checkout) {
         this.checkout = checkout;
     }
     public List<Integer> getProductos() {

@@ -14,6 +14,14 @@
         <h1 class="text-center" th:text="${titulo}"></h1>
     
     <form>
+        <label for="precio" class="col-form-label">ID:</label>
+        <input class="form-control" type="_id" id="_id" name="_id" required
+            th:value=${producto.idproducto}>
+        <br>
+        <label for="precio" class="col-form-label">Nombre:</label>
+        <input class="form-control" type="text" id="nombre" name="nombre" required
+            th:value=${producto.nombre}>
+        <br>
         <label for="precio" class="col-form-label">Precio:</label>
         <input class="form-control" type="number" id="precio" name="precio" required
             th:value=${producto.precio}>

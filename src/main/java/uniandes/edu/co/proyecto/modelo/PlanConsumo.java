@@ -1,6 +1,6 @@
 package uniandes.edu.co.proyecto.modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,7 +13,7 @@ public class PlanConsumo {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idplanconsumo;
+    private Integer _id;
 
     private String nombre;
     private Double descuentoalojamiento;
@@ -43,10 +43,10 @@ public class PlanConsumo {
 
     //Getters and Setters
     public Integer getIdplanconsumo() {
-        return idplanconsumo;
+        return _id;
     }
-    public void setIdplanconsumo(Integer idplanconsumo) {
-        this.idplanconsumo = idplanconsumo;
+    public void setIdplanconsumo(Integer _id) {
+        this._id = _id;
     }
     public String getNombre() {
         return nombre;
