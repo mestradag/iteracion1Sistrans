@@ -43,8 +43,10 @@
                     <td th:text="${planConsumo.valido}"></td>
                     <td>
                         <a th:href="@{planes_c/{idplanconsumo}/edit(idplanconsumo=${planConsumo.idplanconsumo})}">Editar</a>
-                        <a th:href="@{planes_c/{idplanconsumo}/delete(idplanconsumo=${planConsumo.idplanconsumo})}"
-                            onclick="return confirm('Confirmación de borrar este plan consumo')">Borrar</a>
+                        <form th:action="@{/deletePlan}" method="post">
+                            <input type="hidden" name="id" th:value="${planConsumo.idplanconsumo}" />
+                            <button type="submit" class="btn btn-primary" style="background-color: red; border-color: red; margin-top: 10px;">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
             </th:block>

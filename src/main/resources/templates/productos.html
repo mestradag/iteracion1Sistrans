@@ -26,8 +26,10 @@
                     <td th:text="${producto.precio}"></td>
                     <td>
                         <a th:href="@{productos/{idproducto}/edit(idproducto=${producto.idproducto})}">Editar</a>
-                        <a th:href="@{productos/{idproducto}/delete(idproducto=${producto.idproducto})}"
-                            onclick="return confirm('Confirmación de borrar este producto')">Borrar</a>
+                        <form th:action="@{/deleteProducto}" method="post">
+                            <input type="hidden" name="id" th:value="${producto.idproducto}" />
+                            <button type="submit" class="btn btn-primary" style="background-color: red; border-color: red; margin-top: 10px;">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
             </th:block>

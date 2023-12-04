@@ -17,7 +17,7 @@
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>idServicio</th>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Costo Total</th>
@@ -30,9 +30,11 @@
                     <td th:text="${servicio.descripcion}"></td>
                     <td th:text="${servicio.costototal}"></td>
                     <td>
-                        <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/edit'}">Editar</a>
-                        <a th:href="@{'/servicios/' + ${servicio.idservicio} + '/delete'}"
-                            onclick="return confirm('Confirmación de borrar este servicio')">Borrar</a>
+                        <a th:href="@{servicios/{idservicio}/edit(idservicio=${servicio.idservicio})}">Editar</a>
+                        <form th:action="@{/deleteServicio}" method="post">
+                            <input type="hidden" name="id" th:value="${servicio.idservicio}" />
+                            <button type="submit" class="btn btn-primary" style="background-color: red; border-color: red; margin-top: 10px;">Eliminar Servicio</button>
+                        </form>
                     </td>
                 </tr>
             </th:block>

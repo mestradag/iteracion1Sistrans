@@ -2,9 +2,6 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.util.Date;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 
@@ -12,8 +9,7 @@ import jakarta.persistence.Id;
 public class Reserva {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer _id;
+    private String idreserva;
 
     private Date fechainicio;
     private Date fechafin;
@@ -33,11 +29,11 @@ public class Reserva {
 
     public Reserva(){;}
 
-    public Integer getIdreserva() {
-        return _id;
+    public String getIdreserva() {
+        return idreserva;
     }
-    public void setIdreserva(Integer _id) {
-        this._id = _id;
+    public void setIdreserva(String idreserva) {
+        this.idreserva = idreserva;
     }
     public Date getFechainicio() {
         return fechainicio;

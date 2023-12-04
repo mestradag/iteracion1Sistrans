@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import uniandes.edu.co.proyecto.repositorio.HabitacionRepository;
 import uniandes.edu.co.proyecto.modelo.Habitacion;
 
@@ -19,13 +21,8 @@ public class HabitacionesController{
 
     @GetMapping("/habitaciones")
     public String habitaciones(Model model) {
-        // model.addAttribute("habitacionNueva", new Habitacion());
-        model.addAttribute("habitaciones", habitacionRepository.darHabitaciones());
-        // model.addAttribute("recs1", habitacionRepository.darDineroRecolectadoPorHabitacion());
-        // model.addAttribute("reqs3", habitacionRepository.darIndiceOcupacion());
-        // model.addAttribute("recs6", habitacionRepository.darMayorDemanda());
-        // model.addAttribute("recs11", habitacionRepository.darMasConsumido());
-
+        model.addAttribute("habitaciones", habitacionRepository.findAll());
+    
         return "habitaciones";
         //return model.toString();
 
@@ -38,7 +35,7 @@ public class HabitacionesController{
     }
 
     @PostMapping("/habitaciones/new/save")
-    public String habitacionGuardar( @ModelAttribute("habitacion")  Habitacion habitacion) {
+    public String habitacionGuardar(@ModelAttribute  Habitacion habitacion) {
         Habitacion nueva = new Habitacion(
             habitacion.getCapacidad(), habitacion.getDisponible(), habitacion.getTipo(), habitacion.getDotacion(), habitacion.getPrecionoche(), habitacion.getReservasservicios()
         );
@@ -49,8 +46,8 @@ public class HabitacionesController{
     }
 
     @GetMapping("/habitaciones/{idhabitacion}/edit")
-    public String habitacionEditarForm(@PathVariable("idhabitacion") Integer idhabitacion, Model model) {
-        Habitacion habitacion = habitacionRepository.darHabitacion(idhabitacion);
+    public String habitacionEditarForm(@PathVariable("idhabitacion") String idhabitacion, Model model) {
+        Habitacion habitacion = habitacionRepository.findById(idhabitacion).get();
         if (habitacion != null) {
             model.addAttribute("habitacion", habitacion);
             return "habitacionEditar";
@@ -60,14 +57,24 @@ public class HabitacionesController{
     }
 
     @PostMapping("/habitaciones/{idhabitacion}/edit/save")
-    public String habitacionEditarGuardar(@PathVariable("idhabitacion") Integer idhabitacion, Habitacion habitacion) {
-        habitacionRepository.actualizarHabitacion(idhabitacion, habitacion.getCapacidad(), habitacion.getDisponible(), habitacion.getTipo(), habitacion.getDotacion(), habitacion.getPrecionoche());
+    public String habitacionEditarGuardar(@PathVariable("idhabitacion") String idhabitacion,@ModelAttribute Habitacion habitacion) {
+        Habitacion habitacionExistente = habitacionRepository.findById(idhabitacion).get();
+        habitacionExistente.setCapacidad(habitacion.getCapacidad());
+        habitacionExistente.setDisponible(habitacion.getDisponible());
+        habitacionExistente.setTipo(habitacion.getTipo());
+        habitacionExistente.setDotacion(habitacion.getDotacion());
+        habitacionExistente.setPrecionoche(habitacion.getPrecionoche());
+
+        habitacionRepository.save(habitacionExistente);
+
+
         return "redirect:/habitaciones";
     }
 
-    @GetMapping("/habitaciones/{idhabitacion}/delete")
-    public String habitacionEliminar(@PathVariable("idhabitacion") Integer idhabitacion) {
-        habitacionRepository.eliminarHabitacion(idhabitacion);
+    @GetMapping("/deleteHabitacion")
+    public String habitacionEliminar(@RequestParam(name = "id", required = false) String idhabitacion) {
+        
+        habitacionRepository.deleteById(idhabitacion);
         return "redirect:/habitaciones";
     }
 

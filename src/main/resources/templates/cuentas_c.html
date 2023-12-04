@@ -56,8 +56,10 @@
                     <td th:text="${cuentaconsumo.checkout}"></td>
                     <td>
                         <a th:href="@{cuentas_c/{idcuenta}/edit(idcuenta=${cuentaconsumo.idcuenta})}">Editar</a>
-                        <a th:href="@{cuentas_c/{idcuenta}/delete(idcuenta=${cuentaconsumo.idcuenta})}"
-                            onclick="return confirm('Confirmación de borrar esta cuenta consumo')">Borrar</a>
+                        <form th:action="@{/deleteCuenta}" method="post">
+                            <input type="hidden" name="id" th:value="${cuentaconsumo.idcuenta}" />
+                            <button type="submit" class="btn btn-primary" style="background-color: red; border-color: red; margin-top: 10px;">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
             </th:block>

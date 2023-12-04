@@ -4,21 +4,18 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Document(collection="servicios")
 public class Servicio {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer _id;
+    private String idservicio;
 
     private String nombre;
     private String descripcion;
     public Integer costototal;
-    public List<Integer> ofertaProductos;
+    public List<Integer> ofertaproductos;
 
     public Servicio(){
     ;
@@ -31,12 +28,12 @@ public class Servicio {
 
     }
 
-    public Integer getIdservicio() {
-        return _id;
+    public String getIdservicio() {
+        return idservicio;
     }
 
-    public void setIdservicio(Integer _id) {
-        this._id = _id;
+    public void setIdservicio(String idservicio) {
+        this.idservicio = idservicio;
     }
 
     public String getNombre() {
@@ -64,11 +61,11 @@ public class Servicio {
     }
 
     public List<Integer> getProductos() {
-        return ofertaProductos;
+        return ofertaproductos;
     }
 
     public void setProductos(List<Integer> ofertaProductos) {
-        this.ofertaProductos = ofertaProductos;
+        this.ofertaproductos = ofertaProductos;
     }
 
     

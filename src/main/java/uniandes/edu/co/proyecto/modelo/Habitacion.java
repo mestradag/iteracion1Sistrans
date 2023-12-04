@@ -1,17 +1,14 @@
 package uniandes.edu.co.proyecto.modelo;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
-
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.GenerationType;
 
 
 @Document(collection="habitaciones")
 public class Habitacion {
 
     @Id
-    private Integer _id;
+    private String idhabitacion;
     
     private Integer capacidad;
     private Boolean disponible;
@@ -38,8 +35,8 @@ public class Habitacion {
 
     public Habitacion()
     {;}
-    public Integer getIdhabitacion() {
-        return _id;
+    public String getIdhabitacion() {
+        return idhabitacion;
     }
     public Integer getCapacidad() {
         return capacidad;
@@ -56,8 +53,8 @@ public class Habitacion {
     public Integer getPrecionoche() {
         return precionoche;
     }
-    public void setIdhabitacion(Integer _id) {
-        this._id = _id;
+    public void setIdhabitacion(String idhabitacion) {
+        this.idhabitacion = idhabitacion;
     }
     public void setCapacidad(Integer cantidad) {
         this.capacidad = cantidad;
@@ -83,7 +80,7 @@ public class Habitacion {
     @Override
     public String toString() {
         return "Habitacion [capacidad=" + capacidad + ", disponible=" + disponible + ", dotacion=" + dotacion
-                + ", _id=" + _id + ", precionoche=" + precionoche
+                + ", _id=" + idhabitacion + ", precionoche=" + precionoche
                 + ", tipo=" + tipo + "]";
     }
 

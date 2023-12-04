@@ -1,24 +1,25 @@
 package uniandes.edu.co.proyecto.modelo;
 
 import java.util.Date;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.GenerationType;
-
 
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Document(collection="cuentas_c")
 public class CuentaConsumo {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer _id;
+    private String idcuenta;
     
-    private boolean estado;
+    private Boolean estado;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date checkin;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date checkout;
     private List<Integer> productosconsumidos;
     private List<ServicioConsumido> serviciosconsumidos;
@@ -40,8 +41,8 @@ public class CuentaConsumo {
     public CuentaConsumo()
     {;}
     
-    public Integer getIdcuenta() {
-        return _id;
+    public String getIdcuenta() {
+        return idcuenta;
     }
     public Boolean getEstado() {
         return estado;
@@ -52,8 +53,8 @@ public class CuentaConsumo {
     public Date getCheckout() {
         return checkout;
     }
-    public void setIdcuenta(Integer id) {
-        this._id = id;
+    public void setIdcuenta(String id) {
+        this.idcuenta = id;
     }
     public void setEstado(Boolean estado) {
         this.estado = estado;

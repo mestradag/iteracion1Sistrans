@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import uniandes.edu.co.proyecto.modelo.Habitacion;
 import uniandes.edu.co.proyecto.modelo.Reserva;
 import uniandes.edu.co.proyecto.repositorio.ReservaRepository;
 
@@ -20,7 +23,7 @@ public class ReservasController {
 
     @GetMapping("/reservas")
     public String reservas(Model model) {
-        model.addAttribute("reservas", reservaRepository.darReservas());
+        model.addAttribute("reservas", reservaRepository.findAll());
         return "reservas"; 
         
     }
@@ -42,8 +45,8 @@ public class ReservasController {
     }
 
     @GetMapping("/reservas/{idreserva}/edit")
-    public String reservaEditarForm(@PathVariable("idreserva") Integer idreserva, Model model) {
-        Reserva reserva = reservaRepository.darReserva(idreserva);
+    public String reservaEditarForm(@PathVariable("idreserva") String idreserva, Model model) {
+        Reserva reserva = reservaRepository.findById(idreserva).get();
         if (reserva != null) {
             model.addAttribute("reserva", reserva);
             return "reservaEditar";
@@ -53,14 +56,19 @@ public class ReservasController {
     }
 
     @PostMapping("/reservas/{idreserva}/edit/save")
-    public String reservaEditarGuardar(@PathVariable("idreserva") Integer idreserva, @ModelAttribute Reserva reserva) {
-        reservaRepository.actualizarReserva(((Integer) idreserva), reserva.getFechainicio(), reserva.getFechafin(), reserva.getDuracion(), reserva.getIdhabitacion());
+    public String reservaEditarGuardar(@PathVariable("idreserva") String idreserva, @ModelAttribute Reserva reserva) {
+        Reserva reservaExistente = reservaRepository.findById(idreserva).get();
+        reservaExistente.setFechainicio(reserva.getFechainicio());
+        reservaExistente.setFechafin(reserva.getFechafin());
+        reservaExistente.setDuracion(reserva.getDuracion());
+        reservaRepository.save(reservaExistente);
+
         return "redirect:/reservas";
     }
 
     @GetMapping("/reservas/{idreserva}/delete")
-    public String reservaEliminar(@PathVariable("idreserva") Integer idreserva) {
-        reservaRepository.eliminarReserva(idreserva);
+    public String reservaEliminar(@RequestParam(name = "id", required = false) String idreserva) {
+        reservaRepository.deleteById(idreserva);
         return "redirect:/reservas";
     } 
 

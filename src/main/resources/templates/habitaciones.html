@@ -33,8 +33,10 @@
                     <td th:text="${habitacion.precionoche}"></td>
                     <td>
                         <a th:href="@{habitaciones/{idhabitacion}/edit(idhabitacion=${habitacion.idhabitacion})}">Editar</a>
-                        <a th:href="@{habitaciones/{idhabitacion}/delete(idhabitacion=${habitacion.idhabitacion})}"
-                            onclick="return confirm('Confirmación de borrar esta habitacion')">Borrar</a>
+                        <form th:action="@{/deleteHabitacion}" method="post">
+                            <input type="hidden" name="id" th:value="${habitacion.idhabitacion}" />
+                            <button type="submit" class="btn btn-primary" style="background-color: red; border-color: red; margin-top: 10px;">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
             </th:block>

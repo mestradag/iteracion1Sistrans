@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import uniandes.edu.co.proyecto.modelo.PlanConsumo;
+import uniandes.edu.co.proyecto.modelo.Usuario;
 import uniandes.edu.co.proyecto.repositorio.PlanConsumoRepository;
 
 @Controller
@@ -20,7 +21,7 @@ public class PlanesConsumoController {
     @GetMapping("/planes_c")
     public String reservas(Model model) {
 
-        model.addAttribute("planes_c", planConsumoRepository.darPlanConsumos());
+        model.addAttribute("planes_c", planConsumoRepository.findAll());
         return "planes_c"; 
         
     }
@@ -42,8 +43,8 @@ public class PlanesConsumoController {
 
     //planesConsumo o planes_c
     @GetMapping("/planes_c/{idplanconsumo}/edit")
-    public String planConsumoEditarForm(@PathVariable("idplanconsumo") Integer idplanconsumo, Model model) {
-        PlanConsumo planConsumo = planConsumoRepository.darPlanConsumo(idplanconsumo);
+    public String planConsumoEditarForm(@PathVariable("idplanconsumo") String idplanconsumo, Model model) {
+        PlanConsumo planConsumo = planConsumoRepository.findById(idplanconsumo).get();
         if (planConsumo != null) {
             model.addAttribute("planConsumo", planConsumo);
             return "planConsumoEditar";
@@ -53,14 +54,26 @@ public class PlanesConsumoController {
     }
 
     @PostMapping("/planes_c/{idplanconsumo}/edit/save")
-    public String planConsumoEditarGuardar(@PathVariable("idplanconsumo") Integer idplanconsumo, @ModelAttribute PlanConsumo planConsumo) {
-        planConsumoRepository.actualizarPlanConsumo(((Integer) idplanconsumo), planConsumo.getNombre(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentobar(), planConsumo.getDescuentorestaurante(), planConsumo.getDescuentoservicio(), planConsumo.getCostofijo(), planConsumo.getFechainicial(), planConsumo.getDurancion(), planConsumo.getValorfinal(), planConsumo.getValido());
+    public String planConsumoEditarGuardar(@PathVariable("idplanconsumo") String idplan, @ModelAttribute PlanConsumo planConsumo) {
+        PlanConsumo planExistente = planConsumoRepository.findById(idplan).get();
+        planExistente.setNombre(planConsumo.getNombre());
+        planExistente.setDescuentoalojamiento(planConsumo.getDescuentoalojamiento());
+        planExistente.setDescuentobar(planConsumo.getDescuentobar());
+        planExistente.setDescuentorestaurante(planConsumo.getDescuentorestaurante());
+        planExistente.setDescuentoservicio(planConsumo.getDescuentoservicio());
+        planExistente.setCostofijo(planConsumo.getCostofijo());
+        planExistente.setFechainicial(planConsumo.getFechainicial());
+        planExistente.setDurancion(planConsumo.getDurancion());
+        planExistente.setValorfinal(planConsumo.getValorfinal());
+        planExistente.setValido(planConsumo.getValido());
+
+        planConsumoRepository.save(planExistente);
         return "redirect:/planes_c";
     }
 
-    @GetMapping("/planes_c/{idplanconsumo}/delete")
-    public String reservaEliminar(@PathVariable("idplanconsumo") Integer idplanconsumo) {
-        planConsumoRepository.eliminarPlanConsumo(idplanconsumo);
+    @GetMapping("/deletePlanes")
+    public String reservaEliminar(@PathVariable("idplanconsumo") String idplanconsumo) {
+        planConsumoRepository.deleteById(idplanconsumo);
         return "redirect:/planes_c";
     }
 

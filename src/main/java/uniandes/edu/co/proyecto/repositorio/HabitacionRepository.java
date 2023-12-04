@@ -3,14 +3,13 @@ import uniandes.edu.co.proyecto.modelo.CuentaConsumo;
 import uniandes.edu.co.proyecto.modelo.Habitacion;
 
 import org.springframework.data.mongodb.repository.Aggregation;
-import org.springframework.data.mongodb.repository.DeleteQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.Update;
 
 import java.util.List;
 
-public interface HabitacionRepository extends MongoRepository<Habitacion, Integer>{
+public interface HabitacionRepository extends MongoRepository<Habitacion, String>{
 
     public class RespuestadarTipodeHabitacion{
         
@@ -42,16 +41,6 @@ public interface HabitacionRepository extends MongoRepository<Habitacion, Intege
 
     }
 
-    @Query("{}")
-    List<Habitacion> darHabitaciones();
-
-    //RF2 Consultar habitacion
-    @Query("{_id: ?0}")
-    Habitacion darHabitacion(int id);
-
-    @Query("{_id: ?0}")
-    @Update("{$push:{capacidad:?1, disponible:?2, tipo:?3, dotacion:?4, precioNoche:?5}}")
-    void actualizarHabitacion(int idhabitacion, int capacidad, Boolean disponible, String tipo, String dotacion, int precioNoche);
 
     //RF1 Actualizar tipo de habitacion
     @Query("{_id: ?0}")

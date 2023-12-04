@@ -65,7 +65,7 @@ public class UsuariosController {
         usuarioExistente.setCorreo(usuario.getCorreo());
         usuarioExistente.setNombre(usuario.getNombre());
         usuarioExistente.setRol(usuario.getRol());
-        usuarioRepository.save(usuarioExistente);;
+        usuarioRepository.save(usuarioExistente);
         return "redirect:/usuarios";
     }
 

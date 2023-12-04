@@ -29,8 +29,10 @@
                     <td th:text="${reserva.duracion}"></td>
                     <td>
                         <a th:href="@{reservas/{idreserva}/edit(idreserva=${reserva.idreserva})}">Editar</a>
-                        <a th:href="@{reservas/{idreserva}/delete(idreserva=${reserva.idreserva})}"
-                            onclick="return confirm('Confirmación de borrar esta reserva')">Borrar</a>
+                        <form th:action="@{/deleteReserva}" method="post">
+                            <input type="hidden" name="id" th:value="${reserva.idreserva}" />
+                            <button type="submit" class="btn btn-primary" style="background-color: red; border-color: red; margin-top: 10px;">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
             </th:block>

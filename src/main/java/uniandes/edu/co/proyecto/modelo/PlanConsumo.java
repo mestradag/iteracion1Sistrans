@@ -12,8 +12,7 @@ import jakarta.persistence.Id;
 public class PlanConsumo {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer _id;
+    private String idplan;
 
     private String nombre;
     private Double descuentoalojamiento;
@@ -42,11 +41,11 @@ public class PlanConsumo {
     public PlanConsumo(){;}
 
     //Getters and Setters
-    public Integer getIdplanconsumo() {
-        return _id;
+    public String getIdplanconsumo() {
+        return idplan;
     }
-    public void setIdplanconsumo(Integer _id) {
-        this._id = _id;
+    public void setIdplanconsumo(String idplan) {
+        this.idplan = idplan;
     }
     public String getNombre() {
         return nombre;

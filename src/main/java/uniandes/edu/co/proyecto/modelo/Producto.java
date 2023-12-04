@@ -8,8 +8,7 @@ import jakarta.persistence.GenerationType;
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer _id;
+    private String idproducto;
 
     private String nombre;
     private Integer precio;
@@ -24,11 +23,11 @@ public class Producto {
     public Producto()
     {;}
 
-    public Integer getIdproducto() {
-        return _id;
+    public String getIdproducto() {
+        return idproducto;
     }
-    public void setIdproducto(Integer _id) {
-        this._id = _id;
+    public void setIdproducto(String idproducto) {
+        this.idproducto = idproducto;
     }
     public String getNombre() {
         return nombre;

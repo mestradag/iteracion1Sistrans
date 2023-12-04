@@ -1,27 +1,8 @@
 package uniandes.edu.co.proyecto.repositorio;
-
-import java.util.Date;
-import java.util.List;
-
-import org.springframework.data.mongodb.repository.Query;
-import org.springframework.data.mongodb.repository.DeleteQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Update;
-
 import uniandes.edu.co.proyecto.modelo.Reserva;
 
-public interface ReservaRepository extends MongoRepository<Reserva, Integer> {
+public interface ReservaRepository extends MongoRepository<Reserva, String> {
 
-    @Query("{}")
-    List<Reserva> darReservas();
 
-    @Query("{_id: ?0}")
-    Reserva darReserva(Integer idreserva);
-
-    @Query("{_id: ?0}")
-    @Update("{$push:{fechainicio:?1, fechafin:?2, duracion:?3, idhabitacion:?4}}")
-    void actualizarReserva(Integer idreserva, Date fechainicio, Date fechafin, Integer duracion, Integer idhabitacion);
-
-    @Query(value="{_id: ?0}", delete = true)
-    void eliminarReserva(Integer idreserva);
 }
