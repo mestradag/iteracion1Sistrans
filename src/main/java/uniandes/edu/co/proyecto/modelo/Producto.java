@@ -1,8 +1,6 @@
     package uniandes.edu.co.proyecto.modelo;
 import org.springframework.data.mongodb.core.mapping.Document;
-import jakarta.persistence.GeneratedValue;
 import org.springframework.data.annotation.Id;
-import jakarta.persistence.GenerationType;
 
 @Document(collection="productos")
 public class Producto {

@@ -1,5 +1,7 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import uniandes.edu.co.proyecto.modelo.PlanConsumo;
-import uniandes.edu.co.proyecto.modelo.Usuario;
 import uniandes.edu.co.proyecto.repositorio.PlanConsumoRepository;
 
 @Controller
@@ -35,7 +37,7 @@ public class PlanesConsumoController {
     @PostMapping("/planes_c/new/save")
     public String planConsumoGuardar(@ModelAttribute("planConsumo")  PlanConsumo planConsumo) {
         PlanConsumo nueva = new PlanConsumo(
-            planConsumo.getNombre(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentorestaurante(), planConsumo.getDescuentoservicio(), planConsumo.getCostofijo(), planConsumo.getFechainicial(), planConsumo.getDurancion(), planConsumo.getValorfinal(), planConsumo.getValido()
+            planConsumo.getNombre(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentoalojamiento(), planConsumo.getDescuentorestaurante(), planConsumo.getDescuentoservicio(), planConsumo.getCostofijo(),(Date) planConsumo.getFechainicial(), planConsumo.getDurancion(), planConsumo.getValorfinal(), planConsumo.getValido()
         );
         planConsumoRepository.save(nueva);
         return "redirect:/planes_c";
@@ -62,7 +64,7 @@ public class PlanesConsumoController {
         planExistente.setDescuentorestaurante(planConsumo.getDescuentorestaurante());
         planExistente.setDescuentoservicio(planConsumo.getDescuentoservicio());
         planExistente.setCostofijo(planConsumo.getCostofijo());
-        planExistente.setFechainicial(planConsumo.getFechainicial());
+        planExistente.setFechainicial((Date) planConsumo.getFechainicial());
         planExistente.setDurancion(planConsumo.getDurancion());
         planExistente.setValorfinal(planConsumo.getValorfinal());
         planExistente.setValido(planConsumo.getValido());
@@ -71,9 +73,9 @@ public class PlanesConsumoController {
         return "redirect:/planes_c";
     }
 
-    @GetMapping("/deletePlanes")
-    public String reservaEliminar(@PathVariable("idplanconsumo") String idplanconsumo) {
-        planConsumoRepository.deleteById(idplanconsumo);
+    @PostMapping("/deletePlanConsumo")
+    public String planConsumoEliminar(@RequestParam(name = "id", required = false) String idplan) {
+        planConsumoRepository.deleteById(idplan);
         return "redirect:/planes_c";
     }
 

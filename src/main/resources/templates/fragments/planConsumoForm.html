@@ -34,7 +34,7 @@
             th:value=${planConsumo.costofijo}>
 
         <label class="col-form-label">Fecha Inicial:</label>
-        <input class="form-control" type="date" id="fechainicial" name="fechainicial" required th:value="${planConsumo.fechainicial}" />
+        <input class="form-control" type="datetime-local" id="fechainicial" name="fechainicial" required th:value="${planConsumo.fechainicial}" />
         
         <label for="durancion" class="col-form-label">Duracion:</label>
         <input class="form-control" type="number" id="durancion" name="durancion" required

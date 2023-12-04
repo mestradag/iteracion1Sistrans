@@ -16,10 +16,10 @@ public class CuentaConsumo {
     
     private Boolean estado;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date checkin;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date checkout;
     private List<Integer> productosconsumidos;
     private List<ServicioConsumido> serviciosconsumidos;

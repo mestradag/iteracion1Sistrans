@@ -37,7 +37,7 @@ public class CuentasConsumoController {
     @PostMapping("/cuentas_c/new/save")
     public String cuentaConsumoGuardar(@ModelAttribute CuentaConsumo cuentaconsumo) {
         CuentaConsumo nueva = new CuentaConsumo(
-            cuentaconsumo.getEstado(),(Date)cuentaconsumo.getCheckin(),cuentaconsumo.getCheckout(),cuentaconsumo.getProductos(),cuentaconsumo.getServiciosconsumidos()
+            cuentaconsumo.getEstado(),(Date)cuentaconsumo.getCheckin(),(Date)cuentaconsumo.getCheckout(),cuentaconsumo.getProductos(),cuentaconsumo.getServiciosconsumidos()
         );
         cuentaconsumoRepository.save(nueva);
         return "redirect:/cuentas_c";
@@ -59,12 +59,13 @@ public class CuentasConsumoController {
     public String cuentaConsumoEditarGuardar(@PathVariable("idcuenta") String idcuenta, CuentaConsumo cuenta) {
         CuentaConsumo cuentaExistente = cuentaconsumoRepository.findById(idcuenta).get();
         cuentaExistente.setEstado(cuenta.getEstado());
+        
         cuentaExistente.setCheckin((Date)cuenta.getCheckin());
         cuentaExistente.setCheckout((Date)cuenta.getCheckout());
         cuentaconsumoRepository.save(cuentaExistente);
         return "redirect:/cuentas_c";
     }
-    @GetMapping("/deleteCuentas")
+    @PostMapping("/deleteCuenta")
     public String cuentaConsumoEliminar(@RequestParam(name = "id", required = false) String idcuenta) {
         cuentaconsumoRepository.deleteById(idcuenta);
         return "redirect:/cuentas_c";

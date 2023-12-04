@@ -3,16 +3,14 @@ package uniandes.edu.co.proyecto.modelo;
 import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.data.annotation.Id;
 
 @Document(collection="planes_c")
 public class PlanConsumo {
     
     @Id
-    private String idplan;
+    private String idplanconsumo;
 
     private String nombre;
     private Double descuentoalojamiento;
@@ -20,6 +18,7 @@ public class PlanConsumo {
     private Double descuentorestaurante;
     private Double descuentoservicio;
     private Integer costofijo;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date fechainicial;
     private Integer durancion;
     private Double valorfinal;
@@ -42,10 +41,10 @@ public class PlanConsumo {
 
     //Getters and Setters
     public String getIdplanconsumo() {
-        return idplan;
+        return idplanconsumo;
     }
-    public void setIdplanconsumo(String idplan) {
-        this.idplan = idplan;
+    public void setIdplanconsumo(String idplanconsumo) {
+        this.idplanconsumo = idplanconsumo;
     }
     public String getNombre() {
         return nombre;

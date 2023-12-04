@@ -15,10 +15,11 @@
     
     <form>
        
-        <label class="col-form-label">Check In (YYYY-MM-DD HH:MM:SS.0):</label>
-        <input class="form-control" type="text" id="checkin" data-date-format="YYYY-MM-DD HH:MM:SS.0" name="checkin" required th:value="${cuentaconsumo.checkin}" />
-        <label class="col-form-label">Check Out (YYYY-MM-DD HH:MM:SS.0):</label>
-        <input class="form-control" type="text" id="checkout" data-date-format="YYYY-MM-DD HH:MM:SS.0" name="checkout" required th:value="${cuentaconsumo.checkout}" />
+        <label class="col-form-label">Check In:</label>
+        <input class="form-control" type="datetime-local" id="checkin" name="checkin" required th:value="${cuentaconsumo.checkin}" />
+
+        <label class="col-form-label">Check Out:</label>
+        <input class="form-control" type="datetime-local" id="checkout" name="checkout" required th:value="${cuentaconsumo.checkout}" />
         
         <label class="col-form-label" for="estado">Estado:</label>
         <select class="form-control" id="estado" name="estado" required>

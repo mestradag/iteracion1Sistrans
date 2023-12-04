@@ -1,7 +1,6 @@
 package uniandes.edu.co.proyecto.repositorio;
 import java.util.List;
 import org.springframework.data.mongodb.repository.Aggregation;
-import org.springframework.data.mongodb.repository.DeleteQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.Update;
