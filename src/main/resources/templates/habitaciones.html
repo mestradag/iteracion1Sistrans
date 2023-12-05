@@ -51,29 +51,27 @@
                     <th>Dinero Recolectado</th>
                 </tr>
             </thead>
-            <th:block th:each="dinerorec: ${recs1}">
+            <th:block th:each="dinerorec: ${reqs1}">
                 <tr>
-                    <td th:text="${dinerorec.ID_HAB}"></td>
-                    <td th:text="${dinerorec.DINERO_REC}"></td>
+                    <td th:text="${dinerorec.idhabitacion}"></td>
+                    <td th:text="${dinerorec.total}"></td>
                 </tr>
             </th:block>
 
         </table>
 
-        <h2>Requerimiento 3</h2>
+        <h2>Requerimiento 2</h2>
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
                     <th>IdHabitacion</th>
-                    <th>Usuarios En Habitacion</th>
                     <th>Indice de Ocupacion</th>
                 </tr>
             </thead>
-            <th:block th:each="req3: ${reqs3}">
+            <th:block th:each="req2: ${reqs2}">
                 <tr>
-                    <td th:text="${req3.ID_HAB}"></td>
-                    <td th:text="${req3.USUARIOS_EN_HABITACION}"></td>
-                    <td th:text="${req3.INDICE_OCUPACION}"></td>
+                    <td th:text="${req2.idhabitacion}"></td>
+                    <td th:text="${req2.ocupacion}"></td>
                 </tr>
             </th:block>
 

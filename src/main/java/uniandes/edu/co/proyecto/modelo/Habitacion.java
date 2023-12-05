@@ -77,12 +77,6 @@ public class Habitacion {
     public void setReservasservicios(List<ReservaServicio> reservasservicios) {
         this.reservasservicios = reservasservicios;
     }
-    @Override
-    public String toString() {
-        return "Habitacion [capacidad=" + capacidad + ", disponible=" + disponible + ", dotacion=" + dotacion
-                + ", _id=" + idhabitacion + ", precionoche=" + precionoche
-                + ", tipo=" + tipo + "]";
-    }
 
    
 }

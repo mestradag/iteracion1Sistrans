@@ -14,13 +14,13 @@ public class ReservaServicio {
 
     private Date fechareserva;
     public Integer duracion;
-    public Integer idservicio;
+    public String idservicio;
 
     public ReservaServicio(){
     ;
     }
     
-    public ReservaServicio(Date fechaReserva, Integer duracion,  Integer idservicio){
+    public ReservaServicio(Date fechaReserva, Integer duracion,  String idservicio){
         this.fechareserva=fechaReserva;
         this.duracion=duracion;
         this.idservicio=idservicio;
@@ -43,11 +43,11 @@ public class ReservaServicio {
         this.duracion = duracion;
     }
 
-    public Integer getServicioID() {
+    public String getServicioID() {
         return idservicio;
     }
 
-    public void setServicioID(Integer idservicio) {
+    public void setServicioID(String idservicio) {
         this.idservicio = idservicio;
     }
 

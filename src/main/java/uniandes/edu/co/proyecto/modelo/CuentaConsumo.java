@@ -8,6 +8,8 @@ import java.util.List;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer;
+
 
 @Document(collection="cuentas_c")
 public class CuentaConsumo {
@@ -21,14 +23,14 @@ public class CuentaConsumo {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date checkout;
-    private List<Integer> productosconsumidos;
+    private List<String> productosconsumidos;
     private List<ServicioConsumido> serviciosconsumidos;
 
     public CuentaConsumo(
         Boolean estado, 
         Date checkin, 
         Date checkout,
-        List<Integer> productosconsumidos,
+        List<String> productosconsumidos,
         List<ServicioConsumido> serviciosconsumidos
         ) {
         this.estado = estado;
@@ -65,10 +67,10 @@ public class CuentaConsumo {
     public void setCheckout(Date checkout) {
         this.checkout = checkout;
     }
-    public List<Integer> getProductos() {
+    public List<String> getProductos() {
         return productosconsumidos;
     }
-    public void setProductos(List<Integer> productosconsumidos) {
+    public void setProductos(List<String> productosconsumidos) {
         this.productosconsumidos = productosconsumidos;
     }
     public List<ServicioConsumido> getServiciosconsumidos() {

@@ -22,9 +22,9 @@ public class HabitacionesController{
     @GetMapping("/habitaciones")
     public String habitaciones(Model model) {
         model.addAttribute("habitaciones", habitacionRepository.findAll());
-    
+        model.addAttribute("reqs1", habitacionRepository.dineroRecolectado());
+        model.addAttribute("reqs2", habitacionRepository.indiceOcupacioPorHabitacion());
         return "habitaciones";
-        //return model.toString();
 
     }
 

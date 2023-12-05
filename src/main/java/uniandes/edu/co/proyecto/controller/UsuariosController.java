@@ -26,7 +26,8 @@ public class UsuariosController {
     public String usuarios(Model model, String fechainicio, String fechafin, String orden,String fechainicioo, String fechafino, String ordeno) {
         
         // if ((fechainicio != null && !fechainicio.equals("")) && (fechafin != null && !fechafin.equals("")) && (orden != null && !orden.equals(""))) {
-            model.addAttribute("usuarios", usuarioRepository.findAll()); 
+            model.addAttribute("usuarios", usuarioRepository.findAll());
+            model.addAttribute("reqs7", usuarioRepository.clientesExcelentes());
         
         return "usuarios"; 
     }

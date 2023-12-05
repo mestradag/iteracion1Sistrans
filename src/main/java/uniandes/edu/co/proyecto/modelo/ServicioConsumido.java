@@ -13,15 +13,15 @@ public class ServicioConsumido {
     private Integer _id;
 
     private Date fechaReserva;
-    private Integer idservicio;
+    private String idservicio;
 
-    private Integer idcuentaconsumo;
+    private String idcuentaconsumo;
 
     public ServicioConsumido(){
     ;
     }
     
-    public ServicioConsumido(Date fechaReserva, Integer idservicio, Integer idcuentaconsumo){
+    public ServicioConsumido(Date fechaReserva, String idservicio, String idcuentaconsumo){
         this.fechaReserva=fechaReserva;
         this.idservicio=idservicio;
         this.idcuentaconsumo = idcuentaconsumo;
@@ -36,19 +36,19 @@ public class ServicioConsumido {
         this.fechaReserva = fechaReserva;
     }
 
-    public Integer getIdServicio() {
+    public String getIdServicio() {
         return idservicio;
     }
 
-    public void setIdServicio(Integer idservicio) {
+    public void setIdServicio(String idservicio) {
         this.idservicio = idservicio;
     }
 
-    public Integer getIdCuenta() {
+    public String getIdCuenta() {
         return idcuentaconsumo;
     }
 
-    public void setIdCuenta(Integer idcuentaconsumo) {
+    public void setIdCuenta(String idcuentaconsumo) {
         this.idcuentaconsumo = idcuentaconsumo;
     }
 
