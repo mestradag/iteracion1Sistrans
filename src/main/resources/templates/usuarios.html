@@ -11,35 +11,6 @@
 <body>
     <div class="text-center">
         <h1>Lista de Usuarios</h1>
-        
-
-        <div class="container w-25">
-            <div class="card border border-2 mx-auto">
-                <h5 class="card-header" role="button" id="headingOne">
-                    <a href="#" class="collapsed d-block" data-toggle="collapse" data-target="#busqueda">
-                        Req 9
-                    </a>
-                </h5>
-                <div id="busqueda" class="collapse">
-                    <form th:action="@{usuarios}" method="get">
-                        <label class="col-form-label">Fecha inicio (YYYY-MM-DD):</label>
-                        <input class="form-control" type="text" id="fechainicio" name= "fechainicio" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
-                        <label class="col-form-label">Fecha fin (YYYY-MM-DD):</label>
-                        <input class="form-control" type="text" id="fechafin" name= "fechafin" data-date-format="YYYY-MM-DD HH:MM:SS.0" />
-                        <label class="col-form-label">Orden: </label>
-                        <select class="form-control" name="orden" id="orden">
-                            <option value=""></option>
-                            <option th.value="ASC"  th:text="ASC"></option>
-                            <option th.value="DESC"  th:text="DESC"></option>
-                        </select><br>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-secondary">Buscar por intervalo de usuario</button>
-                        </div>
-                    </form>    
-                </div>
-            </div>
-
-        </div>
 
         <br> 
 

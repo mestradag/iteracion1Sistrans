@@ -69,7 +69,7 @@ public interface HabitacionRepository extends MongoRepository<Habitacion, String
         "{$lookup: { from: 'servicios', localField: 'reservasservicios.idservicio', foreignField: '_id', as: 'servicio'}}",
         "{$unwind: '$servicio'}",
         "{$group: {_id: '$_id', total: {$sum: '$servicio.costototal'}}}",
-        "{$project: {idhabitacion: '$_id.', total: 1, _id: 0}}"})
+        "{$project: {idhabitacion: '$_id', total: 1, _id: 0}}"})
     List<RespuestaDineroRecolectado> dineroRecolectado();
 
     // RFC2 - MOSTRAR EL ÍNDICE DE OCUPACIÓN DE CADA UNA DE LAS HABITACIONES DEL HOTEL EN EL ÚLTIMO AÑO CORRIDO
