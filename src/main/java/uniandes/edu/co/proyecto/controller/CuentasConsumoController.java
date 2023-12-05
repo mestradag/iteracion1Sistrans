@@ -23,7 +23,12 @@ public class CuentasConsumoController {
     public String cuentasConsumo(Model model, String nombreusuario, String fechainicio, String fechafin) {
 
         model.addAttribute("cuentas_c", cuentaconsumoRepository.findAll()); 
-    
+        if ((fechainicio == null || fechainicio.equals("")) && (fechafin == null || fechafin.equals(""))) {
+            model.addAttribute("cuentas_c", cuentaconsumoRepository.findAll());  
+        }
+        else{
+            model.addAttribute("cuentas_c", cuentaconsumoRepository.consumoCliente(fechainicio, fechafin));
+        }
         return "cuentas_c";
 
     }
