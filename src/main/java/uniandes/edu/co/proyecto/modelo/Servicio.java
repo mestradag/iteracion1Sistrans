@@ -15,7 +15,7 @@ public class Servicio {
     private String nombre;
     private String descripcion;
     public Integer costototal;
-    public List<Integer> ofertaproductos;
+    public List<String> ofertaproductos;
 
     public Servicio(){
     ;

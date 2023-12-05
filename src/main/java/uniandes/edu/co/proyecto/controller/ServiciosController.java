@@ -21,7 +21,7 @@ public class ServiciosController {
     private ServicioRepository servicioRepository;
 
     @GetMapping("/servicios")
-    public String servicios(Model model, String fechainicio, String fechafin, String precioinicio, String preciofin, String nombre, String fechainicioo, String fechafino, String servicio){
+    public String servicios(Model model, String nombre, String descripcion, Integer costototal){
         model.addAttribute("servicios", servicioRepository.findAll());
         return "servicios"; 
     }
