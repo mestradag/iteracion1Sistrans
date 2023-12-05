@@ -1,0 +1,257 @@
+insert
+
+db.productos.insertMany(
+{
+  "nombre": "Margarita",
+  "precio": 12000
+}
+,
+{
+  "nombre": "Iced Caramel Macchiato",
+  "precio": 8000
+}
+,{
+  "nombre": "Chocolate Lava Cake",
+  "precio": 15000
+}
+,
+{
+  "nombre": "Piña Colada",
+  "precio": 10000
+}
+,
+{
+  "nombre": "Green Tea Smoothie",
+  "precio": 7500
+}
+
+)
+
+
+
+
+
+
+db.habitaciones.insertMany([{
+  "capacidad": 4,
+  "disponible": true,
+  "tipo": "doble",
+  "dotacion": "TV, minibar",
+  "precionoche": 120000,
+  "reservas_servicios": [
+    {
+      "fechaReserva": ISODate("2023-12-08T15:45:00Z"),
+      "duracion": 3,
+      "idservicio": "656d5d24233465e548b8c7a4"
+    }
+  ]
+},
+{
+  "capacidad": 1,
+  "disponible": false,
+  "tipo": "individual",
+  "dotacion": "WiFi, escritorio",
+  "precionoche": 80000,
+  "reservas_servicios": []
+},
+
+{
+  "capacidad": 3,
+  "disponible": true,
+  "tipo": "triple",
+  "dotacion": "baño privado, caja fuerte",
+  "precionoche": 180000,
+  "reservas_servicios": [
+    {
+      "fechaReserva": ISODate("2023-12-12T10:00:00Z"),
+      "duracion": 5,
+      "idservicio": "656d5d24233465e548b8c7a5"
+    }
+  ]
+}
+,
+{
+  "capacidad": 2,
+  "disponible": true,
+  "tipo": "suite",
+  "dotacion": "jacuzzi, terraza",
+  "precionoche": 220000,
+  "reservas_servicios": [
+    {
+      "fechaReserva": ISODate("2023-12-06T18:30:00Z"),
+      "duracion": 2,
+      "idservicio": "656d5d24233465e548b8c7a6"
+    },
+    {
+      "fechaReserva": ISODate("2023-12-09T11:15:00Z"),
+      "duracion": 1,
+      "idservicio": "656d5d24233465e548b8c7a7"
+    }
+  ]
+}
+,
+
+{
+  "capacidad": 5,
+  "disponible": true,
+  "tipo": "familiar",
+  "dotacion": "cocina, sala de estar",
+  "precionoche": 250000,
+  "reservas_servicios": [
+    {
+      "fechaReserva": ISODate("2023-12-07T20:00:00Z"),
+      "duracion": 4,
+      "idservicio": "656d5d24233465e548b8c7a8"
+    }
+  ]
+}
+])
+
+
+db.servicios.insertMany([
+{
+  "nombre": "Gimnasio",
+  "descripcion": "Servicio completo de instalaciones y equipos para ejercicios físicos.",
+  "costototal": 50000,
+  "ofertaproductos": [
+    "656f57e2005514266120f156",
+    "656f57e2005514266120f157"
+  ]
+}
+,
+
+{
+  "nombre": "Piscina",
+  "descripcion": "Piscina recreativa y refrescante con áreas para nadar y relajarse.",
+  "costototal": 80000,
+  "ofertaproductos": [
+    "656f57e2005514266120f158",
+    "656f57e2005514266120f159"
+  ]
+}
+,
+{
+  "nombre": "Spa",
+  "descripcion": "Experiencia relajante con tratamientos de spa y masajes terapéuticos.",
+  "costototal": 120000,
+  "ofertaproductos": [
+    "656f57e2005514266120f15a",
+    "656f57e2005514266120f156"
+  ]
+}
+,
+{
+  "nombre": "Salón de Eventos",
+  "descripcion": "Espacio elegante y versátil para la celebración de eventos y reuniones.",
+  "costototal": 100000,
+  "ofertaproductos": [
+    "656f57e2005514266120f157",
+    "656f57e2005514266120f158"
+  ]
+}
+,
+{
+  "nombre": "Servicio de Lavandería",
+  "descripcion": "Lavado y cuidado de prendas de vestir con tecnología y productos de calidad.",
+  "costototal": 150000,
+  "ofertaproductos": [
+    "656f57e2005514266120f159",
+    "656f57e2005514266120f15a"
+  ]
+}
+,{
+  "nombre": "Servicio de Préstamo",
+  "descripcion": "Oferta de préstamo financiero con condiciones flexibles y tasas competitivas.",
+  "costototal": 200000,
+  "ofertaproductos": [
+    "656f57e2005514266120f156",
+    "656f57e2005514266120f157"
+  ]
+}
+
+,
+{
+  "nombre": "Establecimiento Residencial",
+  "descripcion": "Alojamiento confortable y acogedor para estancias temporales o prolongadas.",
+  "costototal": 180000,
+  "ofertaproductos": [
+    "656f57e2005514266120f158",
+    "656f57e2005514266120f159"
+  ]
+}
+,{
+  "nombre": "Establecimiento Comercial",
+  "descripcion": "Espacio comercial para la venta de productos y servicios a clientes.",
+  "costototal": 120000,
+  "ofertaproductos": [
+    "656f57e2005514266120f15a",
+    "656f57e2005514266120f156"
+  ]
+}
+
+
+
+])
+db.planes_c.insertMany([
+  {
+    "nombre": "Descuento_Hotel_A",
+    "descuentoalojamiento": 0.1,
+    "descuentobar": 0.05,
+    "descuentorestaurante": 0.15,
+    "descuentoservicio": 0.1,
+    "costofijo": 20000,
+    "fechainicial": ISODate("2023-01-15T00:00:00Z"),
+    "duracion": 30,
+    "valorfinal": 0,
+    "valido": true
+  },
+  {
+    "nombre": "Oferta_VIP_Resort_B",
+    "descuentoalojamiento": 0.15,
+    "descuentobar": 0.1,
+    "descuentorestaurante": 0.2,
+    "descuentoservicio": 0.2,
+    "costofijo": 35000,
+    "fechainicial": ISODate("2023-02-10T00:00:00Z"),
+    "duracion": 15,
+    "valorfinal": 0,
+    "valido": true
+  },
+  {
+    "nombre": "Promo_Estancia_Larga",
+    "descuentoalojamiento": 0.2,
+    "descuentobar": 0.05,
+    "descuentorestaurante": 0.1,
+    "descuentoservicio": 0.15,
+    "costofijo": 50000,
+    "fechainicial": ISODate("2023-03-01T00:00:00Z"),
+    "duracion": 45,
+    "valorfinal": 0,
+    "valido": true
+  },
+  {
+    "nombre": "Descuento_Hotel_C",
+    "descuentoalojamiento": 0.12,
+    "descuentobar": 0.08,
+    "descuentorestaurante": 0.18,
+    "descuentoservicio": 0.12,
+    "costofijo": 18000,
+    "fechainicial": ISODate("2023-04-05T00:00:00Z"),
+    "duracion": 20,
+    "valorfinal": 0,
+    "valido": true
+  },
+  {
+    "nombre": "Oferta_Familia_Hospedaje",
+    "descuentoalojamiento": 0.18,
+    "descuentobar": 0.1,
+    "descuentorestaurante": 0.2,
+    "descuentoservicio": 0.15,
+    "costofijo": 25000,
+    "fechainicial": ISODate("2023-05-20T00:00:00Z"),
+    "duracion": 25,
+    "valorfinal": 0,
+    "valido": true
+  }
+]);
+
